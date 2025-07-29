@@ -3,7 +3,7 @@ import styles from "@/styles/Projects.module.css";
 interface Project {
   title: string;
   description: string;
-  techStack: string;
+  techStack: string[];
 }
 
 export default function Projects() {
@@ -11,17 +11,17 @@ export default function Projects() {
     {
       title: "業務管理システム",
       description: "Java Spring Bootを用いた大規模業務システム開発",
-      techStack: "Java, Spring Boot, Oracle, AWS"
+      techStack: ["Java", "Spring Boot", "Oracle", "AWS"]
     },
     {
       title: "Webアプリケーション",
       description: "PHP Laravelでの顧客管理システム構築",
-      techStack: "PHP, Laravel, MySQL, Docker"
+      techStack: ["PHP", "Laravel", "MySQL", "Docker"]
     },
     {
       title: "フロントエンド開発",
       description: "React/Next.jsを用いたSPA開発",
-      techStack: "React, Next.js, TypeScript, Vercel"
+      techStack: ["React", "Next.js", "TypeScript", "Vercel"]
     }
   ];
 
@@ -35,9 +35,15 @@ export default function Projects() {
           <div className={styles.projectGrid}>
             {projects.map((project, index) => (
               <div key={index} className={styles.projectCard}>
-                <h3 className="glow">{project.title}</h3>
+                <h3>{project.title}</h3>
                 <p>{project.description}</p>
-                <div className={styles.techStack}>{project.techStack}</div>
+                <div className={styles.techStack}>
+                  {project.techStack.map((tech, techIndex) => (
+                    <span key={techIndex} className={styles.techTag}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
             ))}
           </div>

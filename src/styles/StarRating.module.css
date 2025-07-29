@@ -1,0 +1,22 @@
+.starRating {
+  display: flex;
+  gap: 2px;
+  margin-top: 8px;
+}
+
+.star {
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.star.filled {
+  color: #ffd700;
+  text-shadow: 
+    0 0 2px #ffd700,
+    0 0 4px #ffd700;
+}
+
+.star.empty {
+  color: rgba(255, 215, 0, 0.3);
+  text-shadow: none;
+}

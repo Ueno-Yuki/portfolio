@@ -14,7 +14,7 @@
   padding: 12px 20px;
   border-bottom: 1px solid var(--neon-cyan);
   font-family: 'Share Tech Mono', monospace;
-  font-size: 14px;
+  font-size: 1.5rem;
   font-weight: bold;
   color: var(--neon-cyan);
 }
@@ -56,13 +56,28 @@
 }
 
 .techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.techTag {
   font-family: 'Share Tech Mono', monospace;
-  font-size: 12px;
-  color: var(--neon-green);
-  background: rgba(0, 255, 0, 0.1);
-  padding: 8px 12px;
-  border-radius: 4px;
-  border: 1px solid var(--neon-green);
+  font-size: 0.85rem;
+  color: var(--neon-cyan);
+  background: rgba(0, 255, 255, 0.1);
+  padding: 4px 8px;
+  border-radius: 25px;
+  border: 1px solid var(--neon-cyan);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.techTag:hover {
+  background: rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+  transform: scale(1.05);
 }
 
 @media (max-width: 768px) {
