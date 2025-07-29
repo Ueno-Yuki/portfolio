@@ -1,0 +1,60 @@
+.footer {
+  background: rgba(0, 0, 0, 0.8);
+  border-top: 2px solid var(--neon-cyan);
+  padding: 40px 0;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.footerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footerContent p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: var(--neon-cyan);
+}
+
+.contactLinks {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.contactLink {
+  font-family: 'Share Tech Mono', monospace;
+  color: var(--neon-green);
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 2px solid var(--neon-green);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.contactLink:hover {
+  background: rgba(0, 255, 0, 0.2);
+  box-shadow: 0 0 15px var(--neon-green);
+  transform: translateY(-2px);
+}
+
+.contactButton {
+  background: transparent;
+  cursor: pointer;
+  font-size: inherit;
+}
+
+.contactButton:hover {
+  background: rgba(0, 255, 0, 0.2);
+  box-shadow: 0 0 15px var(--neon-green);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .contactLinks {
+    flex-direction: column;
+    align-items: center;
+  }
+}

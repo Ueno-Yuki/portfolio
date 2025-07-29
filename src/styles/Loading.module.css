@@ -1,0 +1,126 @@
+.loadingOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(45deg, #000011 0%, #001122 50%, #000033 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loadingContainer {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.terminal {
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid var(--neon-cyan);
+  border-radius: 8px;
+  box-shadow: 
+    0 0 20px var(--neon-cyan),
+    inset 0 0 20px rgba(0, 255, 255, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.terminalHeader {
+  background: linear-gradient(135deg, #003366, #006699);
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--neon-cyan);
+  border-radius: 6px 6px 0 0;
+}
+
+.terminalTitle {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+  color: var(--neon-cyan);
+  font-weight: bold;
+}
+
+.terminalContent {
+  padding: 20px;
+  background: rgba(0, 20, 40, 0.9);
+}
+
+.loadingContent {
+  text-align: center;
+}
+
+.loadingText {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 16px;
+  color: var(--neon-cyan);
+  margin-bottom: 30px;
+  min-height: 25px;
+  animation: pulse 1.5s infinite;
+}
+
+.progressBarContainer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.progressBar {
+  flex: 1;
+  height: 8px;
+  background: rgba(0, 255, 255, 0.2);
+  border: 1px solid var(--neon-cyan);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
+  transition: width 0.1s ease;
+  box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.progressText {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 14px;
+  color: var(--neon-green);
+  min-width: 40px;
+}
+
+.loadingDots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: var(--neon-pink);
+  border-radius: 50%;
+  animation: dotPulse 1.5s infinite;
+  box-shadow: 0 0 5px var(--neon-pink);
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 1s;
+}
+
+@keyframes dotPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.7;
+  }
+}

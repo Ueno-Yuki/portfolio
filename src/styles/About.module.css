@@ -1,0 +1,25 @@
+.aboutSection {
+  margin-bottom: 40px;
+}
+
+.window {
+  background: rgba(0, 20, 40, 0.9);
+  border-radius: 8px;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.windowHeader {
+  background: linear-gradient(135deg, #004466, #0066cc);
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--neon-cyan);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--neon-cyan);
+}
+
+.windowContent {
+  padding: 30px;
+  line-height: 1.6;
+}

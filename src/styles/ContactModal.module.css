@@ -1,0 +1,310 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.modalOverlay.fadeIn {
+  opacity: 0;
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+.modalOverlay.fadeOut {
+  opacity: 1;
+  animation: fadeOut 0.3s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.modalContainer {
+  background: rgba(0, 20, 40, 0.95);
+  border: 2px solid var(--neon-cyan);
+  border-radius: 8px;
+  box-shadow: 
+    0 0 30px var(--neon-cyan),
+    inset 0 0 30px rgba(0, 255, 255, 0.1);
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: scale(0.7) translateY(-50px);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modalContainer.slideIn {
+  transform: scale(0.7) translateY(-50px);
+  animation: slideIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.modalContainer.slideOut {
+  transform: scale(1) translateY(0);
+  animation: slideOut 0.3s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: scale(0.7) translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.8) translateY(30px);
+    opacity: 0;
+  }
+}
+
+.modalHeader {
+  background: linear-gradient(135deg, #003366, #006699);
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--neon-cyan);
+  border-radius: 6px 6px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modalTitle {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 16px;
+  color: var(--neon-cyan);
+  margin: 0;
+  text-transform: uppercase;
+  text-shadow: 
+    0 0 2px currentColor,
+    0 0 4px currentColor;
+}
+
+.closeButton {
+  background: none;
+  border: 2px solid var(--neon-pink);
+  color: var(--neon-pink);
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.closeButton:hover:not(:disabled) {
+  background: rgba(255, 0, 255, 0.2);
+  box-shadow: 0 0 10px var(--neon-pink);
+  transform: scale(1.1);
+}
+
+.closeButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.modalContent {
+  padding: 30px;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 14px;
+  color: var(--neon-cyan);
+  text-transform: uppercase;
+  text-shadow: 
+    0 0 3px currentColor,
+    0 0 6px currentColor;
+}
+
+.input,
+.textarea {
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid rgba(0, 255, 255, 0.3);
+  border-radius: 4px;
+  padding: 12px 15px;
+  color: var(--neon-cyan);
+  font-family: 'Orbitron', monospace;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.input:disabled,
+.textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+  font-family: 'Orbitron', monospace;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.submitButton {
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-blue));
+  border: 2px solid var(--neon-cyan);
+  color: #000;
+  padding: 12px 25px;
+  border-radius: 4px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-cyan));
+  box-shadow: 0 0 15px var(--neon-cyan);
+  transform: translateY(-2px);
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.cancelButton {
+  background: transparent;
+  border: 2px solid var(--neon-pink);
+  color: var(--neon-pink);
+  padding: 12px 25px;
+  border-radius: 4px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.cancelButton:hover:not(:disabled) {
+  background: rgba(255, 0, 255, 0.2);
+  box-shadow: 0 0 15px var(--neon-pink);
+  transform: translateY(-2px);
+}
+
+.cancelButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.errorMessage {
+  background: rgba(255, 0, 0, 0.1);
+  border: 1px solid #ff4444;
+  color: #ff6666;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+  text-align: center;
+}
+
+.successMessage {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.successMessage p {
+  color: var(--neon-green);
+  font-family: 'Share Tech Mono', monospace;
+  margin-bottom: 10px;
+  text-shadow: 
+    0 0 3px currentColor,
+    0 0 6px currentColor;
+}
+
+.successMessage p:first-child {
+  font-size: 18px;
+  margin-bottom: 15px;
+  text-shadow: 
+    0 0 4px currentColor,
+    0 0 8px currentColor;
+}
+
+@media (max-width: 768px) {
+  .modalOverlay {
+    padding: 10px;
+  }
+  
+  .modalContainer {
+    max-width: 100%;
+  }
+  
+  .modalContent {
+    padding: 20px;
+  }
+  
+  .buttonGroup {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .submitButton,
+  .cancelButton {
+    width: 100%;
+  }
+}
