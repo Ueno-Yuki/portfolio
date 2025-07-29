@@ -39,24 +39,16 @@ export default function Footer() {
             {contactLinks.map((link, index) => {
               if (link.onClick) {
                 return (
-                  <button
-                    key={index}
-                    onClick={link.onClick}
-                    className={`${styles.contactLink} ${styles.contactButton} glow`}
-                  >
+                  <button key={index} onClick={link.onClick} className={`${styles.contactLink} ${styles.contactButton} glow`}>
                     {link.text}
                   </button>
                 );
               }
               
               return (
-                <a
-                  key={index}
-                  href={link.href}
-                  className={`${styles.contactLink} glow`}
+                <a key={index} href={link.href} className={`${styles.contactLink} glow`}
                   target="_blank"
-                  rel="noopener noreferrer"
-                >
+                  rel="noopener noreferrer">
                   {link.text}
                 </a>
               );

@@ -8,7 +8,7 @@ export default function Loading() {
 
   const loadingSteps = [
     "INITIALIZING SYSTEM...",
-    "LOADING Y2K PROTOCOLS...",
+    "LOADING PROTOCOLS...",
     "CONNECTING TO MAINFRAME...",
     "DECRYPTING DATA FILES...",
     "ESTABLISHING SECURE CONNECTION...",
@@ -76,24 +76,17 @@ export default function Loading() {
       <div className={styles.loadingContainer}>
         <div className={styles.terminal}>
           <div className={styles.terminalHeader}>
-            <span className={styles.terminalTitle}>Y2K_LOADER.exe</span>
+            <span className={styles.terminalTitle}>Welcome to My page.</span>
           </div>
           <div className={styles.terminalContent}>
             <div className={styles.loadingContent}>
-              <p className={`${styles.loadingText} glow`}>
-                {currentText}
-              </p>
+              <p className={`${styles.loadingText} glow`}>{currentText}</p>
               
               <div className={styles.progressBarContainer}>
                 <div className={styles.progressBar}>
-                  <div 
-                    className={styles.progressFill}
-                    style={{ width: `${progress}%` }}
-                  />
+                  <div className={styles.progressFill} style={{ width: `${progress}%` }}/>
                 </div>
-                <span className={`${styles.progressText} glow`}>
-                  {progress}%
-                </span>
+                <span className={`${styles.progressText} glow`}>{progress}%</span>
               </div>
 
               <div className={styles.loadingDots}>

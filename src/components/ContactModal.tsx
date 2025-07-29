@@ -111,7 +111,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
       }
     } catch (error) {
       setSubmitStatus('error');
-      setErrorMessage('ネットワークエラーが発生しました');
+      setErrorMessage(error + ': ネットワークエラーが発生しました');
     } finally {
       setIsSubmitting(false);
     }
@@ -127,11 +127,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
       <div className={`${styles.modalContainer} ${isAnimating ? styles.slideIn : styles.slideOut}`}>
         <div className={styles.modalHeader}>
           <h2 className={styles.modalTitle}>CONTACT_FORM</h2>
-          <button 
-            className={styles.closeButton}
-            onClick={handleClose}
-            disabled={isSubmitting}
-          >
+          <button className={styles.closeButton} onClick={handleClose} disabled={isSubmitting}>
             ×
           </button>
         </div>
@@ -145,73 +141,35 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
           ) : (
             <form onSubmit={handleSubmit} className={styles.contactForm}>
               <div className={styles.formGroup}>
-                <label htmlFor="name" className={styles.label}>
-                  氏名
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  className={styles.input}
-                  disabled={isSubmitting}
-                  required
+                <label htmlFor="name" className={styles.label}>氏名</label>
+                <input type="text" id="name" name="name" value={formData.name} onChange={handleInputChange}
+                  className={styles.input} disabled={isSubmitting} required
                 />
               </div>
 
               <div className={styles.formGroup}>
-                <label htmlFor="email" className={styles.label}>
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className={styles.input}
-                  disabled={isSubmitting}
-                  required
+                <label htmlFor="email" className={styles.label}>Email</label>
+                <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange}
+                  className={styles.input} disabled={isSubmitting} required
                 />
               </div>
 
               <div className={styles.formGroup}>
-                <label htmlFor="message" className={styles.label}>
-                  内容
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  className={styles.textarea}
-                  rows={5}
-                  disabled={isSubmitting}
-                  required
+                <label htmlFor="message" className={styles.label}>内容</label>
+                <textarea id="message" name="message" value={formData.message} onChange={handleInputChange}
+                  className={styles.textarea} rows={5} disabled={isSubmitting} required
                 />
               </div>
 
               {errorMessage && (
-                <div className={styles.errorMessage}>
-                  {errorMessage}
-                </div>
+                <div className={styles.errorMessage}>{errorMessage}</div>
               )}
 
               <div className={styles.buttonGroup}>
-                <button
-                  type="submit"
-                  className={styles.submitButton}
-                  disabled={isSubmitting}
-                >
+                <button type="submit" className={styles.submitButton} disabled={isSubmitting}>
                   {isSubmitting ? 'SENDING...' : 'SEND'}
                 </button>
-                <button
-                  type="button"
-                  className={styles.cancelButton}
-                  onClick={handleClose}
-                  disabled={isSubmitting}
-                >
+                <button type="button" className={styles.cancelButton} onClick={handleClose} disabled={isSubmitting}>
                   CANCEL
                 </button>
               </div>
