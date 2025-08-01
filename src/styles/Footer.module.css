@@ -54,7 +54,11 @@
 
 @media (max-width: 768px) {
   .contactLinks {
-    flex-direction: column;
     align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
   }
 }

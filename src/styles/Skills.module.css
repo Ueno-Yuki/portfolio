@@ -100,11 +100,6 @@
   transform: translateX(4px);
 }
 
-.skillItem:hover .skillIcon {
-  transform: scale(1.1);
-  filter: drop-shadow(0 0 8px currentColor) brightness(1.2);
-}
-
 .skillInfo {
   display: flex;
   align-items: center;
@@ -115,7 +110,47 @@
   font-size: 1.8rem;
   color: inherit;
   transition: all 0.3s ease;
-  filter: drop-shadow(0 0 4px currentColor);
+}
+
+/* アイコンの色を変更するクラス */
+.white-icon .skillIcon {
+  color: white;
+}
+
+.red-icon .skillIcon {
+  color: #ff4444;
+}
+
+.green-icon .skillIcon {
+  color: #44ff44;
+}
+
+.blue-icon .skillIcon {
+  color: #4444ff;
+}
+
+.yellow-icon .skillIcon {
+  color: #ffff44;
+}
+
+.orange-icon .skillIcon {
+  color: #ff8844;
+}
+
+.purple-icon .skillIcon {
+  color: #8844ff;
+}
+
+.pink-icon .skillIcon {
+  color: #ff44ff;
+}
+
+.cyan-icon .skillIcon {
+  color: #44ffff;
+}
+
+.gray-icon .skillIcon {
+  color: #888888;
 }
 
 

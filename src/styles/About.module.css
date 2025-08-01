@@ -2,6 +2,46 @@
   margin-bottom: 40px;
 }
 
+/* ==============================================
+   プロフィール画像
+   ============================================== */
+.profile {
+  text-align: center;
+  flex: 1;
+}
+.profileImage {
+  border-radius: 50%;
+  border: 5px solid rgb(23, 57, 168);
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.profileImage:hover {
+  transform: scale(1.1);
+}
+/* プロフィール画像下の内容 */
+.leftText {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 3%;
+}
+.leftTextContent {
+  display: flex;
+  gap: 0.2em;
+}
+
+/* ==============================================
+   右側コンテンツ
+   ============================================== */
+/* 右側コンテンツの大きさ */
+.introduction {
+  flex: 3;
+}
+.contentTitle {
+  font-size: 1.8rem;
+}
+
+
 .window {
   background: rgba(0, 20, 40, 0.9);
   border-radius: 8px;
@@ -20,6 +60,8 @@
 }
 
 .windowContent {
+  display: flex;
+  gap: 1rem;
   padding: 30px;
   line-height: 1.6;
 }
