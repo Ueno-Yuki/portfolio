@@ -2,13 +2,13 @@
   min-height: 100vh;
   position: relative;
   z-index: 3;
-  padding: 20px;
+  padding: 20px 20px 0 20px;
 }
 
 .main {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 0;
+  padding: 40px 0 0 0;
 }
 
 @media (max-width: 768px) {

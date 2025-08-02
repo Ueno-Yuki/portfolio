@@ -8,6 +8,7 @@
 .profile {
   text-align: center;
   flex: 1;
+  margin: auto 0;
 }
 .profileImage {
   border-radius: 50%;
@@ -37,10 +38,47 @@
 .introduction {
   flex: 3;
 }
-.contentTitle {
+.rightContent {
+  width: 100%;
+}
+.contentSubtitle {
   font-size: 1.8rem;
+  display: flex;
+  justify-content: space-between;
+}
+.rightContent:last-child .contentSubtitle {
+  justify-content: flex-start;
+  gap: 10px;
+}
+.rightContent:last-child .contentSubtitle .date {
+  margin-left: auto;
+}
+.note {
+  padding: 5px;
+  font-size: 0.95rem;
+  border: 1px solid var(--neon-cyan);
+  border-radius: 25px;
+  align-self: center;
 }
 
+.arrowContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.arrows {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin: 3% 3% 0 3%;
+}
+
+.arrow {
+  font-size: 3rem;
+}
+.arrow:hover {
+  cursor: pointer;
+}
 
 .window {
   background: rgba(0, 20, 40, 0.9);
@@ -64,4 +102,18 @@
   gap: 1rem;
   padding: 30px;
   line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .windowContent {
+    display: unset;
+  }
+
+  .introduction {
+    margin: 5% 5% 0 5%;
+  }
+
+  .contentSubtitle {
+    font-size: 1.5rem;
+  }
 }

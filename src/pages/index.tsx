@@ -1,11 +1,12 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
-import Loading from "@/components/Loading";
+import Loading from "@/components/UI/Loading";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import Skills from "@/components/Skills";
+import Skills from "@/components/Skills/Skills";
 import Projects from "@/components/Projects";
 import Footer from "@/components/Footer";
+import Certifications from "@/components/Certifications/Certifications";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
           <About />
           <Skills />
           <Projects />
+          <Certifications />
         </main>
 
         <Footer />

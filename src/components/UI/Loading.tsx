@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import styles from "@/styles/Loading.module.css";
+import styles from "@/styles/UI/Loading.module.css";
 
 export default function Loading() {
   const [isVisible, setIsVisible] = useState(true);

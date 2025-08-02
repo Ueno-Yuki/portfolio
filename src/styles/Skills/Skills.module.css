@@ -177,14 +177,15 @@
   
   .categoryHeader {
     padding: 12px 16px;
+    gap: 1rem;
   }
   
   .categoryIcon {
-    font-size: 20px;
+    font-size: 2rem;
   }
   
   .categoryTitle {
-    font-size: 14px;
+    font-size: 1.3rem;
   }
   
   .skillsList {
@@ -196,10 +197,10 @@
   }
   
   .skillIcon {
-    font-size: 18px;
+    font-size: 1.5rem;
   }
   
   .skillName {
-    font-size: 13px;
+    font-size: 1rem;
   }
 }

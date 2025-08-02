@@ -1,5 +1,5 @@
-import styles from "@/styles/Skills.module.css";
-import StarRating from "./StarRating";
+import styles from "@/styles/Skills/Skills.module.css";
+import StarRating from "../Skills/StarRating";
 import { SKILLS, SKILLS_TITLE } from "@/constants/contents";
 
 export default function Skills() {
