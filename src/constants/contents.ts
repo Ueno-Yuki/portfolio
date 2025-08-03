@@ -34,28 +34,34 @@ export const ABOUT = {
   introductions: [
     {
       idx: "1",
-      subtitle:"大学卒業後",
+      subtitle: "エンジニアを目指したきっかけ",
       date: "2018年4月",
-      content: "株式会社Wizへ営業として入社し、テレマーケティングでの営業を担当しました。"
+      content: `新卒でベンチャー企業に入社し、テレマーケティング営業部に1年半ほど携わり、その後営業事務へ異動しました。
+      その時使用したFilemaker ProとVBAでエンジニアとしてのキャリアに憧れ、転身を決意しました。`,
+      tagName: "Filemaker Pro,VBA,salesforce"
     },
     {
       idx: "2",
-      subtitle:"トランス・コスモス株式会社",
+      subtitle:"エンジニアになるために",
       date: "2020年2月",
-      content: "データセンターのオペレーション業務を担当し、"
+      content: `データセンターのオペレーション業務やサーバー監視業務などを担当すると同時に、業務で使用するエクセルのVBAの学習をし、改修を行いました。
+      休日はHTML/CSS、JavaScript、Javaを中心に独学を継続していました。`,
+      tagName: "Zabbix,VBA"
     },
     {
       idx: "3",
-      subtitle:"株式会社エクソナ",
+      subtitle:"実務経験を積むために",
       date: "2021年9月",
-      content: "データセンターのオペレーション業務をメインとして、"
+      content: "SES企業に転職し、業務管理、金融、学習管理、HP制作、ECサイトのリプレイスなど様々な分野、業界、言語での実務経験を積み、コーディング能力や設計書等の作成能力以外に、顧客折衝やメンバーのマネジメントも担当しました。",
+      tagName: "HTML/CSS,JavaScript,Node.js,Vue.js,Java(SpringBoot),Python,Go,PHP(Laravel),WordPress,Lambda,S3,EC2,Git,Subversion,Terraform"
     },
     {
       idx: "4",
-      subtitle:"株式会社アイ・ディ・エイチ",
+      subtitle:"これからの展望",
       date: "2023年4月",
-      note: "現在",
-      content: "データセンターのオペレーション業務をメインとして、"
+      content: `さらに別のSES企業へ転職し、コンサルティングファーム企業のWeb系開発や業務管理システムを中心に基本設計〜運用・保守までを担当しています。\n
+      古いver.でコーディングされたPHPのリバースエンジニアリングやリファクタリング、リプレイス、リライトなど、既存システムをより良いシステムにするための業務に携わっています。`,
+      tagName: "HTML/CSS,JavaScript,Node.js,React(Next.js),Java,Solidity,PHP,Git,Subversion,Terraform"
     },
   ],
   arrows: [

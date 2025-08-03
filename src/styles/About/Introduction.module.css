@@ -1,0 +1,83 @@
+/* ==============================================
+   自己紹介
+   ============================================== */
+.introduction {
+  flex: 3;
+}
+
+.rightContent {
+  width: 100%;
+}
+
+.contentSubtitle {
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subtitle {
+  flex: 5;
+}
+
+.date {
+  flex: 1;
+  font-size: 1rem;
+  text-align: center;
+  border: 1px solid var(--neon-cyan);
+  border-radius: 25px;
+  margin-right: 3%;
+}
+
+.rightContent:last-child .contentSubtitle {
+  justify-content: flex-start;
+  gap: 10px;
+}
+.rightContent:last-child .contentSubtitle .date {
+  margin-left: auto;
+}
+
+.arrowContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.arrows {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin: 3% 3% 0 3%;
+}
+
+.arrow {
+  font-size: 3rem;
+}
+
+.arrow:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .introduction {
+    margin: 10% 5% 0 5%;
+  }
+
+  .rightContent {
+    margin: 0% 0% 3% 0%;
+  }
+
+  .contentSubtitle {
+    font-size: 1.5rem;
+    display: unset;
+  }
+
+  .date {
+    width: 45%;
+    margin: 3% auto;
+  }
+
+  .subtitle {
+    text-align: center;
+    margin: 3% 0;
+  }
+}

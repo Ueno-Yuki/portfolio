@@ -2,7 +2,7 @@ import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import Loading from "@/components/UI/Loading";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
+import About from "@/components/About/About";
 import Skills from "@/components/Skills/Skills";
 import Projects from "@/components/Projects";
 import Footer from "@/components/Footer";

@@ -1,4 +1,4 @@
-import styles from "@/styles/About.module.css";
+import styles from "@/styles/About/Introduction.module.css";
 import {ABOUT} from "@/constants/contents"; 
 
 export default function Introduction() {
@@ -7,9 +7,8 @@ export default function Introduction() {
       {ABOUT.introductions.map((about, index) => (
         <div key={index} className={styles.rightContent}>
             <div className={styles.contentSubtitle}>
-              <div>{about.subtitle}</div>
-              {'note' in about ? <div className={styles.note}>{about.note}</div> : <></>}
               <div className={styles.date}>{about.date}</div>
+              <div className={styles.subtitle}>{about.subtitle}</div>
             </div>
             <div className={styles.content}>{about.content}</div>
         </div>

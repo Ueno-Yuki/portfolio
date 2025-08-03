@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "@/styles/ContactModal.module.css";
+import ToastContainer from "./UI/Toast";
+import { useToast } from "@/hooks/useToast";
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -9,6 +11,7 @@ interface ContactModalProps {
 interface FormData {
   name: string;
   email: string;
+  phone: string;
   message: string;
 }
 
@@ -16,12 +19,16 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
+    phone: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [isVisible, setIsVisible] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+
+  // トースト通知機能
+  const { toasts, success, error, removeToast } = useToast();
 
   // アニメーション管理
   useEffect(() => {
@@ -52,7 +59,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
   // フォームリセット
   const resetForm = () => {
-    setFormData({ name: '', email: '', message: '' });
+    setFormData({ name: '', email: '', phone: '', message: '' });
     setErrorMessage('');
   };
 
@@ -79,9 +86,19 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-      setErrorMessage('すべての項目を入力してください');
-      return;
+    const hasName = formData.name.trim();
+    const hasEmail = formData.email.trim();
+    const hasPhone = formData.phone.trim();
+    const hasMessage = formData.message.trim();
+    
+    if (!hasName || !hasMessage) {
+      error('入力エラー', '氏名と内容は必須です');
+      return false;
+    }
+    
+    if (!hasEmail && !hasPhone) {
+      error('入力エラー', 'メールアドレスまたは電話番号のどちらかは必須です');
+      return false;
     }
 
     setIsSubmitting(true);
@@ -99,14 +116,20 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
       const data = await response.json();
 
       if (response.ok) {
+        resetForm();
+        onClose();
+        // モーダルが閉じてからトースト通知を表示
         setTimeout(() => {
-          onClose();
-        }, 2000);
+          success('送信完了', 'メールが正常に送信されました');
+        }, 300);
       } else {
+        error('送信失敗', data.error || 'メール送信に失敗しました');
         setErrorMessage(data.error || 'メール送信に失敗しました');
       }
-    } catch (error) {
-      setErrorMessage(error + ': ネットワークエラーが発生しました');
+    } catch (err) {
+      error('ネットワークエラー', 'ネットワークエラーが発生しました');
+      const errorMessage = err instanceof Error ? err.message : 'ネットワークエラーが発生しました';
+      setErrorMessage(errorMessage);
     } finally {
       setIsSubmitting(false);
     }
@@ -115,56 +138,62 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   if (!isVisible) return null;
 
   return (
-    <div 
-      className={`${styles.modalOverlay} ${isAnimating ? styles.fadeIn : styles.fadeOut}`} 
-      onClick={handleOverlayClick}
-    >
-      <div className={`${styles.modalContainer} ${isAnimating ? styles.slideIn : styles.slideOut}`}>
-        <div className={styles.modalHeader}>
-          <h2 className={styles.modalTitle}>CONTACT_FORM</h2>
-          <button className={styles.closeButton} onClick={handleClose} disabled={isSubmitting}>
-            ×
-          </button>
-        </div>
+    <>
+      <ToastContainer toasts={toasts} onClose={removeToast} />
+      <div 
+        className={`${styles.modalOverlay} ${isAnimating ? styles.fadeIn : styles.fadeOut}`} 
+        onClick={handleOverlayClick}
+        >
+        <div className={`${styles.modalContainer} ${isAnimating ? styles.slideIn : styles.slideOut}`}>
+          <div className={styles.modalHeader}>
+            <h2 className={styles.modalTitle}>CONTACT_FORM</h2>
+            <button className={styles.closeButton} onClick={handleClose} disabled={isSubmitting}>
+              ×
+            </button>
+          </div>
 
-        <div className={styles.modalContent}>
-          <form onSubmit={handleSubmit} className={styles.contactForm}>
-            <div className={styles.formGroup}>
-              <label htmlFor="name" className={styles.label}>氏名</label>
-              <input type="text" id="name" name="name" value={formData.name} onChange={handleInputChange}
-                className={styles.input} disabled={isSubmitting} required
-              />
-            </div>
+          <div className={styles.modalContent}>
+            <form onSubmit={handleSubmit} className={styles.contactForm}>
+              <div className={styles.formGroup}>
+                <label htmlFor="name" className={styles.label}>氏名</label>
+                <input type="text" id="name" name="name" value={formData.name} onChange={handleInputChange}
+                  className={styles.input} disabled={isSubmitting} required
+                  />
+              </div>
 
-            <div className={styles.formGroup}>
-              <label htmlFor="email" className={styles.label}>Email</label>
-              <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange}
-                className={styles.input} disabled={isSubmitting} required
-              />
-            </div>
+              <div className={styles.formGroup}>
+                <label htmlFor="email" className={styles.label}>Email</label>
+                <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange}
+                  className={styles.input} disabled={isSubmitting}
+                  />
+              </div>
 
-            <div className={styles.formGroup}>
-              <label htmlFor="message" className={styles.label}>内容</label>
-              <textarea id="message" name="message" value={formData.message} onChange={handleInputChange}
-                className={styles.textarea} rows={5} disabled={isSubmitting} required
-              />
-            </div>
+              <div className={styles.formGroup}>
+                <label htmlFor="phone" className={styles.label}>電話番号</label>
+                <input type="text" id="phone" name="phone" value={formData.phone} onChange={handleInputChange}
+                  className={styles.input} disabled={isSubmitting}
+                  />
+              </div>
 
-            {errorMessage && (
-              <div className={styles.errorMessage}>{errorMessage}</div>
-            )}
+              <div className={styles.formGroup}>
+                <label htmlFor="message" className={styles.label}>内容</label>
+                <textarea id="message" name="message" value={formData.message} onChange={handleInputChange}
+                  className={styles.textarea} rows={5} disabled={isSubmitting} required
+                  />
+              </div>
 
-            <div className={styles.buttonGroup}>
-              <button type="submit" className={styles.submitButton} disabled={isSubmitting}>
-                {isSubmitting ? 'SENDING...' : 'SEND'}
-              </button>
-              <button type="button" className={styles.cancelButton} onClick={handleClose} disabled={isSubmitting}>
-                CANCEL
-              </button>
-            </div>
-          </form>
+              <div className={styles.buttonGroup}>
+                <button type="submit" className={styles.submitButton} disabled={isSubmitting}>
+                  {isSubmitting ? 'SENDING...' : 'SEND'}
+                </button>
+                <button type="button" className={styles.cancelButton} onClick={handleClose} disabled={isSubmitting}>
+                  CANCEL
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

@@ -1,4 +1,4 @@
-import styles from "@/styles/Certifications.module.css";
+import styles from "@/styles/Certifications/CertificationList.module.css";
 import { CERTIFICATIONS } from "@/constants/contents";
 import Image from "next/image";
 

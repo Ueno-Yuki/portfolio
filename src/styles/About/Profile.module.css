@@ -1,0 +1,36 @@
+/* ==============================================
+   プロフィール画像
+   ============================================== */
+.profile {
+  text-align: center;
+  flex: 1;
+  margin: auto 0;
+}
+
+.profileImage {
+  border-radius: 50%;
+  border: 5px solid rgb(23, 57, 168);
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.profileImage:hover {
+  transform: scale(1.1);
+}
+
+/* プロフィール画像下の内容 */
+.leftText {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 3%;
+}
+
+.leftTextContent {
+  display: flex;
+  gap: 0.2em;
+}
+
+@media (max-width: 768px) {
+
+}

@@ -1,7 +1,7 @@
-import styles from "@/styles/About.module.css";
+import styles from "@/styles/About/About.module.css";
 import { ABOUT } from "@/constants/contents";
-import Profile from "./About/Profile";
-import Introduction from "./About/Introduction";
+import Profile from "../About/Profile";
+import Introduction from "../About/Introduction";
 
 export default function About() {
   return (

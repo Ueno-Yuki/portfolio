@@ -1,4 +1,4 @@
-import styles from "@/styles/Certifications.module.css";
+import styles from "@/styles/Certifications/Certifications.module.css";
 import { CERTIFICATIONS } from "@/constants/contents";
 import CertificationList from "../Certifications/CertificationList";
 
@@ -13,7 +13,6 @@ export default function Certifications() {
           <CertificationList />
         </div>
       </div>
-
     </section>
   );
 }
