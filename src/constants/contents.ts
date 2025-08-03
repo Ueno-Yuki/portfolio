@@ -1,43 +1,33 @@
-interface SkillItem {
-  name: string;
-  iconClass: string;
-  rating: number;
-}
-
-interface SkillCategory {
-  title: string;
-  iconClass: string;
-  iconName: string;
-  color: string;
-  skills: SkillItem[];
-}
-
-// メインビジュアル
+/* ============================
+   メインビジュアル 
+   ============================ */
 export const HERO = {
   title: "YUKI UENO",
   subtitle: "ENGINEER SINCE 2020",
   matrixCode: "01101000 01100101 01101100 01101100 01101111",
 } as const;
 
-// プロフィール画像
-export const PROFILE = {
+/* ============================
+   自己紹介
+   ============================ */
+export const ABOUT = {
+  title: "ABOUT",
+  // プロフィール画像
   image_path: "/profile.jpeg",
   items: [
     {text: "東京", iconName: "location_on",iconClass:"material-symbols-outlined"},
     {text: `${new Date().getFullYear() - 2020}年の経歴`, iconName: "crown", iconClass: "material-symbols-outlined"},
-  ] 
-} as const;
-
-// 自身の紹介
-export const ABOUT = {
-  title: "ABOUT",
+  ],
+  // 経歴内容
   introductions: [
     {
       idx: "1",
       subtitle: "エンジニアを目指したきっかけ",
       date: "2018年4月",
-      content: `新卒でベンチャー企業に入社し、テレマーケティング営業部に1年半ほど携わり、その後営業事務へ異動しました。
-      その時使用したFilemaker ProとVBAでエンジニアとしてのキャリアに憧れ、転身を決意しました。`,
+      content: `新卒でベンチャー企業に入社し、テレマーケティング営業部に1年半ほど携わりましたが、重労働や数字のプレッシャーが心身を蝕んだことで営業事務で異動しました。
+
+      その時使用したFilemaker ProとVBAで、エンジニアとしてのものづくりに興味を持ち、転身を決意しました。
+      大学ではスポーツ科学課程に所属していたため、必要なステップを計画し、DCでインフラやLinux、「プログラミング言語っぽい」VBAを業務を通して学び、その後SES企業などで実務経験を身につけることを目指しました。`,
       tagName: "Filemaker Pro,VBA,salesforce"
     },
     {
@@ -52,8 +42,11 @@ export const ABOUT = {
       idx: "3",
       subtitle:"実務経験を積むために",
       date: "2021年9月",
-      content: "SES企業に転職し、業務管理、金融、学習管理、HP制作、ECサイトのリプレイスなど様々な分野、業界、言語での実務経験を積み、コーディング能力や設計書等の作成能力以外に、顧客折衝やメンバーのマネジメントも担当しました。",
-      tagName: "HTML/CSS,JavaScript,Node.js,Vue.js,Java(SpringBoot),Python,Go,PHP(Laravel),WordPress,Lambda,S3,EC2,Git,Subversion,Terraform"
+      content: `SES企業に転職し、業務管理・学習管理・金融・HP制作・ECサイトなど様々な実務経験を積み、
+      コーディング能力や設計書等の作成能力以外に、顧客折衝やメンバーのマネジメントも担当しました。
+
+      当時は案件を選ぶことができない体制のため、短期間でのアサインを繰り返したことで広く浅い中途半端な習得になりました。そのため、アサイン中は自身で簡単なアプリ等を作ることで業務に必要な知識や技術を補完していました。`,
+      tagName: "HTML/CSS,JavaScript,Node.js,Vue.js,Java/SpringBoot,Python,Go,PHP/Laravel,WordPress,Lambda,S3,EC2,Git,Subversion,Terraform"
     },
     {
       idx: "4",
@@ -70,8 +63,40 @@ export const ABOUT = {
   ],
 } as const;
 
-// スキル定数
-export const SKILLS_TITLE = "SKILLS" as const;
+/* ============================
+   スキルセクション 
+   ============================ */
+export const SKILL = {
+  title: "SKILLS",
+  descriptions: [
+    {description: "レベル1", iconClass: "devicon-java-plain colored", rating: 1},
+    {description: "レベル2", iconClass: "devicon-java-plain colored", rating: 2},
+    {description: "レベル3", iconClass: "devicon-java-plain colored", rating: 3},
+    {description: "レベル4", iconClass: "devicon-java-plain colored", rating: 4},
+    {description: "レベル5", iconClass: "devicon-java-plain colored", rating: 5},
+  ],
+  comment: "※IPA 独立行政法人 情報処理推進機構の基準値を参考にしています。", 
+  link: "詳細はこちら",
+  cycle: {
+    iconName: "cycle",
+    iconClass: "material-symblos-outlined",
+    text: "継続的な学習と技術向上に日々取り組んでいます"
+  }
+}
+
+interface SkillItem {
+  name: string;
+  iconClass: string;
+  rating: number;
+}
+
+interface SkillCategory {
+  title: string;
+  iconClass: string;
+  iconName: string;
+  color: string;
+  skills: SkillItem[];
+}
 
 // プログラミング言語
 const PROGRAMMING_LANGUAGES: SkillItem[] = [
@@ -79,15 +104,17 @@ const PROGRAMMING_LANGUAGES: SkillItem[] = [
   { name: "JavaScript", iconClass: "devicon-javascript-plain colored", rating: 4 },
   { name: "TypeScript", iconClass: "devicon-typescript-plain colored", rating: 4 },
   { name: "PHP", iconClass: "devicon-php-plain colored", rating: 3 },
-  { name: "Solidity", iconClass: "devicon-solidity-plain colored", rating: 3 },
+  { name: "Solidity", iconClass: "devicon-solidity-plain colored", rating: 2 },
   { name: "Python", iconClass: "devicon-python-plain colored", rating: 2 },
+  { name: "C#", iconClass: "devicon-csharp-plain colored", rating: 2 },
+  { name: "Go", iconClass: "devicon-go-plain colored", rating: 1 },
 ] as const;
 
 // フロントエンド
 const FRONTEND_SKILLS: SkillItem[] = [
   { name: "HTML5", iconClass: "devicon-html5-plain colored", rating: 4 },
   { name: "CSS3", iconClass: "devicon-css3-plain colored", rating: 4 },
-  { name: "React", iconClass: "devicon-react-original colored", rating: 4 },
+  { name: "React", iconClass: "devicon-react-original colored", rating: 3 },
   { name: "Next.js", iconClass: "devicon-nextjs-plain white-icon", rating: 3 },
   { name: "Vue.js", iconClass: "devicon-vuejs-plain colored", rating: 3 },
 ] as const;
@@ -101,23 +128,23 @@ const BACKEND_SKILLS: SkillItem[] = [
 
 // クラウド・インフラ
 const CLOUD_INFRASTRUCTURE_SKILLS: SkillItem[] = [
-  { name: "AWS", iconClass: "devicon-amazonwebservices-plain-wordmark colored", rating: 4 },
+  { name: "AWS", iconClass: "devicon-amazonwebservices-plain-wordmark colored", rating: 3 },
   { name: "Docker", iconClass: "devicon-docker-plain colored", rating: 3 },
   { name: "Vercel", iconClass: "devicon-vercel-original white-icon", rating: 3 }
 ] as const;
 
 // データベース
 const DATABASE_SKILLS: SkillItem[] = [
-  { name: "MySQL", iconClass: "devicon-mysql-plain colored", rating: 4 },
+  { name: "MySQL", iconClass: "devicon-mysql-plain colored", rating: 3 },
   { name: "PostgreSQL", iconClass: "devicon-postgresql-plain colored", rating: 3 },
 ] as const;
 
 // 開発ツール
 const DEVELOPMENT_TOOLS: SkillItem[] = [
-  { name: "VSCode/Cursor", iconClass: "devicon-vscode-plain colored", rating: 4 },
-  { name: "Eclipse", iconClass: "devicon-eclipse-plain white-icon", rating: 4 },
   { name: "Git", iconClass: "devicon-git-plain colored", rating: 4 },
   { name: "Subversion", iconClass: "devicon-subversion-plain colored", rating: 4 },
+  { name: "VSCode", iconClass: "devicon-vscode-plain colored", rating: 3 },
+  { name: "Eclipse", iconClass: "devicon-eclipse-plain white-icon", rating: 3 },
   { name: "Terraform", iconClass: "devicon-terraform-plain colored", rating: 3 },
 ] as const;
 

@@ -6,7 +6,8 @@
 }
 
 .rightContent {
-  width: 100%;
+  max-height: 400px;
+  height: 400px;
 }
 
 .contentSubtitle {
@@ -29,12 +30,27 @@
   margin-right: 3%;
 }
 
-.rightContent:last-child .contentSubtitle {
-  justify-content: flex-start;
-  gap: 10px;
+.content {
+  min-height: 200px;
+  height: 200px;
+  margin-top: 3%;
+  white-space: pre-line;
 }
-.rightContent:last-child .contentSubtitle .date {
-  margin-left: auto;
+
+.tagList {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  height: 100px;
+  margin-bottom: 1%;
+}
+
+.tag {
+  border: 1px solid var(--neon-cyan);
+  border-radius: 25px;
+  padding: 1% 2%;
+  height: 45px;
 }
 
 .arrowContainer {
@@ -64,11 +80,14 @@
 
   .rightContent {
     margin: 0% 0% 3% 0%;
+    height: auto;
+    max-height: none;
   }
 
   .contentSubtitle {
-    font-size: 1.5rem;
-    display: unset;
+    font-size: 1.4rem;
+    display: flex;
+    flex-direction: column;
   }
 
   .date {
@@ -79,5 +98,25 @@
   .subtitle {
     text-align: center;
     margin: 3% 0;
+  }
+
+  .content {
+    height: auto;
+    min-height: 150px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    overflow-wrap: break-word;
+  }
+
+  .tagList {
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    height: auto;
+    margin-top: 8%;
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    height: auto;
   }
 }

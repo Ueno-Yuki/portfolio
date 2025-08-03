@@ -2,7 +2,6 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const contactEmail = process.env.CONTACT_EMAIL;
 
 interface ContactFormData {
   name: string;
@@ -78,9 +77,9 @@ export default async function handler(
 
     // メール送信（テスト用：入力されたメールアドレスに送信）
     const { data, error } = await resend.emails.send({
-      from: `${contactEmail}`,
+      from: `${process.env.EMAIL_FROM_NAME} <noreply@${process.env.EMAIL_FROM_DOMAIN}`,
       to: [email], // 入力されたメールアドレスに送信
-      subject: `【portfolio】お問い合わせ: ${name}様より`,
+      subject: `【${process.env.EMAIL_FROM_NAME}】お問い合わせ: ${name}様より`,
       html: `
         <div style="font-family: 'Noto Sans JP', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
           <h2 style="color: #7a5c3e; border-bottom: 2px solid #7a5c3e; padding-bottom: 10px;">

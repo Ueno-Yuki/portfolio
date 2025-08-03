@@ -24,6 +24,41 @@
   line-height: 1.6;
 }
 
+.descContainer {
+  display: flex;
+  margin: 1% auto;
+}
+
+.desc {
+  display: flex;
+  align-items: center;
+  margin: 0 3%;
+}
+
+.descContent {
+  margin-left: 4%;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.descComment {
+  margin: 0 3% 2%;
+}
+
+.link {
+  padding-bottom: 5px;
+  background-image: linear-gradient(var(--neon-cyan), var(--neon-cyan));
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: 0 1px;
+  transition: background-size 0.3s;
+}
+
+.link:hover {
+  background-position: bottom left;
+  background-size: 100% 1px;
+}
+
 .skillsContainer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -166,6 +201,14 @@
     padding: 20px;
   }
   
+  .descContainer {
+    flex-direction: column;
+  }
+
+  .descComment {
+    font-size: 0.85rem;
+  }
+
   .skillsContainer {
     grid-template-columns: 1fr;
     gap: 20px;

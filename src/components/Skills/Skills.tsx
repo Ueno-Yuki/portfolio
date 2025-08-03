@@ -1,15 +1,28 @@
 import styles from "@/styles/Skills/Skills.module.css";
 import StarRating from "../Skills/StarRating";
-import { SKILLS, SKILLS_TITLE } from "@/constants/contents";
+import { SKILL, SKILLS } from "@/constants/contents";
+import { IPA_URL } from "@/constants/urls";
 
 export default function Skills() {
   return (
     <section className={styles.skillsSection}>
       <div className={`${styles.window} neon-border`}>
         <div className={styles.windowHeader}>
-          <span>{SKILLS_TITLE}</span>
+          <span>{SKILL.title}</span>
         </div>
         <div className={styles.windowContent}>
+          <div className={styles.descContainer}>
+            {SKILL.descriptions.map((desc, index) => (
+              <div key={index} className={styles.desc}>
+                <StarRating rating={desc.rating} />
+                <div className={styles.descContent}>{desc.description}</div>
+              </div>
+              ))}
+          </div>
+          <div className={styles.descComment}>
+            {SKILL.comment}
+            <a href={IPA_URL} target="_blank" className={styles.link}>{SKILL.link}</a>
+          </div>
           <div className={styles.skillsContainer}>
             {SKILLS.map((category, categoryIndex) => (
               <div key={categoryIndex} className={styles.skillCategory}>
