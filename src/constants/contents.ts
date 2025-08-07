@@ -1,3 +1,8 @@
+import { ContactLink } from "@/types/footer";
+import { SkillItem, SkillCategory } from "@/types/skills";
+import { IconName } from "./icons";
+import { Project } from "@/types";
+
 /* ============================
    メインビジュアル 
    ============================ */
@@ -15,8 +20,8 @@ export const ABOUT = {
   // プロフィール画像
   image_path: "/profile.jpeg",
   items: [
-    {text: "東京", iconName: "location_on",iconClass:"material-symbols-outlined"},
-    {text: `${new Date().getFullYear() - 2020}年の経歴`, iconName: "crown", iconClass: "material-symbols-outlined"},
+    {text: "東京", iconName: "location"},
+    {text: `${new Date().getFullYear() - 2020}年の経歴`, iconName: "award"},
   ],
   // 経歴内容
   introductions: [
@@ -24,9 +29,9 @@ export const ABOUT = {
       idx: "1",
       subtitle: "エンジニアを目指したきっかけ",
       date: "2018年4月",
-      content: `新卒でベンチャー企業に入社し、テレマーケティング営業部に1年半ほど携わりましたが、重労働や数字のプレッシャーが心身を蝕んだことで営業事務で異動しました。
+      content: `新卒でベンチャー企業に入社し、テレマーケティング営業部に1年半ほど携わり、その後営業事務へ異動しました。
 
-      その時使用したFilemaker ProとVBAで、エンジニアとしてのものづくりに興味を持ち、転身を決意しました。
+      営業事務ではKPI指標管理や、営業成績管理をメインに担当しており、業務でFilemaker ProとVBAを使用した際に、エンジニアとしてのものづくりへの興味やコードを書く楽しさ、プログラムを考える楽しさを知り、転身を決意しました。
       大学ではスポーツ科学課程に所属していたため、必要なステップを計画し、DCでインフラやLinux、「プログラミング言語っぽい」VBAを業務を通して学び、その後SES企業などで実務経験を身につけることを目指しました。`,
       tagName: "Filemaker Pro,VBA,salesforce"
     },
@@ -54,18 +59,18 @@ export const ABOUT = {
       date: "2023年4月",
       content: `さらに別のSES企業へ転職し、コンサルティングファーム企業のWeb系開発や業務管理システムを中心に基本設計〜運用・保守までを担当しています。\n
       古いver.でコーディングされたPHPのリバースエンジニアリングやリファクタリング、リプレイス、リライトなど、既存システムをより良いシステムにするための業務に携わっています。`,
-      tagName: "HTML/CSS,JavaScript,Node.js,React(Next.js),Java,Solidity,PHP,Git,Subversion,Terraform"
+      tagName: "HTML/CSS,JavaScript,Node.js,React/Next.js,Java,Solidity,PHP,Git,Subversion,Terraform"
     },
   ],
   arrows: [
-    {fontClass: "material-symbols-outlined down", fontName: "keyboard_arrow_down"},
-    {fontClass: "material-symbols-outlined up", fontName: "keyboard_arrow_up"},
+    {fontName: "chevronDown"},
+    {fontName: "chevronUp"},
   ],
 } as const;
 
-/* ============================
-   スキルセクション 
-   ============================ */
+/** ==========================================
+ *  スキルセクション
+ *  ========================================== */
 export const SKILL = {
   title: "SKILLS",
   descriptions: [
@@ -77,6 +82,7 @@ export const SKILL = {
   ],
   comment: "※IPA 独立行政法人 情報処理推進機構の基準値を参考にしています。", 
   link: "詳細はこちら",
+  iconName: "external" as IconName,
   cycle: {
     iconName: "cycle",
     iconClass: "material-symblos-outlined",
@@ -84,21 +90,7 @@ export const SKILL = {
   }
 }
 
-interface SkillItem {
-  name: string;
-  iconClass: string;
-  rating: number;
-}
-
-interface SkillCategory {
-  title: string;
-  iconClass: string;
-  iconName: string;
-  color: string;
-  skills: SkillItem[];
-}
-
-// プログラミング言語
+/* プログラミング言語 */
 const PROGRAMMING_LANGUAGES: SkillItem[] = [
   { name: "Java", iconClass: "devicon-java-plain colored", rating: 4 },
   { name: "JavaScript", iconClass: "devicon-javascript-plain colored", rating: 4 },
@@ -110,7 +102,7 @@ const PROGRAMMING_LANGUAGES: SkillItem[] = [
   { name: "Go", iconClass: "devicon-go-plain colored", rating: 1 },
 ] as const;
 
-// フロントエンド
+/* フロントエンド */
 const FRONTEND_SKILLS: SkillItem[] = [
   { name: "HTML5", iconClass: "devicon-html5-plain colored", rating: 4 },
   { name: "CSS3", iconClass: "devicon-css3-plain colored", rating: 4 },
@@ -119,27 +111,27 @@ const FRONTEND_SKILLS: SkillItem[] = [
   { name: "Vue.js", iconClass: "devicon-vuejs-plain colored", rating: 3 },
 ] as const;
 
-// バックエンド
+/* バックエンド */
 const BACKEND_SKILLS: SkillItem[] = [
   { name: "Node.js", iconClass: "devicon-nodejs-plain colored", rating: 4 },
   { name: "Spring Boot", iconClass: "devicon-spring-plain colored", rating: 4 },
   { name: "Laravel", iconClass: "devicon-laravel-plain colored", rating: 3 },
 ] as const;
 
-// クラウド・インフラ
+/* クラウド・インフラ */
 const CLOUD_INFRASTRUCTURE_SKILLS: SkillItem[] = [
   { name: "AWS", iconClass: "devicon-amazonwebservices-plain-wordmark colored", rating: 3 },
   { name: "Docker", iconClass: "devicon-docker-plain colored", rating: 3 },
   { name: "Vercel", iconClass: "devicon-vercel-original white-icon", rating: 3 }
 ] as const;
 
-// データベース
+/* データベース */
 const DATABASE_SKILLS: SkillItem[] = [
   { name: "MySQL", iconClass: "devicon-mysql-plain colored", rating: 3 },
   { name: "PostgreSQL", iconClass: "devicon-postgresql-plain colored", rating: 3 },
 ] as const;
 
-// 開発ツール
+/* 開発ツール */
 const DEVELOPMENT_TOOLS: SkillItem[] = [
   { name: "Git", iconClass: "devicon-git-plain colored", rating: 4 },
   { name: "Subversion", iconClass: "devicon-subversion-plain colored", rating: 4 },
@@ -148,53 +140,70 @@ const DEVELOPMENT_TOOLS: SkillItem[] = [
   { name: "Terraform", iconClass: "devicon-terraform-plain colored", rating: 3 },
 ] as const;
 
-// スキルカテゴリ
+/* スキルカテゴリ */
 export const SKILLS: SkillCategory[] = [
   {
     title: "プログラミング言語",
-    iconClass: "material-symbols-outlined",
     iconName: "code",
     color: "var(--neon-blue)",
     skills: PROGRAMMING_LANGUAGES
   },
   {
     title: "フロントエンド",
-    iconClass: "material-symbols-outlined",
-    iconName: "desktop_windows",
+    iconName: "monitor",
     color: "var(--neon-pink)",
     skills: FRONTEND_SKILLS
   },
   {
     title: "バックエンド",
-    iconClass: "material-symbols-outlined",
-    iconName: "host",
+    iconName: "server",
     color: "var(--neon-green)",
     skills: BACKEND_SKILLS
   },
   {
     title: "クラウド・インフラ",
-    iconClass: "material-symbols-outlined",
     iconName: "cloud",
     color: "var(--neon-cyan)",
     skills: CLOUD_INFRASTRUCTURE_SKILLS
   },
   {
     title: "データベース",
-    iconClass: "material-symbols-outlined",
     iconName: "database",
     color: "#9966ff",
     skills: DATABASE_SKILLS
   },
   {
     title: "開発ツール",
-    iconClass: "material-symbols-outlined",
-    iconName: "build",
+    iconName: "wrench",
     color: "#ff9900",
     skills: DEVELOPMENT_TOOLS
   }
 ] as const;
 
-// 資格
+export const PROJECT = {
+  title: "PROJECT",
+  items: [
+    {
+      title: "業務管理システム",
+      description: "Java Spring Bootを用いた大規模業務システム開発",
+      techStack: ["Java", "Spring Boot", "Oracle", "AWS"]
+    },
+    {
+      title: "Webアプリケーション",
+      description: "PHP Laravelでの顧客管理システム構築",
+      techStack: ["PHP", "Laravel", "MySQL", "Docker"]
+    },
+    {
+      title: "フロントエンド開発",
+      description: "React/Next.jsを用いたSPA開発",
+      techStack: ["React", "Next.js", "TypeScript", "Vercel"]
+    }
+  ] as Project[],
+};
+
+/** ==========================================
+ *  資格
+ *  ========================================== */
 export const CERTIFICATIONS = {
   title: "資格",
   items: [
@@ -212,3 +221,24 @@ export const CERTIFICATIONS = {
     }
   ]
 } as const;
+
+/** ==========================================
+ *  フッター
+ *  ========================================== */
+export const CONTACT_LINKS: Omit<ContactLink, 'onClick'>[] = [
+  {
+    text: "EMAIL",
+    iconName: "mail",
+    ariaLabel: "メールでお問い合わせ",
+    isExternal: false,
+    hasSvg: false,
+  },
+  {
+    href: "https://github.com/Ueno-Yuki",
+    text: "GITHUB",
+    ariaLabel: "GitHubプロフィールを見る",
+    isExternal: true,
+    svgPath: "/github.svg", // publicフォルダ内のパス
+    hasSvg: true,
+  },
+] as const;

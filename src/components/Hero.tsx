@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <div className={styles.heroSection}>
       <h1 className={`${styles.heroTitle} glow`}>{HERO.title}</h1>
-      <h2 className={styles.heroSubtitle}>{HERO.subtitle}</h2>
+      <h2 className={`${styles.heroSubtitle} glow_min`}>{HERO.subtitle}</h2>
       <div className={styles.matrix}>
         <div className={styles.matrixCode}>{HERO.matrixCode}</div>
       </div>

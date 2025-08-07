@@ -1,6 +1,7 @@
 import styles from "@/styles/About/Profile.module.css";
 import Image from "next/image";
-import {ABOUT} from "@/constants/contents";
+import { ABOUT } from "@/constants/contents";
+import Icon from "@/components/UI/Icons";
 
 export default function Profile() {
   return (
@@ -12,7 +13,7 @@ export default function Profile() {
         {ABOUT.items.map((profile, index) => (
           <div key={index}>
             <div className={styles.leftTextContent}>
-              <i className={profile.iconClass}>{profile.iconName}</i>
+              <Icon name={profile.iconName} size="sm"></Icon>
               <div>{profile.text}</div>
             </div>
           </div>

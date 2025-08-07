@@ -94,7 +94,6 @@
 
 .categoryIcon {
   font-size: 3rem;
-  filter: drop-shadow(0 0 8px currentColor);
   transition: all 0.3s ease;
 }
 
@@ -190,7 +189,7 @@
 
 
 .skillName {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: var(--font-accent);
   font-size: 1.3rem;
   color: var(--neon-cyan);
   font-weight: 500;

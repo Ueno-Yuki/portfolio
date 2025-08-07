@@ -2,6 +2,7 @@ import styles from "@/styles/Skills/Skills.module.css";
 import StarRating from "../Skills/StarRating";
 import { SKILL, SKILLS } from "@/constants/contents";
 import { IPA_URL } from "@/constants/urls";
+import Icon from "@/components/UI/Icons";
 
 export default function Skills() {
   return (
@@ -21,7 +22,10 @@ export default function Skills() {
           </div>
           <div className={styles.descComment}>
             {SKILL.comment}
-            <a href={IPA_URL} target="_blank" className={styles.link}>{SKILL.link}</a>
+            <a href={IPA_URL} target="_blank" className={styles.link}>
+              {SKILL.link}
+              <Icon name={SKILL.iconName} />
+            </a>
           </div>
           <div className={styles.skillsContainer}>
             {SKILLS.map((category, categoryIndex) => (
@@ -30,12 +34,8 @@ export default function Skills() {
                   className={styles.categoryHeader}
                   style={{ borderColor: category.color }}
                 >
-                  <i 
-                    className={`${category.iconClass} ${styles.categoryIcon}`}
-                    style={{ color: category.color }}
-                  >
-                    {category.iconName}
-                  </i>
+                  <Icon name={category.iconName} size="xl" 
+                    color={category.color} />
                   <h3 className={styles.categoryTitle}>{category.title}</h3>
                 </div>
                 <div className={styles.skillsList}>

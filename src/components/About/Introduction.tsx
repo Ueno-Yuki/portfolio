@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "@/styles/About/Introduction.module.css";
-import {ABOUT} from "@/constants/contents"; 
+import { ABOUT } from "@/constants/contents"; 
+import Icon from "@/components/UI/Icons";
 
 export default function Introduction() {
   const [currentIndex, setCurrentIndex] = useState(1);
@@ -19,14 +20,14 @@ export default function Introduction() {
 
   return (
     <div className={styles.introduction}>
-      {/* keyboard_arrow_up */}
+      {/* chevronUp */}
       <div className={styles.arrows}>
         <span 
-          className={`${ABOUT.arrows[1].fontClass} ${styles.arrow}`}
+          className={styles.arrows}
           onClick={() => handleArrowClick('up')}
           style={{ visibility: currentIndex > 1 ? 'visible' : 'hidden' }}
         >
-          {ABOUT.arrows[1].fontName}
+          <Icon name={ABOUT.arrows[1].fontName} size="xl" />
         </span>
       </div>
       
@@ -45,14 +46,14 @@ export default function Introduction() {
         </div>
       )}
       
-      {/* keyboard_arrow_down */}
+      {/* chevronDown */}
       <div className={styles.arrows}>
         <span 
-          className={`${ABOUT.arrows[0].fontClass} ${styles.arrow}`}
+          className={styles.arrow}
           onClick={() => handleArrowClick('down')}
           style={{ visibility: currentIndex < maxIndex ? 'visible' : 'hidden' }}
         >
-          {ABOUT.arrows[0].fontName}
+          <Icon name={ABOUT.arrows[0].fontName} size="xl" />
         </span>
       </div>
     </div>
