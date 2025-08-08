@@ -1,6 +1,6 @@
 import { PROJECT } from "@/constants/contents";
 import styles from "@/styles/Projects.module.css";
-import commonStyles from "@/styles/Common/common.module.css";
+import commonStyles from "@/styles/common/common.module.css";
 import { useState, useRef, useEffect, useCallback } from "react";
 
 export default function Projects() {

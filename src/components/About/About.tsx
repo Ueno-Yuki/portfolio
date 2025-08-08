@@ -1,5 +1,5 @@
 import styles from "@/styles/About/About.module.css";
-import common from "@/styles/Common/common.module.css";
+import common from "@/styles/common/common.module.css";
 import { ABOUT } from "@/constants/contents";
 import Profile from "@/components/About/Profile";
 import Introduction from "@/components/About/Introduction";

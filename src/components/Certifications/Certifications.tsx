@@ -1,5 +1,5 @@
 import styles from "@/styles/Certifications/Certifications.module.css";
-import common from "@/styles/Common/common.module.css";
+import common from "@/styles/common/common.module.css";
 import { CERTIFICATIONS } from "@/constants/contents";
 import CertificationList from "../Certifications/CertificationList";
 

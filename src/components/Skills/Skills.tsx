@@ -1,5 +1,5 @@
 import styles from "@/styles/Skills/Skills.module.css";
-import common from "@/styles/Common/common.module.css";
+import common from "@/styles/common/common.module.css";
 import StarRating from "../Skills/StarRating";
 import { SKILL, SKILLS } from "@/constants/contents";
 import { IPA_URL } from "@/constants/urls";
