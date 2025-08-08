@@ -1,4 +1,5 @@
 import styles from "@/styles/Skills/Skills.module.css";
+import common from "@/styles/Common/common.module.css";
 import StarRating from "../Skills/StarRating";
 import { SKILL, SKILLS } from "@/constants/contents";
 import { IPA_URL } from "@/constants/urls";
@@ -7,11 +8,11 @@ import Icon from "@/components/UI/Icons";
 export default function Skills() {
   return (
     <section className={styles.skillsSection}>
-      <div className={`${styles.window} neon-border`}>
-        <div className={styles.windowHeader}>
+      <div className={`${common.window} neon-border`}>
+        <div className={common.windowHeader}>
           <span>{SKILL.title}</span>
         </div>
-        <div className={styles.windowContent}>
+        <div className={common.windowContent}>
           <div className={styles.descContainer}>
             {SKILL.descriptions.map((desc, index) => (
               <div key={index} className={styles.desc}>

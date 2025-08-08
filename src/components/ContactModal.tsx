@@ -23,7 +23,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
   const [isVisible, setIsVisible] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -60,7 +59,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   // フォームリセット
   const resetForm = () => {
     setFormData({ name: '', email: '', phone: '', message: '' });
-    setErrorMessage('');
   };
 
   // モーダルを閉じる
@@ -102,7 +100,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     }
 
     setIsSubmitting(true);
-    setErrorMessage('');
 
     try {
       const response = await fetch('/api/send-email', {
@@ -124,12 +121,10 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
         }, 300);
       } else {
         error('送信失敗', data.error || 'メール送信に失敗しました');
-        setErrorMessage(data.error || 'メール送信に失敗しました');
       }
     } catch (err) {
       error('ネットワークエラー', 'ネットワークエラーが発生しました');
-      const errorMessage = err instanceof Error ? err.message : 'ネットワークエラーが発生しました';
-      setErrorMessage(errorMessage);
+      console.log('Contact Form Error: ', err);
     } finally {
       setIsSubmitting(false);
     }

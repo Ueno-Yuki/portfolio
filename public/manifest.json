@@ -1,0 +1,43 @@
+{
+  "name": "YUKI UENO - Engineer Portfolio",
+  "short_name": "YUKI UENO",
+  "description": "2020年からエンジニアとして活動している上野裕暉のポートフォリオサイト",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#00ffff",
+  "background_color": "#0a0a0a",
+  "lang": "ja",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": [
+    "portfolio",
+    "engineering",
+    "web development"
+  ]
+}

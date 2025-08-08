@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import styles from "@/styles/UI/Loading.module.css";
 
 export default function Loading() {
@@ -6,7 +6,7 @@ export default function Loading() {
   const [progress, setProgress] = useState(0);
   const [currentText, setCurrentText] = useState("INITIALIZING SYSTEM...");
 
-  const loadingSteps = [
+  const loadingSteps = useMemo(() => [
     "INITIALIZING SYSTEM...",
     "LOADING PROTOCOLS...",
     "CONNECTING TO MAINFRAME...",
@@ -14,7 +14,7 @@ export default function Loading() {
     "ESTABLISHING SECURE CONNECTION...",
     "LOADING PORTFOLIO DATA...",
     "SYSTEM READY"
-  ];
+    ], []);
 
   useEffect(() => {
     // ローディング開始時にスクロールを無効化
@@ -67,7 +67,7 @@ export default function Loading() {
       document.body.style.width = originalWidth;
       document.body.style.top = originalTop;
     };
-  }, []);
+  }, [loadingSteps]);
 
   if (!isVisible) return null;
 

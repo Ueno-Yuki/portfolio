@@ -184,19 +184,44 @@ export const PROJECT = {
   title: "PROJECT",
   items: [
     {
-      title: "業務管理システム",
-      description: "Java Spring Bootを用いた大規模業務システム開発",
-      techStack: ["Java", "Spring Boot", "Oracle", "AWS"]
+      title: "学習管理システム",
+      description: "動画の学習コンテンツの管理とライブチャット機能の実装",
+      techStack: ["Vue.js", "Spring Boot", "PostgreSQL", "REST API", "Docker",]
     },
     {
-      title: "Webアプリケーション",
-      description: "PHP Laravelでの顧客管理システム構築",
-      techStack: ["PHP", "Laravel", "MySQL", "Docker"]
+      title: "理容組合HP制作",
+      description: "理容組合に所属する店舗の紹介と予約受付、問合せシステムの実装",
+      techStack: ["WordPress", "PHP", "HTML/CSS", "JavaScript", "顧客折衝", ]
     },
     {
-      title: "フロントエンド開発",
-      description: "React/Next.jsを用いたSPA開発",
-      techStack: ["React", "Next.js", "TypeScript", "Vercel"]
+      title: "電子交付目論見書交付システム",
+      description: "重要情報シート追加に伴うメール配信システム改修",
+      techStack: ["Python", "S3", "Labmda", "DynamoDB", "SES", ]
+    },
+    {
+      title: "社員管理システム",
+      description: "自社管理本部の紙ベース業務のDX化",
+      techStack: ["Vue.js", "Spring Boot", "Bootstrap", "PostgreSQL", "WSL", "PL"]
+    },
+    {
+      title: "異動受付支援システム",
+      description: `自治体で利用されているシステムの移行と機能改修、追加実装`,
+      techStack: ["C#", "ASP.NET", "HTML/CSS", "JavaScript", "JQuery", "PostgreSQL"]
+    },
+    {
+      title: "ECサイト構築サービス",
+      description: "オンプレからクラウドへのリプレイスとDB設計とパフォーマンスチューニング",
+      techStack: ["React", "PHP", "Perl", "Shell", "MySQL"]
+    },
+    {
+      title: "IR/SRシステム開発",
+      description: "ポータルサイトの新規機能開発や改修、リファクタリング、DB設計、パフォーマンスチューニング、バッチ実装",
+      techStack: ["PHP", "Java", "Node.js", "PostgreSQL", "MySQL", "JQuery", "独自FW"]
+    },
+    {
+      title: "ブロックチェーン開発",
+      description: "自社オリジナル仮想通貨の作成とアプリケーションの開発",
+      techStack: ["Next.js", "Node.js", "Solidity", "Hardhat", "openzeppelin",]
     }
   ] as Project[],
 };

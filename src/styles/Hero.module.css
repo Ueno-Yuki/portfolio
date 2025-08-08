@@ -34,7 +34,7 @@
   font-family: var(--font-mono);
   color: var(--matrix-green);
   font-size: 14px;
-  animation: matrix 10s infinite;
+  animation: matrix 8s infinite;
   overflow: hidden;
 }
 

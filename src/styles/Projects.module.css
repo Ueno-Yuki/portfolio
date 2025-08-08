@@ -2,28 +2,6 @@
   margin-bottom: 40px;
 }
 
-.window {
-  background: rgba(0, 20, 40, 0.9);
-  border-radius: 8px;
-  margin-bottom: 30px;
-  overflow: hidden;
-}
-
-.windowHeader {
-  background: linear-gradient(135deg, #004466, #0066cc);
-  padding: 12px 20px;
-  border-bottom: 1px solid var(--neon-cyan);
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--neon-cyan);
-}
-
-.windowContent {
-  padding: 30px;
-  line-height: 1.6;
-}
-
 .projectGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -33,15 +11,60 @@
 .projectCard {
   background: rgba(255, 0, 255, 0.1);
   border: 2px solid var(--neon-pink);
-  padding: 25px;
+  padding: 15px;
   border-radius: 8px;
   transition: all 0.3s ease;
+
+  /* 初期状態：非表示 */
+  opacity: 0;
+  transform: scale(0.7) translateY(50px);
+  filter: blur(5px);
 }
 
-.projectCard:hover {
+/* アニメーション実行 */
+.projectCard.animateIn {
+  animation: zoomInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-fill-mode: none; /* forwardsを削除 */
+  animation-iteration-count: 1; /* 明示的に1回だけ実行 */
+}
+
+/* アニメーション完了後の状態をCSSで明示的に設定 */
+.projectCard.hoverEnabled {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  filter: blur(0px);
+  transition: all 0.3s ease; /* ホバー効果用のtransition */
+}
+
+/* ズームインアニメーション定義 */
+@keyframes zoomInUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.7) translateY(50px);
+    filter: blur(5px);
+  }
+  40% {
+    opacity: 0.8;
+    transform: scale(1.05) translateY(-10px);
+    filter: blur(2px);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.02) translateY(-2px);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0px);
+  }
+}
+
+/* ホバー効果 - ふわっと上に動く */
+.projectCard.hoverEnabled:hover {
   background: rgba(255, 0, 255, 0.2);
   box-shadow: 0 0 20px var(--neon-pink);
-  transform: translateY(-5px);
+  transform: translateY(-5px) scale(1.02);
 }
 
 .projectCard h3 {
@@ -53,6 +76,21 @@
 .projectCard p {
   margin-bottom: 15px;
   line-height: 1.6;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.contentContainer h3 {
+  flex-shrink: 0;
+  border-bottom: 2px solid var(--neon-pink);
+}
+
+.contentContainer p {
+  flex-grow: 1;
 }
 
 .techStack {
@@ -72,6 +110,7 @@
   border: 1px solid var(--neon-cyan);
   transition: all 0.3s ease;
   white-space: nowrap;
+  margin-top: auto;
 }
 
 .techTag:hover {
@@ -83,5 +122,21 @@
 @media (max-width: 768px) {
   .projectGrid {
     grid-template-columns: 1fr;
+  }
+
+  .projectCard {
+    min-height: auto;
+  }
+
+  /* モバイルではアニメーションを軽くする */
+  @keyframes zoomInUp {
+    0% {
+      opacity: 0;
+      transform: scale(0.9) translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
   }
 }
