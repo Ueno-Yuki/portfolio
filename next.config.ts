@@ -76,6 +76,10 @@ const nextConfig: NextConfig = {
   webpack: config => {
     config.resolve.alias["@"] = path.resolve(__dirname, "src");
     config.resolve.alias["~"] = path.join(__dirname, "src");
+
+    // ファイルシステムの大文字・小文字の違いを無視する設定
+    config.resolve.symlinks = false;
+
     return config;
   },
 };
