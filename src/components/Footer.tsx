@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import styles from "@/styles/Footer.module.css";
+import commonStyles from "@/styles/common/common.module.css";
 import ContactModal from "./ContactModal";
 import { CONTACT_LINKS } from "@/constants/contents";
 import { ContactLink } from "@/types/footer";
@@ -32,7 +33,7 @@ export default function Footer() {
     <>
 <footer className={styles.footer}>
         <div className={styles.footerContent}>
-          <div className={styles.contactLinks}>
+          <div className={`${styles.contactLinks} ${commonStyles.flexCenter}`}>
             {contactLinks.map((link, index) => {
               // onClickがある場合はボタンとして描画
               if (link.onClick) {
@@ -40,7 +41,7 @@ export default function Footer() {
                   <button 
                   key={index} 
                   onClick={link.onClick} 
-                  className={`${styles.contactLink} ${styles.contactButton} glow`}
+                  className={`${commonStyles.buttonGreen} ${styles.footerButton} glow`}
                   aria-label={link.ariaLabel}
                   >
                     <Icon name={link.iconName as IconName} className={styles.icon} />
@@ -55,7 +56,7 @@ export default function Footer() {
                   <div key={index} className={styles.githubContent}>
                     <a 
                       href={link.href} 
-                      className={`${styles.contactLink} glow_min`}
+                      className={`${commonStyles.buttonGreen} ${styles.footerButton} glow_min`}
                       target={link.isExternal ? "_blank" : undefined}
                       rel={link.isExternal ? "noopener noreferrer" : undefined}
                       aria-label={link.ariaLabel}
@@ -77,7 +78,7 @@ export default function Footer() {
                 <a 
                   key={index} 
                   href={link.href} 
-                  className={`${styles.contactLink} glow`}
+                  className={`${commonStyles.buttonGreen} ${styles.footerButton} glow`}
                   target={link.isExternal ? "_blank" : undefined}
                   rel={link.isExternal ? "noopener noreferrer" : undefined}
                   aria-label={link.ariaLabel}

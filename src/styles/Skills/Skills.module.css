@@ -44,14 +44,10 @@
 }
 
 .skillCategory {
-  background: rgba(0, 20, 40, 0.95);
-  border-radius: 12px;
   border: 2px solid transparent;
   box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  overflow: hidden;
-  transition: all 0.3s ease;
+  0 8px 32px rgba(0, 0, 0, 0.3),
+  inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .skillCategory:hover {
@@ -76,14 +72,15 @@
 }
 
 .categoryTitle {
-  font-family: 'Orbitron', monospace;
+  font-family: var(--font-tech);
   font-size: 1.4rem;
   font-weight: 700;
-  color: var(--neon-cyan);
   margin: 0;
   text-shadow: 
-    0 0 2px currentColor,
-    0 0 4px currentColor;
+    0 0 2px currentColor, 
+    0 0 3px currentColor;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
 .skillsList {

@@ -20,42 +20,20 @@
 }
 
 .contactLinks {
-  display: flex;
-  justify-content: center;
   gap: 30px;
   flex-wrap: wrap;
 }
 
-.contactLink {
-  font-family: var(--font-mono);
-  color: var(--neon-green);
-  text-decoration: none;
-  padding: 10px 20px;
-  border: 2px solid var(--neon-green);
-  border-radius: 4px;
-  transition: all 0.3s ease;
+/* フッターボタンの統一スタイル */
+.footerButton {
+  width: 120px;
+  height: 50px;
   display: flex;
   align-items: center;
-}
-
-.contactLink:hover {
-  background: rgba(0, 255, 0, 0.2);
-  box-shadow: 0 0 15px var(--neon-green);
-  transform: translateY(-2px);
+  justify-content: center;
+  text-align: center;
 }
 
 .icon {
-  margin-right: 10px;
-}
-
-.contactButton {
-  background: transparent;
-  cursor: pointer;
-  font-size: inherit;
-}
-
-.contactButton:hover {
-  background: rgba(0, 255, 0, 0.2);
-  box-shadow: 0 0 15px var(--neon-green);
-  transform: translateY(-2px);
+  margin-right: 8px;
 }

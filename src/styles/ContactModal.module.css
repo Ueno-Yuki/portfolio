@@ -99,47 +99,7 @@
   align-items: center;
 }
 
-.modalTitle {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 16px;
-  color: var(--neon-cyan);
-  margin: 0;
-  text-transform: uppercase;
-  text-shadow: 
-    0 0 2px currentColor,
-    0 0 4px currentColor;
-}
-
-.closeButton {
-  background: none;
-  border: 2px solid var(--neon-pink);
-  color: var(--neon-pink);
-  font-size: 20px;
-  width: 30px;
-  height: 30px;
-  border-radius: 4px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  font-family: 'Share Tech Mono', monospace;
-}
-
-.closeButton:hover:not(:disabled) {
-  background: rgba(255, 0, 255, 0.2);
-  box-shadow: 0 0 10px var(--neon-pink);
-  transform: scale(1.1);
-}
-
-.closeButton:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.modalContent {
-  padding: 30px;
-}
+/* 削除: commonStyles.titlePrimary, formLabel, formInput, buttonSecondary, windowContentに移行済み */
 
 .contactForm {
   display: flex;
@@ -151,42 +111,6 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-}
-
-.label {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 14px;
-  color: var(--neon-cyan);
-  text-transform: uppercase;
-  text-shadow: 
-    0 0 3px currentColor,
-    0 0 6px currentColor;
-}
-
-.input,
-.textarea {
-  background: rgba(0, 0, 0, 0.6);
-  border: 2px solid rgba(0, 255, 255, 0.3);
-  border-radius: 4px;
-  padding: 12px 15px;
-  color: var(--neon-cyan);
-  font-family: 'Orbitron', monospace;
-  font-size: 14px;
-  transition: all 0.3s ease;
-}
-
-.input:focus,
-.textarea:focus {
-  outline: none;
-  border-color: var(--neon-cyan);
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
-  background: rgba(0, 0, 0, 0.8);
-}
-
-.input:disabled,
-.textarea:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
 }
 
 .textarea {
@@ -202,55 +126,7 @@
   margin-top: 10px;
 }
 
-.submitButton {
-  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-blue));
-  border: 2px solid var(--neon-cyan);
-  color: #000;
-  padding: 12px 25px;
-  border-radius: 4px;
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-}
-
-.submitButton:hover:not(:disabled) {
-  background: linear-gradient(135deg, var(--neon-blue), var(--neon-cyan));
-  box-shadow: 0 0 15px var(--neon-cyan);
-  transform: translateY(-2px);
-}
-
-.submitButton:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  transform: none;
-}
-
-.cancelButton {
-  background: transparent;
-  border: 2px solid var(--neon-pink);
-  color: var(--neon-pink);
-  padding: 12px 25px;
-  border-radius: 4px;
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 14px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-}
-
-.cancelButton:hover:not(:disabled) {
-  background: rgba(255, 0, 255, 0.2);
-  box-shadow: 0 0 15px var(--neon-pink);
-  transform: translateY(-2px);
-}
-
-.cancelButton:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
+/* 削除: commonStyles.buttonPrimary, buttonSecondary, buttonDisabledに移行済み */
 
 .errorMessage {
   background: rgba(255, 0, 0, 0.1);

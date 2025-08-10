@@ -26,7 +26,7 @@ export default function Home() {
        <title>{pageData.title}</title>
         <meta name="description" content={pageData.description} />
         <meta name="keywords" content={pageData.keywords.join(', ')} />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, user-scalable=yes" />
         
         {/* 正規URL */}
         <link rel="canonical" href={canonicalUrl} />

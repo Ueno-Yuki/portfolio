@@ -1,5 +1,5 @@
 import styles from "@/styles/Skills/Skills.module.css";
-import common from "@/styles/common/common.module.css";
+import commonStyles from "@/styles/common/common.module.css";
 import StarRating from "../Skills/StarRating";
 import { SKILL, SKILLS } from "@/constants/contents";
 import { IPA_URL } from "@/constants/urls";
@@ -8,11 +8,11 @@ import Icon from "@/components/UI/Icons";
 export default function Skills() {
   return (
     <section className={styles.skillsSection}>
-      <div className={`${common.window} neon-border`}>
-        <div className={common.windowHeader}>
+      <div className={`${commonStyles.window} neon-border`}>
+        <div className={commonStyles.windowHeader}>
           <span>{SKILL.title}</span>
         </div>
-        <div className={common.windowContent}>
+        <div className={commonStyles.windowContent}>
           <div className={styles.descContainer}>
             {SKILL.descriptions.map((desc, index) => (
               <div key={index} className={styles.desc}>
@@ -30,14 +30,14 @@ export default function Skills() {
           </div>
           <div className={styles.skillsContainer}>
             {SKILLS.map((category, categoryIndex) => (
-              <div key={categoryIndex} className={styles.skillCategory}>
+              <div key={categoryIndex} className={`${commonStyles.card} ${styles.skillCategory}`}>
                 <div 
                   className={styles.categoryHeader}
                   style={{ borderColor: category.color }}
                 >
                   <Icon name={category.iconName} size="xl" 
                     color={category.color} />
-                  <h3 className={styles.categoryTitle}>{category.title}</h3>
+                  <h3 className={`${commonStyles.titleSecondary} ${styles.categoryTitle}`} style={{ color: category.color }}>{category.title}</h3>
                 </div>
                 <div className={styles.skillsList}>
                   {category.skills.map((skill, skillIndex) => {

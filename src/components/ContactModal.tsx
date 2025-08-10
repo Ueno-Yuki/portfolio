@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "@/styles/ContactModal.module.css";
+import commonStyles from "@/styles/common/common.module.css";
 import ToastContainer from "./UI/Toast";
 import { useToast } from "@/hooks/useToast";
 
@@ -141,8 +142,8 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
         >
         <div className={`${styles.modalContainer} ${isAnimating ? styles.slideIn : styles.slideOut}`}>
           <div className={styles.modalHeader}>
-            <h2 className={styles.modalTitle}>CONTACT_FORM</h2>
-            <button className={styles.closeButton} onClick={handleClose} disabled={isSubmitting}>
+            <h2 className={commonStyles.titlePrimary}>CONTACT FORM</h2>
+            <button className={commonStyles.buttonSecondary} onClick={handleClose} disabled={isSubmitting}>
               ×
             </button>
           </div>
@@ -150,38 +151,38 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
           <div className={styles.modalContent}>
             <form onSubmit={handleSubmit} className={styles.contactForm}>
               <div className={styles.formGroup}>
-                <label htmlFor="name" className={styles.label}>氏名</label>
+                <label htmlFor="name" className={commonStyles.formLabel}>氏名</label>
                 <input type="text" id="name" name="name" value={formData.name} onChange={handleInputChange}
-                  className={styles.input} disabled={isSubmitting} required
+                  className={commonStyles.formInput} disabled={isSubmitting} required
                   />
               </div>
 
               <div className={styles.formGroup}>
-                <label htmlFor="email" className={styles.label}>Email</label>
+                <label htmlFor="email" className={commonStyles.formLabel}>メールアドレス</label>
                 <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange}
-                  className={styles.input} disabled={isSubmitting}
+                  className={commonStyles.formInput} disabled={isSubmitting}
                   />
               </div>
 
               <div className={styles.formGroup}>
-                <label htmlFor="phone" className={styles.label}>電話番号</label>
+                <label htmlFor="phone" className={commonStyles.formLabel}>電話番号</label>
                 <input type="text" id="phone" name="phone" value={formData.phone} onChange={handleInputChange}
-                  className={styles.input} disabled={isSubmitting}
+                  className={commonStyles.formInput} disabled={isSubmitting}
                   />
               </div>
 
               <div className={styles.formGroup}>
-                <label htmlFor="message" className={styles.label}>内容</label>
+                <label htmlFor="message" className={commonStyles.formLabel}>内容</label>
                 <textarea id="message" name="message" value={formData.message} onChange={handleInputChange}
-                  className={styles.textarea} rows={5} disabled={isSubmitting} required
+                  className={`${commonStyles.formInput} ${styles.textarea}`} rows={5} disabled={isSubmitting} required
                   />
               </div>
 
-              <div className={styles.buttonGroup}>
-                <button type="submit" className={styles.submitButton} disabled={isSubmitting}>
+              <div className={`${styles.buttonGroup}`}>
+                <button type="submit" className={`${commonStyles.buttonPrimary} ${commonStyles.buttonDisabled}`} disabled={isSubmitting}>
                   {isSubmitting ? 'SENDING...' : 'SEND'}
                 </button>
-                <button type="button" className={styles.cancelButton} onClick={handleClose} disabled={isSubmitting}>
+                <button type="button" className={`${commonStyles.buttonSecondary} ${commonStyles.buttonDisabled}`} onClick={handleClose} disabled={isSubmitting}>
                   CANCEL
                 </button>
               </div>
