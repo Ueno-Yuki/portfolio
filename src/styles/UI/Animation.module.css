@@ -1,0 +1,33 @@
+.container {
+  width: 200px;
+  height: 200px;
+}
+
+.box {
+  width: 50%;
+  height: 50%;
+  background-color: var(--neon-cyan);
+  animation: rotate 2s linear infinite;
+}
+
+.fadeIn {
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -1,10 +1,12 @@
 import { useState, useEffect, useMemo } from "react";
 import styles from "@/styles/UI/Loading.module.css";
+import { useLoading } from "@/contexts/LoadingContext";
 
 export default function Loading() {
   const [isVisible, setIsVisible] = useState(true);
   const [progress, setProgress] = useState(0);
   const [currentText, setCurrentText] = useState("INITIALIZING SYSTEM...");
+  const { setLoadingComplete } = useLoading();
 
   const loadingSteps = useMemo(() => [
     "INITIALIZING SYSTEM...",
@@ -30,7 +32,7 @@ export default function Loading() {
 
     const interval = setInterval(() => {
       setProgress(prev => {
-        const newProgress = prev + 1;
+        const newProgress = prev + 2;
         
         if (newProgress <= 100) {
           const stepIndex = Math.floor((newProgress / 100) * (loadingSteps.length - 1));
@@ -47,8 +49,11 @@ export default function Loading() {
               // スクロール位置を最上部に移動
               window.scrollTo({ top: 0, behavior: 'instant' });
               
+              // Heroアニメーション開始のフラグを設定
+              setLoadingComplete(true);
+              
               setIsVisible(false);
-            }, 1000);
+            }, 500);
           }
           
           return newProgress;
@@ -67,7 +72,7 @@ export default function Loading() {
       document.body.style.width = originalWidth;
       document.body.style.top = originalTop;
     };
-  }, [loadingSteps]);
+  }, [loadingSteps, setLoadingComplete]);
 
   if (!isVisible) return null;
 

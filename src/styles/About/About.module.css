@@ -1,5 +1,6 @@
 .aboutSection {
   margin-bottom: 40px;
+  margin-top: 40px; /* Heroセクションとの適切な間隔 */
 }
 
 .aboutWindowContent {

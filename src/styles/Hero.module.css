@@ -1,9 +1,14 @@
 .heroSection {
   text-align: center;
   margin-bottom: 60px;
+  min-height: calc(100vh - 60px); /* ヘッダー・パディング分を考慮 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
-/* 削除: commonStyles.titlePrimary, titleSecondaryに移行済み、固有スタイルのみ残す */
 .heroTitle {
   font-size: 4rem;
   margin-bottom: 20px;
@@ -34,8 +39,75 @@
   font-family: var(--font-mono);
   color: var(--matrix-green);
   font-size: 14px;
-  animation: matrix 8s infinite;
+  mask-image: linear-gradient(
+    to bottom, 
+    #000 33.3%, 
+    transparent 33.3%
+  );
+  transform: translateX(var(--x, -110%)) skewX(var(--skewX, 40deg));
+}
+
+.matrixCodeText {
   overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-mono);
+  color: var(--matrix-green);
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.matrixCode1,
+.matrixCode2,
+.matrixCode3 {
+  transition: transform 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* アニメーション開始用クラス */
+.matrixCodeText.animate .matrixCode1,
+.matrixCodeText.animate .matrixCode3 {
+  animation: matrixSlide1 9s infinite ease;
+}
+
+.matrixCodeText.animate .matrixCode2 {
+  animation: matrixSlide2 9s infinite ease;
+}
+
+.matrixCode2,
+.matrixCode3 {
+  position: absolute;
+}
+
+.matrixCode1 {
+  mask-image: linear-gradient(
+    to bottom, 
+    #000 33.3%, 
+    transparent 33.3%
+  );
+  transform: translateX(var(--x, -110%)) skewX(var(--skewX, 40deg));
+}
+
+.matrixCode2 {
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 33.3%,
+    #000 33.3%,
+    #000 66.6%,
+    transparent 66.6%
+  );
+  transform: translateX(var(--x, 110%)) skewX(var(--skewX, -40deg));
+}
+
+.matrixCode3 {
+  mask-image: linear-gradient(
+    to bottom, 
+    transparent 66.6%, 
+    #000 66.6%
+  );
+  transform: translateX(var(--x, -110%)) skewX(var(--skewX, 40deg));
 }
 
 @keyframes matrix {
@@ -43,6 +115,128 @@
   100% { transform: translateX(100%); }
 }
 
+/* マトリックスコードアニメーション */
+@keyframes matrixSlide1 {
+  0% { 
+    transform: translateX(-110%) skewX(40deg); 
+  }
+  11% { 
+    transform: translateX(0%) skewX(0deg); 
+  }
+  44% { 
+    transform: translateX(0%) skewX(0deg); 
+  }
+  55% { 
+    transform: translateX(110%) skewX(-40deg); 
+  }
+  67% { 
+    transform: translateX(0%) skewX(0deg); 
+  }
+  89% { 
+    transform: translateX(0%) skewX(0deg); 
+  }
+  100% { 
+    transform: translateX(-110%) skewX(40deg); 
+  }
+}
+
+@keyframes matrixSlide2 {
+  0% { 
+    transform: translateX(110%) skewX(-40deg); 
+  }
+  11% { 
+    transform: translateX(0%) skewX(0deg); 
+  }
+  44% { 
+    transform: translateX(0%) skewX(0deg); 
+  }
+  55% { 
+    transform: translateX(-110%) skewX(40deg); 
+  }
+  67% { 
+    transform: translateX(0%) skewX(0deg); 
+  }
+  89% { 
+    transform: translateX(0%) skewX(0deg); 
+  }
+  100% { 
+    transform: translateX(110%) skewX(-40deg); 
+  }
+}
+
+/* スクロールダウンの位置 */
+.scroll {
+  color:rgb(180, 180, 180);
+  position: absolute;
+  right: 50%;
+  bottom: 25%;
+  writing-mode: vertical-rl;
+}
+/* 線のアニメーション部分 */
+.scroll::before {
+  animation: scroll 2s infinite;
+  background-color: rgb(180, 180, 180);
+  bottom: -115px;
+  content: "";
+  height: 100px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  width: 1px;
+}
+/* 線のアニメーション定義 */
+@keyframes scroll {
+  0% {
+    transform: scale(1, 0);
+    transform-origin: 0 0;
+  }
+  50% {
+    transform: scale(1, 1);
+    transform-origin: 0 0;
+  }
+  51% {
+    transform: scale(1, 1);
+    transform-origin: 0 100%;
+  }
+  100% {
+    transform: scale(1, 0);
+    transform-origin: 0 100%;
+  }
+}
+
+/* 高さが足りない場合の調整 */
+@media (max-height: 600px) {
+  .scroll {
+    right: auto;
+    left: 0;
+    bottom: 30%;
+    top: 0; /* 画面中央（サブタイトル付近）に配置 */
+    transform: translateY(-50%);
+    writing-mode: vertical-rl; /* 縦書きを維持 */
+  }
+  
+  .scroll::before {
+    bottom: 0; /* 下方向の線 */
+    top: 60%;
+    right: auto;
+    left: 35%;
+    margin: auto;
+    height: 30%; /* 縮小した縦線 */
+    width: 1px;
+  }
+}
+
+/* より狭い高さの場合 */
+@media (max-height: 500px) {
+  .heroSection {
+    min-height: calc(100vh - 40px);
+    justify-content: flex-start;
+    padding-top: 60px;
+  }
+}
+
+/* モバイル画面サイズ */
 @media (max-width: 768px) {
   .heroTitle {
     font-size: 2.5rem;
@@ -50,5 +244,41 @@
   
   .heroSubtitle {
     font-size: 1.2rem;
+  }
+  
+  /* モバイルで高さも足りない場合 */
+  .scroll {
+    right: auto;
+    left: 15px;
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+  }
+}
+
+/* 非常に小さい画面の場合 */
+@media (max-width: 480px) and (max-height: 600px) {
+  .heroSection {
+    padding-top: 40px;
+  }
+  
+  .heroTitle {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  
+  .heroSubtitle {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .matrix {
+    margin-top: 20px;
+  }
+  
+  .scroll {
+    left: 10px;
+    bottom: 10px;
   }
 }

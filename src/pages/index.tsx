@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import Certifications from "@/components/Certifications/Certifications";
 import { generateBreadcrumbList, PAGE_METADATA, SITE_METADATA } from "@/constants/metadata";
 import { getFullUrl, INTERNAL_PATHS } from "@/constants/urls";
+import { LoadingProvider } from "@/contexts/LoadingContext";
 
 export default function Home() {
   const pageData = PAGE_METADATA.home;
@@ -20,7 +21,7 @@ export default function Home() {
   ]);
   
   return (
-    <>
+    <LoadingProvider>
       <Head>
        {/* 基本メタタグ */}
        <title>{pageData.title}</title>
@@ -77,6 +78,6 @@ export default function Home() {
 
         <Footer />
       </div>
-    </>
+    </LoadingProvider>
   );
 }
