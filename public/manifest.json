@@ -1,7 +1,7 @@
 {
-  "name": "YUKI UENO - Engineer Portfolio",
+  "name": "YUKI UENO | Webエンジニア - フルスタック開発者のポートフォリオ",
   "short_name": "YUKI UENO",
-  "description": "2020年からエンジニアとして活動している上野裕暉のポートフォリオサイト",
+  "description": "Java・JavaScript・PHP・AWSを専門とするWebエンジニア上野裕暉のポートフォリオ",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
@@ -10,9 +10,19 @@
   "lang": "ja",
   "icons": [
     {
-      "src": "/profile.jpeg",
+      "src": "/YU.png",
       "sizes": "512x512",
-      "type": "image/jpeg"
+      "type": "image/png"
+    },
+    {
+      "src": "/YU.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/YU.png",
+      "sizes": "180x180",
+      "type": "image/png"
     }
   ],
   "categories": [

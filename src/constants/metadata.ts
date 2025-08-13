@@ -20,10 +20,10 @@ export const SITE_METADATA = {
   
   // OGP画像
   ogImage: {
-    url: '/og-image.png',
-    width: 1200,
-    height: 630,
-    alt: 'YUKI UENO - Engineer Portfolio',
+    url: '/YU.png',
+    width: 512,
+    height: 512,
+    alt: 'YUKI UENO - Webエンジニア Portfolio',
   },
   
   // ロゴ・ファビコン
@@ -55,7 +55,7 @@ export const SITE_METADATA = {
 // ページ別メタデータ
 export const PAGE_METADATA = {
   home: {
-    title: 'YUKI UENO | Webエンジニア - WEBエンジニアのポートフォリオ',
+    title: 'YUKI UENO | WEBエンジニア - WEBエンジニアのポートフォリオ',
     description: SITE_METADATA.description,
     keywords: [
       'エンジニア',

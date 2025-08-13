@@ -29,9 +29,10 @@ export default function Document() {
         <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
         
         {/* アイコン・マニフェスト */}
-        <link rel="icon" href="/YU.png" sizes="any" />
-        <link rel="icon" href="/YU.png" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/YU.png" />
+        <link rel="icon" href="/YU.png" type="image/png" />
+        <link rel="icon" href="/YU.png" sizes="32x32" type="image/png" />
+        <link rel="icon" href="/YU.png" sizes="16x16" type="image/png" />
+        <link rel="apple-touch-icon" href="/YU.png" sizes="180x180" />
         <link rel="manifest" href="/manifest.json" />
 
         <link
