@@ -1,9 +1,9 @@
 // SEOメタデータの定数定義
 export const SITE_METADATA = {
   // 基本情報
-  title: 'YUKI UENO | Webエンジニア - フルスタック開発者のポートフォリオ',
+  title: 'WEBエンジニア 上野裕暉(うえのゆうき) | Java開発5年・副業対応・東京 | YUKI UENO',
   titleTemplate: '%s | YUKI UENO',
-  description: 'Java・JavaScript・PHP・AWSを専門とするWebエンジニア上野裕暉のポートフォリオ。業務システム開発5年の実務経験、AWS認定資格保有。フロントエンド、バックエンド両方で開発が可能です。',
+  description: '東京在住のWEBエンジニア上野裕暉(うえのゆうき/ウエノユウキ)のポートフォリオ。Java・JavaScript・PHP開発5年の実務経験。副業・フリーランス案件対応可能。AWS認定資格保有。業務システム開発からWeb開発まで幅広く対応。',
   siteName: 'YUKI UENO Portfolio',
   siteUrl: 'https://yuki-ueno.com',
   
@@ -15,7 +15,7 @@ export const SITE_METADATA = {
     titleJa: 'WEBエンジニア',
     experience: '2020年〜',
     location: '東京',
-    email: 'jam14_01@icloud.com', // 実際のメールアドレスに変更
+    email: 'jam14_01@icloud.com',
   },
   
   // OGP画像
