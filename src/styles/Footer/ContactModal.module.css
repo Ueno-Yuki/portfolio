@@ -207,7 +207,7 @@
   }
   
   .buttonGroup {
-    flex-direction: column;
+    flex-direction: row;
     gap: 8px;
     margin-top: 8px;
   }
@@ -227,7 +227,7 @@
   }
   
   .modalContainer {
-    max-height: calc(100vh - 115px); /* ヘッダー高さを考慮 + 余白 */
+    max-height: calc(100vh - 310px); /* ヘッダー高さを考慮 + 余白 */
     font-size: 13px;
   }
   
@@ -258,7 +258,7 @@
   }
   
   .modalContainer {
-    max-height: calc(100vh - 120px); /* ヘッダー高さを考慮 + 余白 */
+    max-height: calc(100vh - 250px); /* ヘッダー高さを考慮 + 余白 */
     font-size: 12px;
   }
   
