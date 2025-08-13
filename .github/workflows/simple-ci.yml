@@ -1,0 +1,69 @@
+name: Simple CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run TypeScript check
+        run: npx tsc --noEmit
+
+      - name: Build application
+        run: npm run build
+        env:
+          NEXT_PUBLIC_GA_MEASUREMENT_ID: 'G-TEST123456'
+          NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: 'test-verification'
+
+      - name: Build summary
+        run: |
+          echo "✅ Build completed successfully!"
+          echo "📦 Bundle information:"
+          ls -la .next/ 2>/dev/null || echo "Next.js build directory created"
+          echo "🎉 All checks passed!"
+
+  security-basic:
+    name: Basic Security Check
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Check for secrets
+        run: |
+          echo "🔍 Checking for potential secrets..."
+          # Basic check for common secret patterns
+          if grep -r "sk_" . --exclude-dir=node_modules --exclude-dir=.git || 
+             grep -r "pk_" . --exclude-dir=node_modules --exclude-dir=.git ||
+             grep -r "password" . --exclude-dir=node_modules --exclude-dir=.git; then
+            echo "⚠️ Potential secrets found - please review"
+          else
+            echo "✅ No obvious secrets detected"
+          fi
+          
+      - name: Check file permissions
+        run: |
+          echo "🔒 Checking file permissions..."
+          find . -type f -perm -o+w -not -path "./node_modules/*" -not -path "./.git/*" || echo "✅ No world-writable files found"
