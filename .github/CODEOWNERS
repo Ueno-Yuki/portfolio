@@ -1,0 +1,40 @@
+# Code Owners for Portfolio Repository
+# これは所有者のみがマージできるように設定されています
+# GitHub Branch Protection Rules と組み合わせて使用
+
+# 全ファイルの所有者
+* @Ueno-Yuki
+
+# 重要な設定ファイル
+package.json @Ueno-Yuki
+package-lock.json @Ueno-Yuki
+next.config.ts @Ueno-Yuki
+tsconfig.json @Ueno-Yuki
+eslint.config.mjs @Ueno-Yuki
+
+# セキュリティ関連ファイル
+CODEOWNERS @Ueno-Yuki
+.github/ @Ueno-Yuki
+
+# 環境設定ファイル
+.env* @Ueno-Yuki
+
+# ビルド・デプロイ関連
+vercel.json @Ueno-Yuki
+.vercelignore @Ueno-Yuki
+
+# ドキュメンテーション
+README.md @Ueno-Yuki
+CLAUDE.md @Ueno-Yuki
+
+# API Routes (重要な機能)
+src/pages/api/ @Ueno-Yuki
+
+# セキュリティ・プライバシー関連
+src/constants/policies.ts @Ueno-Yuki
+src/utils/cookies.ts @Ueno-Yuki
+src/utils/analytics.ts @Ueno-Yuki
+
+# コンテンツ管理 (公開情報)
+src/constants/contents.ts @Ueno-Yuki
+src/constants/metadata.ts @Ueno-Yuki
