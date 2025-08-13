@@ -77,7 +77,7 @@ export default async function handler(
 
     // メール送信（テスト用：入力されたメールアドレスに送信）
     const { data, error } = await resend.emails.send({
-      from: `${process.env.EMAIL_FROM_NAME} <noreply@${process.env.EMAIL_FROM_DOMAIN}`,
+      from: `${process.env.EMAIL_FROM_NAME} <noreply@${process.env.EMAIL_FROM_DOMAIN}>`,
       to: [email], // 入力されたメールアドレスに送信
       subject: `【${process.env.EMAIL_FROM_NAME}】お問い合わせ: ${name}様より`,
       html: `

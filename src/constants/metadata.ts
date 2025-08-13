@@ -48,7 +48,7 @@ export const SITE_METADATA = {
   
   // 検索エンジン設定
   robots: 'index, follow',
-  googleSiteVerification: '', // Google Search Consoleの認証コード
+  googleSiteVerification: 'HxBYDYa7FuzOcyLKt2vwH1bZJqsBkS-o21GJalkj9wc', // Google Search Consoleの認証コード
   bingSiteVerification: '', // Bing Webmaster Toolsの認証コード
 } as const;
 
