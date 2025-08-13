@@ -1,7 +1,7 @@
 .footer {
   background: rgba(0, 0, 0, 0.8);
   border-top: 2px solid var(--neon-cyan);
-  padding: 40px 0;
+  padding: 40px 0 15px 0;
   text-align: center;
   margin-top: 3%;
   width: 100vw;
@@ -36,4 +36,75 @@
 
 .icon {
   margin-right: 8px;
+}
+
+/* ポリシーリンクとコピーライト */
+.footerBottom {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.policyLinks {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.policyLink {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 5px 8px;
+  border-radius: 4px;
+}
+
+.policyLink:hover {
+  color: var(--neon-cyan);
+  background: rgba(0, 255, 255, 0.1);
+  text-shadow: 0 0 5px var(--neon-cyan);
+}
+
+.separator {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.copyright {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  text-align: center;
+  opacity: 0.8;
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+  .footerBottom {
+    margin-top: 25px;
+    padding-top: 15px;
+    gap: 12px;
+  }
+
+  .policyLinks {
+    gap: 12px;
+  }
+
+  .policyLink {
+    font-size: 0.85rem;
+    padding: 4px 6px;
+  }
+
+  .separator {
+    font-size: 0.85rem;
+  }
+
+  .copyright {
+    font-size: 0.8rem;
+  }
 }

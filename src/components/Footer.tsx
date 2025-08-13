@@ -3,20 +3,38 @@ import Image from "next/image";
 import styles from "@/styles/Footer.module.css";
 import commonStyles from "@/styles/common/common.module.css";
 import ContactModal from "./ContactModal";
+import PolicyModal from "./PolicyModal";
 import { CONTACT_LINKS } from "@/constants/contents";
+import { PRIVACY_POLICY, SITE_POLICY, COPYRIGHT_TEXT } from "@/constants/policies";
 import { ContactLink } from "@/types/footer";
 import Icon from "./UI/Icons";
 import { IconName } from "@/constants/icons";
 
 export default function Footer() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [isPolicyModalOpen, setIsPolicyModalOpen] = useState(false);
+  const [policyType, setPolicyType] = useState<'privacy' | 'site'>('privacy');
 
   const handleEmailClick = () => {
-    setIsModalOpen(true);
+    setIsContactModalOpen(true);
   };
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
+  const handleCloseContactModal = () => {
+    setIsContactModalOpen(false);
+  };
+
+  const handlePrivacyPolicyClick = () => {
+    setPolicyType('privacy');
+    setIsPolicyModalOpen(true);
+  };
+
+  const handleSitePolicyClick = () => {
+    setPolicyType('site');
+    setIsPolicyModalOpen(true);
+  };
+
+  const handleClosePolicyModal = () => {
+    setIsPolicyModalOpen(false);
   };
 
   const contactLinks: ContactLink[] = CONTACT_LINKS.map(link => {
@@ -31,7 +49,7 @@ export default function Footer() {
 
   return (
     <>
-<footer className={styles.footer}>
+      <footer className={styles.footer}>
         <div className={styles.footerContent}>
           <div className={`${styles.contactLinks} ${commonStyles.flexCenter}`}>
             {contactLinks.map((link, index) => {
@@ -88,12 +106,43 @@ export default function Footer() {
               );
             })}
           </div>
+
+          {/* ポリシーリンクとコピーライト */}
+          <div className={styles.footerBottom}>
+            <div className={styles.policyLinks}>
+              <button 
+                onClick={handlePrivacyPolicyClick}
+                className={styles.policyLink}
+                aria-label="プライバシーポリシーを開く"
+              >
+                プライバシーポリシー
+              </button>
+              <span className={styles.separator}>|</span>
+              <button 
+                onClick={handleSitePolicyClick}
+                className={styles.policyLink}
+                aria-label="サイトポリシーを開く"
+              >
+                サイトポリシー
+              </button>
+            </div>
+            <div className={styles.copyright}>
+              {COPYRIGHT_TEXT}
+            </div>
+          </div>
         </div>
       </footer>
       
       <ContactModal 
-        isOpen={isModalOpen} 
-        onClose={handleCloseModal} 
+        isOpen={isContactModalOpen} 
+        onClose={handleCloseContactModal} 
+      />
+      
+      <PolicyModal
+        isOpen={isPolicyModalOpen}
+        onClose={handleClosePolicyModal}
+        title={policyType === 'privacy' ? 'プライバシーポリシー' : 'サイトポリシー'}
+        content={policyType === 'privacy' ? PRIVACY_POLICY : SITE_POLICY}
       />
     </>
   );
