@@ -238,19 +238,19 @@ export const CERTIFICATIONS = {
   title: "資格",
   items: [
     {
+      imagePath: "/DVA.png",
+      iconName: "AWS Certified Developer - Associate",
+      date: "2023年3月",
+      note: "Amazon Web Service",
+      url: EXTERNAL_URLS.awsDeveloper,
+    },
+    {
       imagePath: "/SAA.png",
       iconName: "AWS Certified Solution Architect - Associate",
       date: "2022年12月",
       note: "Amazon Web Service",
       url: EXTERNAL_URLS.awsSAA,
     },
-    {
-      imagePath: "/DVA.png",
-      iconName: "AWS Certified Developer - Associate",
-      date: "2023年3月",
-      note: "Amazon Web Service",
-      url: EXTERNAL_URLS.awsDeveloper,
-    }
   ],
   comment: {
     text: "継続的な学習を心がけています",
