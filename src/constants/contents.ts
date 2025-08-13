@@ -98,7 +98,7 @@ export const SKILL = {
 const PROGRAMMING_LANGUAGES: SkillItem[] = [
   { name: "Java", iconClass: "devicon-java-plain colored", rating: 4 },
   { name: "JavaScript", iconClass: "devicon-javascript-plain colored", rating: 4 },
-  { name: "TypeScript", iconClass: "devicon-typescript-plain colored", rating: 4 },
+  { name: "TypeScript", iconClass: "devicon-typescript-plain colored", rating: 3 },
   { name: "PHP", iconClass: "devicon-php-plain colored", rating: 3 },
   { name: "Solidity", iconClass: "devicon-solidity-plain colored", rating: 2 },
   { name: "Python", iconClass: "devicon-python-plain colored", rating: 2 },
@@ -118,7 +118,7 @@ const FRONTEND_SKILLS: SkillItem[] = [
 /* バックエンド */
 const BACKEND_SKILLS: SkillItem[] = [
   { name: "Node.js", iconClass: "devicon-nodejs-plain colored", rating: 4 },
-  { name: "Spring Boot", iconClass: "devicon-spring-plain colored", rating: 4 },
+  { name: "Spring Boot", iconClass: "devicon-spring-plain colored", rating: 3 },
   { name: "Laravel", iconClass: "devicon-laravel-plain colored", rating: 3 },
 ] as const;
 
