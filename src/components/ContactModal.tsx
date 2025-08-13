@@ -3,6 +3,7 @@ import styles from "@/styles/ContactModal.module.css";
 import commonStyles from "@/styles/common/common.module.css";
 import ToastContainer from "./UI/Toast";
 import { useToast } from "@/hooks/useToast";
+import { trackEvent } from "@/utils/analytics";
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -128,6 +129,8 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
       const data = await response.json();
 
       if (response.ok) {
+        // 送信成功をトラッキング
+        trackEvent('contact_form_submit', 'conversion', 'email_sent');
         resetForm();
         onClose();
         // モーダルが閉じてからトースト通知を表示
@@ -135,6 +138,8 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
           success('送信完了', 'メールが正常に送信されました');
         }, 300);
       } else {
+        // 送信失敗をトラッキング
+        trackEvent('contact_form_error', 'error', data.error || 'unknown_error');
         error('送信失敗', data.error || 'メール送信に失敗しました');
       }
     } catch (err) {

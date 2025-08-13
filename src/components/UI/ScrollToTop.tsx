@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from '@/styles/UI/ScrollToTop.module.css';
 import Icon from './Icons';
+import { trackEvent } from '@/utils/analytics';
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -24,6 +25,7 @@ export default function ScrollToTop() {
 
   // トップへスクロール
   const scrollToTop = () => {
+    trackEvent('scroll_to_top', 'navigation', 'button_click');
     window.scrollTo({
       top: 0,
       behavior: 'smooth'

@@ -4,6 +4,7 @@ import StarRating from "../Skills/StarRating";
 import { SKILL, SKILLS } from "@/constants/contents";
 import { IPA_URL } from "@/constants/urls";
 import Icon from "@/components/UI/Icons";
+import { trackExternalLink } from "@/utils/analytics";
 
 export default function Skills() {
   return (
@@ -23,7 +24,12 @@ export default function Skills() {
           </div>
           <div className={styles.descComment}>
             {SKILL.comment}
-            <a href={IPA_URL} target="_blank" className={styles.link}>
+            <a 
+              href={IPA_URL} 
+              target="_blank" 
+              className={styles.link}
+              onClick={() => trackExternalLink(IPA_URL)}
+            >
               {SKILL.link}
               <Icon name={SKILL.iconName} />
             </a>

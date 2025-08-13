@@ -2,6 +2,7 @@ import { PROJECT } from "@/constants/contents";
 import styles from "@/styles/Projects.module.css";
 import commonStyles from "@/styles/common/common.module.css";
 import { useState, useRef, useEffect } from "react";
+import { trackEvent } from "@/utils/analytics";
 
 export default function Projects() {
   const [isVisible, setIsVisible] = useState(false);
@@ -55,7 +56,8 @@ export default function Projects() {
               return (
                 <div 
                   key={index} 
-                  className={cardClasses.join(' ')}>
+                  className={cardClasses.join(' ')}
+                  onClick={() => trackEvent('project_view', 'engagement', project.title)}>
                   <div className={styles.contentContainer}>
                     <h3>{project.title}</h3>
                     <p>{project.description}</p>

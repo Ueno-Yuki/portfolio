@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useState } from "react";
 import styles from "@/styles/Home.module.css";
 import Loading from "@/components/UI/Loading";
 import Hero from "@/components/Hero";
@@ -8,11 +9,20 @@ import Projects from "@/components/Projects";
 import Footer from "@/components/Footer";
 import Certifications from "@/components/Certifications/Certifications";
 import ScrollToTop from "@/components/UI/ScrollToTop";
+import CookieBanner from "@/components/CookieBanner";
+import PolicyModal from "@/components/PolicyModal";
 import { generateBreadcrumbList, PAGE_METADATA, SITE_METADATA } from "@/constants/metadata";
 import { getFullUrl, INTERNAL_PATHS } from "@/constants/urls";
+import { PRIVACY_POLICY } from "@/constants/policies";
 import { LoadingProvider } from "@/contexts/LoadingContext";
+import { useAnalytics } from "@/hooks/useAnalytics";
 
 export default function Home() {
+  const [isPolicyModalOpen, setIsPolicyModalOpen] = useState(false);
+  
+  // Google Analyticsを初期化
+  useAnalytics();
+  
   const pageData = PAGE_METADATA.home;
   const canonicalUrl = getFullUrl(pageData.path);
   
@@ -20,6 +30,14 @@ export default function Home() {
   const breadcrumbList = generateBreadcrumbList([
     { name: 'ホーム', url: INTERNAL_PATHS.home },
   ]);
+
+  const handlePolicyClick = () => {
+    setIsPolicyModalOpen(true);
+  };
+
+  const handleClosePolicyModal = () => {
+    setIsPolicyModalOpen(false);
+  };
   
   return (
     <LoadingProvider>
@@ -78,6 +96,14 @@ export default function Home() {
       </div>
       
       <ScrollToTop />
+      <CookieBanner onPolicyClick={handlePolicyClick} />
+      
+      <PolicyModal
+        isOpen={isPolicyModalOpen}
+        onClose={handleClosePolicyModal}
+        title="プライバシーポリシー"
+        content={PRIVACY_POLICY}
+      />
     </LoadingProvider>
   );
 }

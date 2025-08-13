@@ -1,0 +1,231 @@
+/* Cookie Banner Styles */
+.cookieBanner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 2px solid var(--neon-cyan);
+  box-shadow: 
+    0 -4px 20px rgba(0, 255, 255, 0.3),
+    inset 0 1px 0 rgba(0, 255, 255, 0.2);
+  z-index: 1000;
+  padding: 20px;
+  animation: slideUp 0.4s ease-out;
+}
+
+.bannerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.bannerIcon {
+  flex-shrink: 0;
+  color: var(--neon-cyan);
+  margin-top: 2px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.bannerText {
+  flex: 1;
+  min-width: 300px;
+}
+
+.bannerTitle {
+  color: var(--neon-cyan);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+}
+
+.bannerDescription {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.policyLink {
+  background: none;
+  border: none;
+  color: var(--neon-cyan);
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: inherit;
+  padding: 0 2px;
+  transition: all 0.2s ease;
+}
+
+.policyLink:hover {
+  color: var(--neon-pink);
+  text-shadow: 0 0 5px var(--neon-pink);
+}
+
+.bannerActions {
+  flex-shrink: 0;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.actionButton {
+  min-width: 100px;
+  height: 40px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+/* 設定展開時のスタイル */
+.settingsContainer {
+  width: 100%;
+  margin-top: 16px;
+  border-top: 1px solid rgba(0, 255, 255, 0.3);
+  padding-top: 16px;
+}
+
+.cookieSettings {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.cookieOption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(0, 255, 255, 0.05);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.cookieOption:hover {
+  background: rgba(0, 255, 255, 0.1);
+  border-color: rgba(0, 255, 255, 0.3);
+}
+
+.optionInfo {
+  flex: 1;
+}
+
+.optionInfo strong {
+  color: var(--text-primary);
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+}
+
+.optionInfo p {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  margin-left: 16px;
+  accent-color: var(--neon-cyan);
+  cursor: pointer;
+}
+
+.checkbox:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.settingsActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* アニメーション */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+  .cookieBanner {
+    padding: 16px;
+  }
+
+  .bannerContent {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .bannerText {
+    min-width: auto;
+  }
+
+  .bannerTitle {
+    font-size: 1rem;
+  }
+
+  .bannerDescription {
+    font-size: 0.85rem;
+  }
+
+  .bannerActions {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .actionButton {
+    flex: 1;
+    min-width: auto;
+  }
+
+  .cookieOption {
+    padding: 10px 12px;
+  }
+
+  .optionInfo strong {
+    font-size: 0.9rem;
+  }
+
+  .optionInfo p {
+    font-size: 0.8rem;
+  }
+
+  .settingsActions {
+    justify-content: stretch;
+  }
+
+  .settingsActions .actionButton {
+    flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .bannerActions {
+    flex-direction: column;
+  }
+
+  .settingsActions {
+    flex-direction: column;
+  }
+}

@@ -9,6 +9,7 @@ import { PRIVACY_POLICY, SITE_POLICY, COPYRIGHT_TEXT } from "@/constants/policie
 import { ContactLink } from "@/types/footer";
 import Icon from "./UI/Icons";
 import { IconName } from "@/constants/icons";
+import { trackEvent, trackExternalLink } from "@/utils/analytics";
 
 export default function Footer() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -16,6 +17,7 @@ export default function Footer() {
   const [policyType, setPolicyType] = useState<'privacy' | 'site'>('privacy');
 
   const handleEmailClick = () => {
+    trackEvent('contact_modal_open', 'engagement', 'email');
     setIsContactModalOpen(true);
   };
 
@@ -24,11 +26,13 @@ export default function Footer() {
   };
 
   const handlePrivacyPolicyClick = () => {
+    trackEvent('policy_view', 'engagement', 'privacy_policy');
     setPolicyType('privacy');
     setIsPolicyModalOpen(true);
   };
 
   const handleSitePolicyClick = () => {
+    trackEvent('policy_view', 'engagement', 'site_policy');
     setPolicyType('site');
     setIsPolicyModalOpen(true);
   };
@@ -78,6 +82,11 @@ export default function Footer() {
                       target={link.isExternal ? "_blank" : undefined}
                       rel={link.isExternal ? "noopener noreferrer" : undefined}
                       aria-label={link.ariaLabel}
+                      onClick={() => {
+                        if (link.isExternal && link.href) {
+                          trackExternalLink(link.href);
+                        }
+                      }}
                     >
                       <Image 
                         src={link.svgPath} 
@@ -100,6 +109,11 @@ export default function Footer() {
                   target={link.isExternal ? "_blank" : undefined}
                   rel={link.isExternal ? "noopener noreferrer" : undefined}
                   aria-label={link.ariaLabel}
+                  onClick={() => {
+                    if (link.isExternal && link.href) {
+                      trackExternalLink(link.href);
+                    }
+                  }}
                 >
                   {link.text}
                 </a>

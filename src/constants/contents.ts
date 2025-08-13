@@ -271,3 +271,29 @@ export const CONTACT_LINKS: Omit<ContactLink, 'onClick'>[] = [
     hasSvg: true,
   },
 ] as const;
+
+/** ==========================================
+ *  Cookie関連
+ *  ========================================== */
+export const COOKIE_BANNER = {
+  title: "Cookieの使用について",
+  description: "当サイトでは、サイトの利用状況の分析やユーザーエクスペリエンスの向上のためにCookieを使用しています。詳細については",
+  policyLinkText: "プライバシーポリシー",
+  policyLinkSuffix: "をご確認ください。",
+  buttons: {
+    settings: "設定",
+    acceptAll: "すべて許可",
+    reject: "拒否",
+    saveSelection: "選択を保存"
+  },
+  cookieTypes: {
+    functional: {
+      title: "必要なCookie",
+      description: "サイトの基本機能に必要です"
+    },
+    analytics: {
+      title: "分析Cookie", 
+      description: "サイトの利用状況を分析します"
+    }
+  }
+} as const;
