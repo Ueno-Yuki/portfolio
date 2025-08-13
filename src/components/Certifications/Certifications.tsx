@@ -5,7 +5,7 @@ import CertificationList from "../Certifications/CertificationList";
 
 export default function Certifications() {
   return (
-    <section className={styles.certificationsSection}>
+    <section id="certifications" className={styles.certificationsSection}>
       <div className={`${commonStyles.window} neon-border`}>
         <div className={commonStyles.windowHeader}>
           <span>{CERTIFICATIONS.title}</span>

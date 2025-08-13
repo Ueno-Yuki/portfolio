@@ -13,7 +13,6 @@ export default function Loading() {
     "LOADING PROTOCOLS...",
     "CONNECTING TO MAINFRAME...",
     "DECRYPTING DATA FILES...",
-    "ESTABLISHING SECURE CONNECTION...",
     "LOADING PORTFOLIO DATA...",
     "SYSTEM READY"
     ], []);

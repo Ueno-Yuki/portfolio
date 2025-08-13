@@ -5,12 +5,48 @@
   gap: 30px;
 }
 
-/* カードスタイル - 共通クラスに移行済み、固有スタイルのみ残す */
+/* カードスタイル */
 .certificationCard {
-  /* commonStyles.card + cardHoverで基本スタイル適用済み */
   min-height: 220px;
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+/* リンク化されたカード */
+.certificationLink {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.certificationLink:hover {
+  transform: translateY(-5px);
+}
+
+.certificationLink:active {
+  transform: translateY(-2px);
+}
+
+/* 外部リンクアイコンコンテナ */
+.externalIconContainer {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+  padding: 3px;
+}
+
+.externalIcon {
+  color: rgba(0, 255, 255, 0.8);
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.certificationLink:hover .externalIcon {
+  color: var(--neon-cyan);
+  transform: scale(1.1);
 }
 
 /* カードサムネイル */
@@ -56,6 +92,41 @@
   padding-left: 15px;
 }
 
+.comment {
+  display: flex;
+  margin: 3% auto 0 auto;
+  padding: 5px 4px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+  border-radius: 20px;
+  width: 20em;
+  background-image: linear-gradient(90deg, rgb(34, 211, 238), rgba(139, 92, 246) 50%);
+  opacity: 0.9;
+}
+
+.commentIcon {
+  color: white;
+  margin-right: 7px;
+}
+
+.commentText {
+  color:rgb(255, 255, 255);
+  font-weight: 700;
+}
+
+@media (min-width: 769px ) and (max-width: 870px) {
+  .thumbnail {
+    display: unset;
+  }
+
+  .date {
+    width: 7em;
+    margin: 0 0 0 5%;
+    text-align: center;
+  }
+}
+
 @media (max-width: 768px) {
   .certificationListContainer {
     grid-template-columns: 1fr;
@@ -69,5 +140,31 @@
 
   .cardImg {
     margin: 7% 7% 0 7%;
+  }
+
+  .thumbnail {
+    display: flex;
+    margin-right: 5%;
+  }
+
+  .date {
+    margin-right: 0;
+  }
+  
+  /* モバイルでの外部リンクアイコン調整 */
+  .externalIconContainer {
+    top: 8px;
+    right: 8px;
+    padding: 6px;
+  }
+  
+  .externalIcon {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 375px) {
+  .comment {
+    width: 100%;
   }
 }

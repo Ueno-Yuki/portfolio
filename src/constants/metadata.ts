@@ -55,7 +55,7 @@ export const SITE_METADATA = {
 // ページ別メタデータ
 export const PAGE_METADATA = {
   home: {
-    title: 'YUKI UENO | WEBエンジニア - WEBエンジニアのポートフォリオ',
+    title: 'YUKI UENO | WEBエンジニア',
     description: SITE_METADATA.description,
     keywords: [
       'エンジニア',

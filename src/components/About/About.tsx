@@ -6,7 +6,7 @@ import Introduction from "@/components/About/Introduction";
 
 export default function About() {
   return (
-    <section className={styles.aboutSection}>
+    <section id="about" className={styles.aboutSection}>
       <div className={`${common.window} neon-border`}>
         <div className={common.windowHeader}>
           <span>{ABOUT.title}</span>

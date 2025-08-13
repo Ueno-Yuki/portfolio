@@ -50,7 +50,7 @@ export default function Hero() {
   };
 
   return (
-    <div className={styles.heroSection}>
+    <div id="hero" className={styles.heroSection}>
       <motion.h1 
         className={`${commonStyles.titlePrimary} ${styles.heroTitle} glow`}
         variants={titleVariants}

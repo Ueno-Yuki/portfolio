@@ -38,7 +38,7 @@
 .matrixCode {
   font-family: var(--font-mono);
   color: var(--matrix-green);
-  font-size: 14px;
+  font-size: 2rem;
   mask-image: linear-gradient(
     to bottom, 
     #000 33.3%, 
@@ -55,7 +55,7 @@
   align-items: center;
   font-family: var(--font-mono);
   color: var(--matrix-green);
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 400;
   text-transform: uppercase;
 }

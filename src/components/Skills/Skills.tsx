@@ -8,7 +8,7 @@ import { trackExternalLink } from "@/utils/analytics";
 
 export default function Skills() {
   return (
-    <section className={styles.skillsSection}>
+    <section id="skills" className={styles.skillsSection}>
       <div className={`${commonStyles.window} neon-border`}>
         <div className={commonStyles.windowHeader}>
           <span>{SKILL.title}</span>

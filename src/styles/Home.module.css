@@ -2,7 +2,7 @@
   min-height: 100vh;
   position: relative;
   z-index: 3;
-  padding: 20px 20px 0 20px;
+  padding: 20px; /* デフォルトは均等な余白 */
 }
 
 .main {
@@ -11,8 +11,27 @@
   padding: 0;
 }
 
-@media (max-width: 768px) {
+/* デスクトップ専用（941px以上）の右側余白確保 */
+@media (min-width: 941px) {
   .container {
-    padding: 10px 10px 0 10px;
+    padding-right: 100px; /* 右側にFixedHeader用の余白を確保 */
+  }
+}
+
+@media (max-width: 940px) {
+  .container {
+    padding: 80px 20px 0 20px; /* モバイルでは上部にFixedHeader用余白 */
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 70px 15px 0 15px; /* 小画面での上部余白調整 */
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding: 65px 10px 0 10px; /* 超小画面での上部余白調整 */
   }
 }

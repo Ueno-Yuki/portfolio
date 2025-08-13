@@ -19,8 +19,8 @@ export const EXTERNAL_URLS = {
   github: 'https://github.com/Ueno-Yuki',
   
   // AWS認定資格
-  awsSAA: 'https://www.credly.com/badges/your-saa-badge-id', // 実際のバッジURLに変更
-  awsDeveloper: 'https://www.credly.com/badges/your-developer-badge-id', // 実際のバッジURLに変更
+  awsSAA: 'https://www.credly.com/badges/c7aecacd-c788-4af0-98f1-869970824c19/public_url', // 実際のバッジURLに変更
+  awsDeveloper: 'https://www.credly.com/badges/c7aecacd-c788-4af0-98f1-869970824c19/public_url', // 実際のバッジURLに変更
   
   // 参考資料・外部リンク
   ipaSkillStandard: 'https://www.ipa.go.jp/archive/files/000005100.pdf#page=32',

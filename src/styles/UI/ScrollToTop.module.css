@@ -1,7 +1,5 @@
 .scrollToTop {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
+  position: relative;
   width: 50px;
   height: 50px;
   background: rgba(0, 255, 255, 0.1);
@@ -12,7 +10,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 255, 255, 0.1);
   backdrop-filter: blur(10px);
@@ -46,19 +43,15 @@
 /* モバイル対応 */
 @media (max-width: 768px) {
   .scrollToTop {
-    bottom: 20px;
-    right: 20px;
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
   }
 }
 
 /* 小さな画面での調整 */
 @media (max-width: 480px) {
   .scrollToTop {
-    bottom: 15px;
-    right: 15px;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
   }
 }

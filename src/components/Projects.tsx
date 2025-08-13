@@ -37,7 +37,7 @@ export default function Projects() {
     };
   }, []);
   return (
-    <section ref={sectionRef} className={`${styles.projectsSection} ${isVisible ? styles.visible : ''}`}>
+    <section id="projects" ref={sectionRef} className={`${styles.projectsSection} ${isVisible ? styles.visible : ''}`}>
       <div className={`${commonStyles.window} neon-border`}>
         <div className={commonStyles.windowHeader}>
           <span>{PROJECT.title}</span>

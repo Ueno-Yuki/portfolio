@@ -8,7 +8,7 @@ import Skills from "@/components/Skills/Skills";
 import Projects from "@/components/Projects";
 import Footer from "@/components/Footer";
 import Certifications from "@/components/Certifications/Certifications";
-import ScrollToTop from "@/components/UI/ScrollToTop";
+import FixedHeader from "@/components/FixedHeader";
 import CookieBanner from "@/components/CookieBanner";
 import PolicyModal from "@/components/PolicyModal";
 import { generateBreadcrumbList, PAGE_METADATA, SITE_METADATA } from "@/constants/metadata";
@@ -95,7 +95,7 @@ export default function Home() {
         <Footer />
       </div>
       
-      <ScrollToTop />
+      <FixedHeader />
       <CookieBanner onPolicyClick={handlePolicyClick} />
       
       <PolicyModal

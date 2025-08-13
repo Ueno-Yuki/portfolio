@@ -1,0 +1,199 @@
+.fixedHeader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 80px;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  border-left: 2px solid rgba(0, 255, 255, 0.3);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 0;
+  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* デスクトップ専用（941px以上）の表示確保 */
+@media (min-width: 941px) {
+  .fixedHeader {
+    display: flex;
+  }
+}
+
+/* ナビゲーション */
+.navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px 0;
+  flex: 1;
+  justify-content: center;
+}
+
+.navItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 8px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  margin: 0 10px;
+  position: relative;
+}
+
+.navItem:hover {
+  color: var(--neon-cyan);
+  background: rgba(0, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.navItem.active {
+  color: var(--neon-cyan);
+  background: rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.navItem.active::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 30px;
+  background: var(--neon-cyan);
+  border-radius: 2px;
+  box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.navIcon {
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.navLabel {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+/* トップへ戻るボタンコンテナ */
+.scrollToTopContainer {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+/* モバイル対応 */
+@media (max-width: 940px) {
+  .fixedHeader {
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(15px);
+    border-left: none;
+    border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 20px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  .navigation {
+    flex-direction: row;
+    gap: 8px;
+    padding: 0;
+    flex: 1;
+    justify-content: space-around;
+  }
+  
+  .navItem {
+    padding: 8px 6px;
+    gap: 4px;
+    margin: 0;
+    min-width: 50px;
+  }
+  
+  .navItem.active::before {
+    left: 50%;
+    top: -10px;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 3px;
+  }
+  
+  .navIcon {
+    font-size: 16px;
+  }
+  
+  .navLabel {
+    font-size: 9px;
+  }
+  
+  .scrollToTopContainer {
+    padding: 0;
+    margin-left: 10px;
+  }
+}
+
+/* 小さな画面での調整 */
+@media (max-width: 480px) {
+  .fixedHeader {
+    padding: 8px 15px;
+  }
+  
+  .navigation {
+    gap: 6px;
+  }
+  
+  .navItem {
+    padding: 6px 4px;
+    gap: 3px;
+    min-width: 45px;
+  }
+  
+  .navIcon {
+    font-size: 14px;
+  }
+  
+  .navLabel {
+    font-size: 8px;
+  }
+  
+  .scrollToTopContainer {
+    margin-left: 8px;
+  }
+}
+
+/* 超小画面ではラベルを非表示 */
+@media (max-width: 360px) {
+  .fixedHeader {
+    padding: 6px 10px;
+  }
+  
+  .navLabel {
+    display: none;
+  }
+  
+  .navItem {
+    gap: 0;
+    min-width: 40px;
+    padding: 8px 3px;
+  }
+  
+  .scrollToTopContainer {
+    margin-left: 5px;
+  }
+}

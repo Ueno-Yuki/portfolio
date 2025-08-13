@@ -13,17 +13,22 @@ import {
   Wrench,
   Monitor,
   Server,
+  User,
   ChevronDown,
   ChevronUp,
   X,
   Check,
   AlertCircle,
   Info,
-  AlertTriangle
+  AlertTriangle,
+  Home,
+  Folder,
+  PencilLine
 } from 'lucide-react';
 
 // アイコンのマッピング
 export const ICONS = {
+  
   // コンタクト関連
   mail: Mail,
   phone: Phone,
@@ -42,6 +47,11 @@ export const ICONS = {
   warning: AlertTriangle,
   info: Info,
   
+  // ナビゲーション関連
+  home: Home,
+  user: User,
+  folder: Folder,
+  
   // その他
   calendar: Calendar,
   award: Award,
@@ -51,6 +61,7 @@ export const ICONS = {
   wrench: Wrench,
   monitor: Monitor,
   server: Server,
+  pencilLine: PencilLine
 } as const;
 
 // アイコンの型定義

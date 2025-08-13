@@ -1,6 +1,7 @@
 import { ContactLink } from "@/types/footer";
 import { SkillItem, SkillCategory } from "@/types/skills";
-import { IconName } from "./icons";
+import { IconName } from "@/constants/icons";
+import { EXTERNAL_URLS } from "@/constants/urls";
 import { Project } from "@/types";
 
 /* ============================
@@ -240,15 +241,21 @@ export const CERTIFICATIONS = {
       imagePath: "/SAA.png",
       iconName: "AWS Certified Solution Architect - Associate",
       date: "2022年12月",
-      note: "Amazon Web Service"
+      note: "Amazon Web Service",
+      url: EXTERNAL_URLS.awsSAA,
     },
     {
       imagePath: "/DVA.png",
       iconName: "AWS Certified Developer - Associate",
       date: "2023年3月",
-      note: "Amazon Web Service"
+      note: "Amazon Web Service",
+      url: EXTERNAL_URLS.awsDeveloper,
     }
-  ]
+  ],
+  comment: {
+    text: "継続的な学習を心がけています",
+    iconName: "pencilLine"
+  }
 } as const;
 
 /** ==========================================
