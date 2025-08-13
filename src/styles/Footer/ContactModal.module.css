@@ -227,7 +227,7 @@
   }
   
   .modalContainer {
-    max-height: calc(100vh - 250px); /* ヘッダー高さを考慮 + 余白 */
+    max-height: calc(100vh - 235px); /* ヘッダー高さを考慮 + 余白 */
     font-size: 13px;
   }
   
