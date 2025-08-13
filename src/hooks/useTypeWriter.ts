@@ -11,6 +11,21 @@ export const useTypeWriter = ({ text, speed = 10, delay = 0 }: UseTypeWriterProp
   const [isTyping, setIsTyping] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const isSkippedRef = useRef(false);
+
+  // スキップ機能
+  const skipAnimation = useCallback(() => {
+    if (isTyping && text) {
+      // タイマーをクリア
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      if (intervalRef.current) clearInterval(intervalRef.current);
+      
+      // 即座に全文表示
+      setDisplayText(text);
+      setIsTyping(false);
+      isSkippedRef.current = true;
+    }
+  }, [isTyping, text]);
 
   const startTyping = useCallback(() => {
     // 既存のタイマーをクリア
@@ -19,16 +34,19 @@ export const useTypeWriter = ({ text, speed = 10, delay = 0 }: UseTypeWriterProp
     
     setDisplayText('');
     setIsTyping(true);
+    isSkippedRef.current = false;
     
     let i = 0;
     timeoutRef.current = setTimeout(() => {
       intervalRef.current = setInterval(() => {
-        if (i < text.length) {
+        if (i < text.length && !isSkippedRef.current) {
           setDisplayText(text.substring(0, i + 1));
           i++;
         } else {
           if (intervalRef.current) clearInterval(intervalRef.current);
-          setIsTyping(false);
+          if (!isSkippedRef.current) {
+            setIsTyping(false);
+          }
         }
       }, speed);
     }, delay);
@@ -46,5 +64,5 @@ export const useTypeWriter = ({ text, speed = 10, delay = 0 }: UseTypeWriterProp
     };
   }, [startTyping, text]);
 
-  return { displayText, isTyping };
+  return { displayText, isTyping, skipAnimation };
 };

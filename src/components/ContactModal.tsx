@@ -35,26 +35,40 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     if (isOpen) {
       setIsVisible(true);
       setIsAnimating(false); // 開くアニメーション：閉じた状態から開始
+      
+      // より強力なスクロール無効化
+      const originalOverflow = document.body.style.overflow;
+      const originalPosition = document.body.style.position;
+      const originalTop = document.body.style.top;
+      const scrollY = window.scrollY;
+      
       document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
       
       // 開くアニメーション開始
       setTimeout(() => {
         setIsAnimating(true); // 開いた状態にアニメーション
       }, 10);
+      
+      return () => {
+        // スクロール位置を復元
+        document.body.style.overflow = originalOverflow;
+        document.body.style.position = originalPosition;
+        document.body.style.top = originalTop;
+        document.body.style.width = '';
+        window.scrollTo(0, scrollY);
+      };
     } else if (isVisible) {
       // 閉じるアニメーション開始
       setIsAnimating(false); // 閉じた状態にアニメーション
-      document.body.style.overflow = '';
       
       // 閉じるアニメーション完了後に非表示
       setTimeout(() => {
         setIsVisible(false);
       }, 300);
     }
-
-    return () => {
-      document.body.style.overflow = '';
-    };
   }, [isOpen, isVisible]);
 
   // フォームリセット

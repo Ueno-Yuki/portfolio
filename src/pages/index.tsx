@@ -7,6 +7,7 @@ import Skills from "@/components/Skills/Skills";
 import Projects from "@/components/Projects";
 import Footer from "@/components/Footer";
 import Certifications from "@/components/Certifications/Certifications";
+import ScrollToTop from "@/components/UI/ScrollToTop";
 import { generateBreadcrumbList, PAGE_METADATA, SITE_METADATA } from "@/constants/metadata";
 import { getFullUrl, INTERNAL_PATHS } from "@/constants/urls";
 import { LoadingProvider } from "@/contexts/LoadingContext";
@@ -59,10 +60,7 @@ export default function Home() {
           }}
         />
         
-        {/* Preload重要なリソース */}
-        <link rel="preload" href="/profile.jpeg" as="image" />
-        <link rel="preload" href="/SAA.png" as="image" />
-        <link rel="preload" href="/DVA.png" as="image" />
+        {/* Preload重要なリソース - 初期表示で即座に必要な画像のみ */}
       </Head>
       
       <Loading />
@@ -78,6 +76,8 @@ export default function Home() {
 
         <Footer />
       </div>
+      
+      <ScrollToTop />
     </LoadingProvider>
   );
 }

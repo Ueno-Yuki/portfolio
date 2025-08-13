@@ -5,8 +5,8 @@ export default function Document() {
   return (
     <Html lang="ja">
       <Head>
-                {/* 基本的なメタタグ */}
-                <meta charSet="utf-8" />
+        {/* 基本的なメタタグ */}
+        <meta charSet="utf-8" />
         <meta name="robots" content={SITE_METADATA.robots} />
         <meta name="theme-color" content={SITE_METADATA.themeColor} />
         <meta name="author" content={SITE_METADATA.author.name} />
@@ -29,9 +29,9 @@ export default function Document() {
         <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
         
         {/* アイコン・マニフェスト */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/YU.png" sizes="any" />
+        <link rel="icon" href="/YU.png" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/YU.png" />
         <link rel="manifest" href="/manifest.json" />
 
         <link
@@ -55,8 +55,8 @@ export default function Document() {
           rel="stylesheet"
         />
 
-                {/* 構造化データ */}
-                <script
+        {/* 構造化データ */}
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(STRUCTURED_DATA.person),

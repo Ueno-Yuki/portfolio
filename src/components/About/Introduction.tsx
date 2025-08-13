@@ -57,9 +57,9 @@ export default function Introduction() {
   const currentContent = ABOUT.introductions.find(intro => parseInt(intro.idx) === currentIndex);
   
   // タイピング効果用のhook - shouldStartTypingがtrueになってから開始
-  const { displayText, isTyping } = useTypeWriter({ 
+  const { displayText, isTyping, skipAnimation } = useTypeWriter({ 
     text: shouldStartTyping ? (currentContent?.content || '') : '', 
-    speed: 15,  // 1文字あたり15ms
+    speed: 10,  // 1文字あたり10ms
     delay: 200  // 200ms待機してから開始
   });
 
@@ -82,7 +82,13 @@ export default function Introduction() {
             <div className={styles.date}>{currentContent.date}</div>
             <div className={`${styles.subtitle} glow_min`}>{currentContent.subtitle}</div>
           </div>
-          <div className={styles.content}>{displayText}</div>
+          <div 
+            className={styles.content}
+            onClick={skipAnimation}
+            style={{ cursor: isTyping ? 'pointer' : 'default' }}
+          >
+            {displayText}
+          </div>
           <div 
             key={currentIndex} 
             className={`${styles.tagList} ${!isTyping ? animateStyles.fadeIn : ''}`}

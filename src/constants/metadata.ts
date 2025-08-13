@@ -15,7 +15,7 @@ export const SITE_METADATA = {
     titleJa: 'WEBエンジニア',
     experience: '2020年〜',
     location: '東京',
-    email: 'contact@yuki-ueno.com', // 実際のメールアドレスに変更
+    email: 'jam14_01@icloud.com', // 実際のメールアドレスに変更
   },
   
   // OGP画像
@@ -28,7 +28,7 @@ export const SITE_METADATA = {
   
   // ロゴ・ファビコン
   logo: {
-    url: '/logo.png',
+    url: '/YU.png',
     width: 512,
     height: 512,
   },
@@ -71,6 +71,11 @@ export const PAGE_METADATA = {
       'フルスタック開発',
       'Web開発',
       '業務システム開発',
+      '上流工程',
+      '下流工程',
+      '要件定義',
+      '基本設計',
+      '詳細設計',
       '上野裕暉',
       'YUKI UENO'
     ],
@@ -113,6 +118,7 @@ export const STRUCTURED_DATA = {
       'MySQL',
       'PostgreSQL',
       'Git',
+      'Subversion'
     ],
     hasCredential: [
       {

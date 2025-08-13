@@ -2,14 +2,15 @@
 .certificationListContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(auto-fit, 16rem);
-  row-gap: 5%;
-  column-gap: 3%;
+  gap: 30px;
 }
 
 /* カードスタイル - 共通クラスに移行済み、固有スタイルのみ残す */
 .certificationCard {
   /* commonStyles.card + cardHoverで基本スタイル適用済み */
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
 }
 
 /* カードサムネイル */
@@ -39,6 +40,10 @@
 .cardContent {
   padding: 3%;
   font-weight: 700;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .contentTitle {

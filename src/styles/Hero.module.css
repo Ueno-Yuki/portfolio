@@ -205,30 +205,29 @@
   }
 }
 
-/* 高さが足りない場合の調整 */
-@media (max-height: 600px) {
+/* 高さが足りない場合の調整（幅768px以上のみ） */
+@media (max-height: 600px) and (min-width: 768px) {
   .scroll {
     right: auto;
-    left: 0;
-    bottom: 30%;
-    top: 0; /* 画面中央（サブタイトル付近）に配置 */
+    left: 20px;
+    bottom: auto;
+    top: 50%;
     transform: translateY(-50%);
     writing-mode: vertical-rl; /* 縦書きを維持 */
   }
   
   .scroll::before {
-    bottom: 0; /* 下方向の線 */
-    top: 60%;
-    right: auto;
-    left: 35%;
+    top: 70px; /* 下方向の線 */
+    right: 0;
+    left: 0;
     margin: auto;
-    height: 30%; /* 縮小した縦線 */
+    height: 100px; /* 縮小した縦線 */
     width: 1px;
   }
 }
 
-/* より狭い高さの場合 */
-@media (max-height: 500px) {
+/* より狭い高さの場合（幅768px以上のみ） */
+@media (max-height: 500px) and (min-width: 768px) {
   .heroSection {
     min-height: calc(100vh - 40px);
     justify-content: flex-start;
@@ -246,14 +245,30 @@
     font-size: 1.2rem;
   }
   
-  /* モバイルで高さも足りない場合 */
+  /* モバイルでは通常位置を維持 */
   .scroll {
-    right: auto;
-    left: 15px;
-    bottom: auto;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 12px;
+    right: 50%;
+    left: auto;
+    bottom: 25%;
+    top: auto;
+    transform: none;
+    font-size: 1rem;
+    writing-mode: vertical-rl;
+  }
+
+  .scroll::before {
+    bottom: -115px;
+    right: 0;
+    left: 0;
+    margin: auto;
+    height: 100px;
+    width: 1px;
+  }
+
+  .matrixCode1,
+  .matrixCode2,
+  .matrixCode3 {
+    font-size: 0.8rem;
   }
 }
 
