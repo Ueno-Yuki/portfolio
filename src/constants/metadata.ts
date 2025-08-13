@@ -1,9 +1,9 @@
 // SEOメタデータの定数定義
 export const SITE_METADATA = {
   // 基本情報
-  title: 'YUKI UENO - Engineer Portfolio',
+  title: 'YUKI UENO | Webエンジニア - フルスタック開発者のポートフォリオ',
   titleTemplate: '%s | YUKI UENO',
-  description: '2020年からエンジニアとして活動している上野裕暉のポートフォリオサイト。Java、JavaScript、PHP、AWSなどの技術を使用したWebアプリケーション開発の実務経験と、AWS認定資格を保有。',
+  description: 'Java・JavaScript・PHP・AWSを専門とするWebエンジニア上野裕暉のポートフォリオ。業務システム開発5年の実務経験、AWS認定資格保有。フロントエンド、バックエンド両方で開発が可能です。',
   siteName: 'YUKI UENO Portfolio',
   siteUrl: 'https://yuki-ueno.com',
   
@@ -55,7 +55,7 @@ export const SITE_METADATA = {
 // ページ別メタデータ
 export const PAGE_METADATA = {
   home: {
-    title: 'YUKI UENO - Engineer Portfolio',
+    title: 'YUKI UENO | Webエンジニア - WEBエンジニアのポートフォリオ',
     description: SITE_METADATA.description,
     keywords: [
       'エンジニア',
@@ -68,8 +68,10 @@ export const PAGE_METADATA = {
       'Next.js',
       'Vue.js',
       'AWS',
-      'フルスタック開発',
-      'Web開発',
+      '開発',
+      'WEB開発',
+      'リファクタリング',
+      'チューニング',
       '業務システム開発',
       '上流工程',
       '下流工程',
