@@ -233,7 +233,7 @@
   }
 
   .modalContent {
-    max-height: calc(100vh - 270px); /* ヘッダー高さを考慮 + 余白 */
+    max-height: calc(100vh - 260px); /* ヘッダー高さを考慮 + 余白 */
     border-radius: 6px;
   }
 
