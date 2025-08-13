@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import styles from "@/styles/PolicyModal.module.css";
+import styles from "@/styles/Footer/PolicyModal.module.css";
 import commonStyles from "@/styles/common/common.module.css";
-import Icon from "./UI/Icons";
+import Icon from "@/components/UI/Icons";
 
 interface PolicyModalProps {
   isOpen: boolean;

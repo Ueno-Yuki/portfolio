@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import styles from '@/styles/FixedHeader.module.css';
+import styles from '@/styles/UI/FixedHeader.module.css';
 import Icon from '@/components/UI/Icons';
 import ScrollToTop from '@/components/UI/ScrollToTop';
 import { trackEvent } from '@/utils/analytics';

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import styles from "@/styles/ContactModal.module.css";
+import styles from "@/styles/Footer/ContactModal.module.css";
 import commonStyles from "@/styles/common/common.module.css";
-import ToastContainer from "./UI/Toast";
+import ToastContainer from "@/components/UI/Toast";
 import { useToast } from "@/hooks/useToast";
 import { trackEvent } from "@/utils/analytics";
 

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import styles from '@/styles/CookieBanner.module.css';
+import styles from '@/styles/UI/CookieBanner.module.css';
 import commonStyles from '@/styles/common/common.module.css';
-import Icon from './UI/Icons';
+import Icon from '@/components/UI/Icons';
 import { COOKIE_BANNER } from '@/constants/contents';
 import { saveCookieConsent, isCookieConsentRequired, CookieConsent } from '@/utils/cookies';
 

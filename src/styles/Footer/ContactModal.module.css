@@ -171,30 +171,98 @@
     0 0 8px currentColor;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 940px) {
   .modalOverlay {
-    padding: 10px;
+    padding: 5px;
     align-items: flex-start;
-    padding-top: 20px;
+    padding-top: 80px; /* モバイルヘッダーの高さ分の余白 */
   }
   
   .modalContainer {
     max-width: 100%;
-    max-height: calc(100vh - 40px);
-    margin: auto 0;
+    max-height: calc(100vh - 110px); /* ヘッダー高さを考慮 + 余白 */
+    margin: 0;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .modalHeader {
+    padding: 12px 16px;
+  }
+  
+  .modalHeader h2 {
+    font-size: 1.2rem;
   }
   
   .modalContent {
-    padding: 20px;
+    padding: 16px;
+  }
+  
+  .formGroup {
+    gap: 6px;
+  }
+  
+  .contactForm {
+    gap: 16px;
   }
   
   .buttonGroup {
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
+    margin-top: 8px;
   }
   
   .submitButton,
   .cancelButton {
     width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modalOverlay {
+    padding: 2px;
+    padding-top: 75px; /* モバイルヘッダーの高さ分 */
+  }
+  
+  .modalContainer {
+    max-height: calc(100vh - 115px); /* ヘッダー高さを考慮 + 余白 */
+    font-size: 13px;
+  }
+  
+  .modalHeader {
+    padding: 10px 12px;
+  }
+  
+  .modalHeader h2 {
+    font-size: 1.1rem;
+  }
+  
+  .modalContent {
+    padding: 12px;
+  }
+  
+  .contactForm {
+    gap: 12px;
+  }
+  
+  .textarea {
+    min-height: 80px;
+  }
+}
+
+@media (max-width: 360px) {
+  .modalOverlay {
+    padding-top: 70px; /* ヘッダー高さ分 */
+  }
+  
+  .modalContainer {
+    max-height: calc(100vh - 120px); /* ヘッダー高さを考慮 + 余白 */
+    font-size: 12px;
+  }
+  
+  .modalContent {
+    padding: 8px;
   }
 }

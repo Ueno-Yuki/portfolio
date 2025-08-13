@@ -1,13 +1,13 @@
 import { useState } from "react";
 import Image from "next/image";
-import styles from "@/styles/Footer.module.css";
+import styles from "@/styles/Footer/Footer.module.css";
 import commonStyles from "@/styles/common/common.module.css";
-import ContactModal from "./ContactModal";
-import PolicyModal from "./PolicyModal";
+import ContactModal from "@/components/Footer/ContactModal";
+import PolicyModal from "@/components/Footer/PolicyModal";
 import { CONTACT_LINKS } from "@/constants/contents";
 import { PRIVACY_POLICY, SITE_POLICY, COPYRIGHT_TEXT } from "@/constants/policies";
 import { ContactLink } from "@/types/footer";
-import Icon from "./UI/Icons";
+import Icon from "@/components/UI/Icons";
 import { IconName } from "@/constants/icons";
 import { trackEvent, trackExternalLink } from "@/utils/analytics";
 

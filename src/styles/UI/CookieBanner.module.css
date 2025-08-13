@@ -167,6 +167,14 @@
 }
 
 /* レスポンシブ */
+@media (max-width: 940px) {
+  .cookieBanner {
+    bottom: auto;
+    top: 60px; /* モバイルヘッダーの高さ分下げる */
+    padding: 16px;
+  }
+}
+
 @media (max-width: 768px) {
   .cookieBanner {
     padding: 16px;
@@ -221,11 +229,79 @@
 }
 
 @media (max-width: 480px) {
+  .cookieBanner {
+    padding: 12px;
+  }
+
+  .bannerContent {
+    gap: 12px;
+  }
+
+  .bannerTitle {
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+  }
+
+  .bannerDescription {
+    font-size: 0.8rem;
+  }
+
   .bannerActions {
     flex-direction: column;
+    gap: 8px;
+  }
+
+  .actionButton {
+    height: 36px;
+    font-size: 0.85rem;
   }
 
   .settingsActions {
     flex-direction: column;
+    gap: 8px;
+  }
+
+  .cookieOption {
+    padding: 8px 10px;
+  }
+
+  .optionInfo strong {
+    font-size: 0.85rem;
+  }
+
+  .optionInfo p {
+    font-size: 0.75rem;
+  }
+
+  .checkbox {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 360px) {
+  .cookieBanner {
+    padding: 8px;
+  }
+
+  .bannerContent {
+    gap: 8px;
+  }
+
+  .bannerTitle {
+    font-size: 0.9rem;
+  }
+
+  .bannerDescription {
+    font-size: 0.75rem;
+  }
+
+  .actionButton {
+    height: 32px;
+    font-size: 0.8rem;
+  }
+
+  .cookieOption {
+    padding: 6px 8px;
   }
 }

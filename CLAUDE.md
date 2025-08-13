@@ -75,6 +75,7 @@ npm run lint
 - **TypeScript**: パスエイリアス付きのstrict mode有効
 - **フォント**: `_document.tsx`でGoogle Fonts（Inter、JetBrains Mono、Poppins）読み込み
 - **ユーザーへの応答**: 回答は必ず日本語で行う
+- **Githubへのコミット、プッシュ**: ユーザーで行う
 
 アニメーションを変更する際は、`isVisible`、`animationComplete`の状態管理と対応するCSSクラス間の相互作用に注意してアニメーション競合を避けること。
 
