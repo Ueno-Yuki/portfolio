@@ -4,17 +4,22 @@ import styles from "@/styles/Footer/Footer.module.css";
 import commonStyles from "@/styles/common/common.module.css";
 import ContactModal from "@/components/Footer/ContactModal";
 import PolicyModal from "@/components/Footer/PolicyModal";
+import ToastContainer from "@/components/UI/Toast";
 import { CONTACT_LINKS } from "@/constants/contents";
 import { PRIVACY_POLICY, SITE_POLICY, COPYRIGHT_TEXT } from "@/constants/policies";
 import { ContactLink } from "@/types/footer";
 import Icon from "@/components/UI/Icons";
 import { IconName } from "@/constants/icons";
 import { trackEvent, trackExternalLink } from "@/utils/analytics";
+import { useToast } from "@/hooks/useToast";
 
 export default function Footer() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [isPolicyModalOpen, setIsPolicyModalOpen] = useState(false);
   const [policyType, setPolicyType] = useState<'privacy' | 'site'>('privacy');
+  
+  // トースト通知機能（Footer側で管理）
+  const { toasts, success, removeToast } = useToast();
 
   const handleEmailClick = () => {
     trackEvent('contact_modal_open', 'engagement', 'email');
@@ -23,6 +28,11 @@ export default function Footer() {
 
   const handleCloseContactModal = () => {
     setIsContactModalOpen(false);
+  };
+
+  // メール送信成功時のコールバック
+  const handleEmailSuccess = () => {
+    success('送信完了', 'メールが正常に送信されました');
   };
 
   const handlePrivacyPolicyClick = () => {
@@ -149,7 +159,8 @@ export default function Footer() {
       
       <ContactModal 
         isOpen={isContactModalOpen} 
-        onClose={handleCloseContactModal} 
+        onClose={handleCloseContactModal}
+        onEmailSuccess={handleEmailSuccess}
       />
       
       <PolicyModal
@@ -158,6 +169,8 @@ export default function Footer() {
         title={policyType === 'privacy' ? 'プライバシーポリシー' : 'サイトポリシー'}
         content={policyType === 'privacy' ? PRIVACY_POLICY : SITE_POLICY}
       />
+      
+      <ToastContainer toasts={toasts} onClose={removeToast} />
     </>
   );
 }

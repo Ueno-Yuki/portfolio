@@ -79,32 +79,80 @@ export default async function handler(
     const { data, error } = await resend.emails.send({
       from: `${process.env.EMAIL_FROM_NAME} <noreply@${process.env.EMAIL_FROM_DOMAIN}>`,
       to: [email], // 入力されたメールアドレスに送信
-      subject: `【${process.env.EMAIL_FROM_NAME}】お問い合わせ: ${name}様より`,
+      subject: `【お問い合わせ】${name}様より`,
       html: `
-        <div style="font-family: 'Noto Sans JP', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-          <h2 style="color: #7a5c3e; border-bottom: 2px solid #7a5c3e; padding-bottom: 10px;">
-            お問い合わせ
-          </h2>
-          
-          <div style="background: #f9f7f4; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <p style="margin: 0 0 15px 0;"><strong style="color: #7a5c3e;">氏名:</strong> ${name}</p>
+        <!DOCTYPE html>
+        <html lang="ja">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>お問い合わせ</title>
+        </head>
+        <body style="margin: 0; padding: 0; background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%); font-family: 'Noto Sans JP', 'Inter', Arial, sans-serif;">
+          <div style="max-width: 600px; margin: 0 auto; background: #0f0f23; border: 2px solid #00ffff; border-radius: 12px; overflow: hidden; box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);">
             
-            ${hasEmail ? `<p style="margin: 0 0 15px 0;"><strong style="color: #7a5c3e;">メールアドレス:</strong> ${email}</p>` : ''}
-            
-            ${hasPhone ? `<p style="margin: 0 0 15px 0;"><strong style="color: #7a5c3e;">電話番号:</strong> ${phone}</p>` : ''}
-          </div>
-          
-          <div style="margin: 20px 0;">
-            <h3 style="color: #7a5c3e; margin-bottom: 10px;">お問い合わせ内容:</h3>
-            <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #7a5c3e;">
-              ${message.replace(/\n/g, '<br>')}
+            <!-- ヘッダー -->
+            <div style="background: linear-gradient(45deg, #001122 0%, #002244 100%); padding: 30px 20px; text-align: center; border-bottom: 2px solid #00ffff;">
+              <h1 style="margin: 0; color: #00ffff; font-size: 24px; font-weight: 600; text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);">
+                📧 お問い合わせ
+              </h1>
+              <p style="margin: 10px 0 0 0; color: #ffffff; opacity: 0.8; font-size: 14px;">
+                ポートフォリオサイトからのメッセージ
+              </p>
             </div>
+            
+            <!-- 送信者情報 -->
+            <div style="padding: 30px 20px; background: rgba(0, 255, 255, 0.05);">
+              <h2 style="margin: 0 0 20px 0; color: #00ffff; font-size: 18px; font-weight: 500; display: flex; align-items: center;">
+                👤 送信者情報
+              </h2>
+              
+              <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(0, 255, 255, 0.3); border-radius: 8px; padding: 20px;">
+                <div style="margin-bottom: 15px;">
+                  <span style="color: #ff00ff; font-weight: 600; font-size: 14px;">氏名:</span>
+                  <span style="color: #ffffff; margin-left: 10px; font-size: 16px;">${name}</span>
+                </div>
+                
+                ${hasEmail ? `
+                <div style="margin-bottom: 15px;">
+                  <span style="color: #ff00ff; font-weight: 600; font-size: 14px;">メールアドレス:</span>
+                  <a href="mailto:${email}" style="color: #00ffff; margin-left: 10px; text-decoration: none; font-size: 16px;">${email}</a>
+                </div>
+                ` : ''}
+                
+                ${hasPhone ? `
+                <div style="margin-bottom: 0;">
+                  <span style="color: #ff00ff; font-weight: 600; font-size: 14px;">電話番号:</span>
+                  <span style="color: #ffffff; margin-left: 10px; font-size: 16px;">${phone}</span>
+                </div>
+                ` : ''}
+              </div>
+            </div>
+            
+            <!-- メッセージ内容 -->
+            <div style="padding: 30px 20px;">
+              <h2 style="margin: 0 0 20px 0; color: #00ffff; font-size: 18px; font-weight: 500; display: flex; align-items: center;">
+                💬 お問い合わせ内容
+              </h2>
+              
+              <div style="background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(0, 255, 255, 0.3); border-left: 4px solid #00ffff; border-radius: 8px; padding: 20px;">
+                <div style="color: #ffffff; line-height: 1.8; font-size: 16px; white-space: pre-wrap;">${message}</div>
+              </div>
+            </div>
+            
+            <!-- フッター -->
+            <div style="background: rgba(0, 0, 0, 0.8); padding: 20px; text-align: center; border-top: 1px solid rgba(0, 255, 255, 0.3);">
+              <p style="margin: 0; color: rgba(255, 255, 255, 0.6); font-size: 12px;">
+                🌐 このメールはポートフォリオサイト（yuki-ueno.com）のお問い合わせフォームから送信されました
+              </p>
+              <p style="margin: 10px 0 0 0; color: rgba(0, 255, 255, 0.8); font-size: 11px;">
+                © 2025 YUKI UENO. All Rights Reserved.
+              </p>
+            </div>
+            
           </div>
-          
-          <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; font-size: 12px; color: #666;">
-            <p>このメールはポートフォリオサイトのお問い合わせフォームから送信されました。</p>
-          </div>
-        </div>
+        </body>
+        </html>
       `,
     });
 

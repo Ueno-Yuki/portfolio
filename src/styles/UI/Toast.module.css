@@ -177,10 +177,12 @@
      =============================================== */
   @media (max-width: 640px) {
     .toastContainer {
-      bottom: 10px;
+      top: 80px; /* モバイルヘッダー分下げる */
+      bottom: auto;
       right: 10px;
       left: 10px;
       max-width: none;
+      flex-direction: column; /* 上から下に表示 */
     }
   
     .toast {

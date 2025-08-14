@@ -8,6 +8,7 @@ import { trackEvent } from "@/utils/analytics";
 interface ContactModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onEmailSuccess?: () => void;
 }
 
 interface FormData {
@@ -17,7 +18,7 @@ interface FormData {
   message: string;
 }
 
-export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
+export default function ContactModal({ isOpen, onClose, onEmailSuccess }: ContactModalProps) {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -29,7 +30,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [isAnimating, setIsAnimating] = useState(false);
 
   // トースト通知機能
-  const { toasts, success, error, removeToast } = useToast();
+  const { toasts, success, error, removeToast, clearToasts } = useToast();
 
   // アニメーション管理
   useEffect(() => {
@@ -68,9 +69,11 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
       // 閉じるアニメーション完了後に非表示
       setTimeout(() => {
         setIsVisible(false);
+        // モーダルが完全に閉じた時にトーストをクリア
+        clearToasts();
       }, 300);
     }
-  }, [isOpen, isVisible]);
+  }, [isOpen, isVisible, clearToasts]);
 
   // フォームリセット
   const resetForm = () => {
@@ -133,9 +136,9 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
         trackEvent('contact_form_submit', 'conversion', 'email_sent');
         resetForm();
         onClose();
-        // モーダルが閉じてからトースト通知を表示
+        // モーダルが閉じてからトースト通知を表示（親コンポーネントで）
         setTimeout(() => {
-          success('送信完了', 'メールが正常に送信されました');
+          onEmailSuccess?.();
         }, 300);
       } else {
         // 送信失敗をトラッキング
