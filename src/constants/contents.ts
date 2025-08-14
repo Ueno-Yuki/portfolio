@@ -33,7 +33,7 @@ export const ABOUT = {
       content: `新卒でベンチャー企業に入社し、テレマーケティング営業部に1年半ほど携わり、その後営業事務へ異動しました。
 
       営業事務ではKPI指標管理や、営業成績管理をメインに担当しており、業務でFilemaker ProとVBAを使用した際に、エンジニアとしてのものづくりへの興味やコードを書く楽しさ、プログラムを考える楽しさを知り、転身を決意しました。
-      大学ではスポーツ科学課程に所属していたため、必要なステップを計画し、DCでインフラやLinux、「プログラミング言語っぽい」VBAを業務を通して学び、その後SES企業などで実務経験を身につけることを目指しました。`,
+      大学ではスポーツ科学課程に所属していたため、必要なステップを計画し、DCでインフラやLinuxを業務を通して学び、その後SES企業などで実務経験を身につけることを目指しました。`,
       tagName: "Filemaker Pro,VBA,salesforce"
     },
     {
@@ -44,7 +44,7 @@ export const ABOUT = {
       入館カードに2日分の入館者情報を読み込ませる作業は、ポータルサイトから出力したCSVファイルをエクセルのマクロで取り込み、人の手でセルフチェックをしていました。
       スクレイピングとデータ取り込み、出力、チェックをマクロで行い、最初の1枚と最後の1枚をチェックすることで作業が完了させるように改修した経験があります。（4時間の作業を30分に短縮）
       休日はHTML/CSS、JavaScript、Javaを中心に独学を継続していました。`,
-      tagName: "Zabbix,VBA"
+      tagName: "Zabbix,VBA,HTML/CSS,JavaScript,Java"
     },
     {
       idx: "3",
@@ -52,19 +52,20 @@ export const ABOUT = {
       date: "2021年9月",
       content: `SES企業に転職し、業務管理・学習管理・金融・HP制作・ECサイトなど様々な実務経験を積み、コーディング能力や設計書等の作成能力以外に、顧客折衝やメンバーのマネジメントも担当しました。
 
-      当時は案件を選ぶことができない体制のため、短期間でのアサインを繰り返したことで広く浅い中途半端な習得になりました。そのため、アサイン中は自身で簡単なアプリ等を作ることで業務に必要な知識や技術を補完していました。`,
-      tagName: "HTML/CSS,JavaScript,Node.js,Vue.js,Java/SpringBoot,Python,Go,PHP/Laravel,WordPress,Lambda,S3,EC2,Git,Subversion,Terraform"
+      当時は案件を選ぶことができない体制のため、短期間でのアサインを繰り返したことで広く浅い中途半端な習得になりました。そのため、アサイン中は自身で簡単なアプリ等を作ることで業務に必要な知識や技術を補完していました。
+      プロジェクトによっては、メンバーリーダーやPLとしてアサインすることもあり、レビューやチケット駆動開発においてタスクの振り分けなどを担当したこともあります。`,
+      tagName: "HTML/CSS,JavaScript,Node.js,Vue.js,Java/SpringBoot,Python,Go,PHP,C#,WordPress,Lambda,S3,EC2,DynamoDB,Git,Subversion,Terraform"
     },
     {
       idx: "4",
       subtitle:"現在",
-      date: "2023年4月~",
-      content: `さらに別のSES企業へ転職し、コンサルティングファーム企業のWeb系開発や業務システム開発を中心に基本設計〜運用・保守までを担当しています。\n
-      Java・PHPを使用した既存システムのリバースエンジニアリングやリファクタリング、リプレイス、リライト、DBチューニング、バッチ最適化など、既存システムをより良いシステムにするための開発業務に携わっています。
+      date: "2023年4月",
+      content: `別のSES企業へ転職し、コンサルティングファーム企業のWeb開発や業務システム開発を中心に基本設計〜運用保守を担当しています。\n
+      Javaや古いVer.のPHPを使用した既存システムのリバースエンジニアリングやリファクタリング、リプレイス/リライト、DBチューニング、バッチ最適化など、既存システムをより良いシステムにするための開発業務に携わっています。
       
-      副業案件では、Next.jsとSolidityを使用したブロックチェーン開発（自社仮想通貨の作成と仮想通貨取引所への上場）や、Java・JavaScriptを使用したWeb開発に携わっています。
+      副業案件では、Next.jsとSolidityを使用したブロックチェーン開発（自社仮想通貨の作成と仮想通貨取引所への上場）や、Next.js、Laravelを使用したWeb開発に携わっています。
       副業の目的は継続的な学習に加えて、実務経験の習得やスキル研鑽を目的とし、積極的に取り組んでいます。`,
-      tagName: "HTML/CSS,JavaScript,Node.js,React/Next.js,Java,Solidity,PHP,Git,Subversion,Terraform"
+      tagName: "HTML/CSS,JavaScript,Node.js,Next.js,Java,Solidity,PHP,Laravel,MySQL,PostgreSQL,Git,Subversion,Terraform"
     },
   ],
   arrows: [
@@ -188,6 +189,11 @@ export const PROJECT = {
   title: "PROJECT",
   items: [
     {
+      title: "社員管理システム",
+      description: "自社管理本部の紙ベース業務のDX化",
+      techStack: ["Vue.js", "Spring Boot", "Bootstrap", "PostgreSQL", "WSL", "PL"]
+    },
+    {
       title: "学習管理システム",
       description: "動画の学習コンテンツの管理とライブチャット機能の実装",
       techStack: ["Vue.js", "Spring Boot", "PostgreSQL", "REST API", "Docker",]
@@ -201,11 +207,6 @@ export const PROJECT = {
       title: "電子交付目論見書交付システム",
       description: "重要情報シート追加に伴うメール配信システム改修",
       techStack: ["Python", "S3", "Labmda", "DynamoDB", "SES", ]
-    },
-    {
-      title: "社員管理システム",
-      description: "自社管理本部の紙ベース業務のDX化",
-      techStack: ["Vue.js", "Spring Boot", "Bootstrap", "PostgreSQL", "WSL", "PL"]
     },
     {
       title: "異動受付支援システム",
