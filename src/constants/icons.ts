@@ -23,7 +23,8 @@ import {
   AlertTriangle,
   Home,
   Folder,
-  PencilLine
+  PencilLine,
+  Rss
 } from 'lucide-react';
 
 // アイコンのマッピング
@@ -61,7 +62,8 @@ export const ICONS = {
   wrench: Wrench,
   monitor: Monitor,
   server: Server,
-  pencilLine: PencilLine
+  pencilLine: PencilLine,
+  rss: Rss
 } as const;
 
 // アイコンの型定義

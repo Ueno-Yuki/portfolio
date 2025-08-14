@@ -33,9 +33,9 @@ export default function CertificationList() {
           </a>
         ))}
       </div>
-      <div className={styles.comment}>
-        <Icon name={CERTIFICATIONS.comment.iconName} className={styles.commentIcon} size="md" />
-        <div className={styles.commentText}>{CERTIFICATIONS.comment.text}</div>
+      <div className={commonStyles.comment}>
+        <Icon name={CERTIFICATIONS.comment.iconName} className={commonStyles.commentIcon} size="md" />
+        <div className={commonStyles.commentText}>{CERTIFICATIONS.comment.text}</div>
       </div>
     </>
   )

@@ -66,6 +66,10 @@ export default function Skills() {
               </div>
             ))}
           </div>
+          <div className={commonStyles.comment}>
+            <Icon name={SKILL.rss.iconName} className={commonStyles.commentIcon} size="md" />
+            <div className={commonStyles.commentText}>{SKILL.rss.text}</div>
+          </div>
         </div>
       </div>
     </section>

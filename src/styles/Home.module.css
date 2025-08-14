@@ -2,7 +2,7 @@
   min-height: 100vh;
   position: relative;
   z-index: 3;
-  padding: 20px; /* デフォルトは均等な余白 */
+  padding: 20px 20px 0 20px; /* 下部余白を削除 */
 }
 
 .main {
@@ -14,7 +14,7 @@
 /* デスクトップ専用（941px以上）の右側余白確保 */
 @media (min-width: 941px) {
   .container {
-    padding-right: 100px; /* 右側にFixedHeader用の余白を確保 */
+    padding: 20px 100px 0 20px; /* 右側にFixedHeader用の余白を確保、下部余白削除 */
   }
 }
 

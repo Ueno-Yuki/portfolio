@@ -92,29 +92,6 @@
   padding-left: 15px;
 }
 
-.comment {
-  display: flex;
-  margin: 3% auto 0 auto;
-  padding: 5px 4px;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid;
-  border-radius: 20px;
-  width: 20em;
-  background-image: linear-gradient(90deg, rgb(34, 211, 238), rgba(139, 92, 246) 50%);
-  opacity: 0.9;
-}
-
-.commentIcon {
-  color: white;
-  margin-right: 7px;
-}
-
-.commentText {
-  color:rgb(255, 255, 255);
-  font-weight: 700;
-}
-
 @media (min-width: 769px ) and (max-width: 870px) {
   .thumbnail {
     display: unset;
@@ -160,11 +137,5 @@
   
   .externalIcon {
     font-size: 14px;
-  }
-}
-
-@media (max-width: 375px) {
-  .comment {
-    width: 100%;
   }
 }

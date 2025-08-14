@@ -85,13 +85,12 @@ export const SKILL = {
     {description: "レベル4", iconClass: "devicon-java-plain colored", rating: 4},
     {description: "レベル5", iconClass: "devicon-java-plain colored", rating: 5},
   ],
-  comment: "※IPA 独立行政法人 情報処理推進機構の基準値を参考にしています。", 
+  comment: "※IPA 独立行政法人 情報処理推進機構を参考にしています。", 
   link: "詳細はこちら",
   iconName: "external" as IconName,
-  cycle: {
-    iconName: "cycle",
-    iconClass: "material-symblos-outlined",
-    text: "継続的な学習と技術向上に日々取り組んでいます"
+  rss: {
+    iconName: "rss" as IconName,
+    text: "様々な分野で幅広く対応します"
   }
 }
 
