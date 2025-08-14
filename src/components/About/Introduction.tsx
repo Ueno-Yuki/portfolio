@@ -20,6 +20,19 @@ export default function Introduction() {
       setCurrentIndex(currentIndex - 1);
       setShouldStartTyping(true); // 手動切り替え時は即座にタイピング開始
     }
+    
+    // モバイルでのみchevronUpまでスクロール
+    if (window.innerWidth <= 768) {
+      setTimeout(() => {
+        const chevronUpElement = sectionRef.current?.querySelector(`.${styles.arrowUp}`);
+        if (chevronUpElement) {
+          chevronUpElement.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          });
+        }
+      }, 100); // アニメーション開始後にスクロール
+    }
   };
 
   // Intersection Observer設定
@@ -64,12 +77,20 @@ export default function Introduction() {
   });
 
   return (
-    <div ref={sectionRef} className={styles.introduction}>
+    <div 
+      ref={sectionRef} 
+      className={styles.introduction}
+      onClick={skipAnimation}
+      style={{ cursor: isTyping ? 'pointer' : 'default' }}
+    >
       {/* chevronUp */}
       <div className={`${styles.arrows} ${styles.arrowUp}`}>
         <span 
-          className={styles.arrows}
-          onClick={() => handleArrowClick('up')}
+          className={styles.arrow}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleArrowClick('up');
+          }}
           style={{ visibility: currentIndex > 1 ? 'visible' : 'hidden' }}
         >
           <Icon name={ABOUT.arrows[1].fontName} size="xl" />
@@ -84,7 +105,6 @@ export default function Introduction() {
           </div>
           <div 
             className={styles.content}
-            onClick={skipAnimation}
             style={{ cursor: isTyping ? 'pointer' : 'default' }}
           >
             {displayText}
@@ -105,7 +125,10 @@ export default function Introduction() {
       <div className={`${styles.arrows} ${styles.arrowDown}`}>
         <span 
           className={styles.arrow}
-          onClick={() => handleArrowClick('down')}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleArrowClick('down');
+          }}
           style={{ visibility: currentIndex < maxIndex ? 'visible' : 'hidden' }}
         >
           <Icon name={ABOUT.arrows[0].fontName} size="xl" />
