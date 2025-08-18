@@ -24,6 +24,12 @@ export const ABOUT = {
     {text: "東京", iconName: "location"},
     {text: `${new Date().getFullYear() - 2020}年の経歴`, iconName: "award"},
   ],
+  sns: {
+    href: "https://x.com/__yuki_ueno__",
+    alt: "Xのプロフィールを見る",
+    isExternal: true,
+    svgPath: "/X.svg"
+  },
   // 経歴内容
   introductions: [
     {
@@ -276,7 +282,7 @@ export const CONTACT_LINKS: Omit<ContactLink, 'onClick'>[] = [
     isExternal: true,
     svgPath: "/github.svg", // publicフォルダ内のパス
     hasSvg: true,
-  },
+  }
 ] as const;
 
 /** ==========================================
