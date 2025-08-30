@@ -30,7 +30,7 @@ export default function ContactModal({ isOpen, onClose, onEmailSuccess }: Contac
   const [isAnimating, setIsAnimating] = useState(false);
 
   // トースト通知機能
-  const { toasts, success, error, removeToast, clearToasts } = useToast();
+  const { toasts, error, removeToast, clearToasts } = useToast();
 
   // アニメーション管理
   useEffect(() => {

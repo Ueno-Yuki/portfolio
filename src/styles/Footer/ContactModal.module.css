@@ -140,8 +140,6 @@
   padding: 12px;
 }
 
-/* 削除: commonStyles.buttonPrimary, buttonSecondary, buttonDisabledに移行済み */
-
 .errorMessage {
   background: rgba(255, 0, 0, 0.1);
   border: 1px solid #ff4444;

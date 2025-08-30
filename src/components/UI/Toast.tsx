@@ -1,29 +1,10 @@
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from '../../styles/UI/Toast.module.css';
-
-export type ToastType = 'success' | 'error' | 'info' | 'warning';
-
-export interface Toast {
-  id: string;
-  type: ToastType;
-  title: string;
-  message?: string;
-  duration?: number;
-}
-
-interface ToastProps {
-  toast: Toast;
-  onClose: (id: string) => void;
-}
-
-interface ToastContainerProps {
-  toasts: Toast[];
-  onClose: (id: string) => void;
-}
+import type { ToastProps, ToastContainerProps } from '@/types/toast';
 
 // 個別のトーストコンポーネント
-function ToastItem({ toast, onClose }: ToastProps) {
+function ToastItemComponent({ toast, onClose }: ToastProps) {
   const { id, type, title, message, duration = 5000 } = toast;
 
   useEffect(() => {
@@ -105,7 +86,7 @@ export function ToastContainer({ toasts, onClose }: ToastContainerProps) {
     <div className={styles.toastContainer}>
       <AnimatePresence>
         {toasts.map((toast) => (
-          <ToastItem
+          <ToastItemComponent
             key={toast.id}
             toast={toast}
             onClose={onClose}
