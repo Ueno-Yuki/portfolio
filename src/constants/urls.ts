@@ -67,7 +67,7 @@ export const ROBOTS_CONFIG = {
       disallow: ['/api/', '/_next/'],
     },
   ],
-  sitemap: `${BASE_URL}/api/sitemap`,
+  sitemap: `${BASE_URL}/sitemap.xml`,
   host: BASE_URL,
 } as const;
 
