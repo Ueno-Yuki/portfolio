@@ -14,14 +14,6 @@ export default function Skills() {
           <span>{SKILL.title}</span>
         </div>
         <div className={commonStyles.windowContent}>
-          <div className={styles.descContainer}>
-            {SKILL.descriptions.map((desc, index) => (
-              <div key={index} className={styles.desc}>
-                <StarRating rating={desc.rating} />
-                <div className={styles.descContent}>{desc.description}</div>
-              </div>
-              ))}
-          </div>
           <div className={styles.descComment}>
             {SKILL.comment}
             <a 

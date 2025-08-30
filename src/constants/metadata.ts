@@ -1,9 +1,9 @@
 // SEOメタデータの定数定義
 export const SITE_METADATA = {
   // 基本情報
-  title: 'WEBエンジニア 上野裕暉(うえのゆうき) | Java開発5年・副業対応・東京 | YUKI UENO',
-  titleTemplate: '%s | YUKI UENO',
-  description: '東京在住のWEBエンジニア上野裕暉(うえのゆうき/ウエノユウキ)のポートフォリオ。Java・JavaScript・PHP開発5年の実務経験。副業・フリーランス案件対応可能。AWS認定資格保有。業務システム開発からWeb開発まで幅広く対応。',
+  title: '上野裕暉(うえのゆうき) | YUKI UENO | Ueno Yuki WEBエンジニア | Java開発5年・副業対応・東京',
+  titleTemplate: '%s | 上野裕暉 YUKI UENO',
+  description: '東京在住のWEBエンジニア上野裕暉(うえのゆうき/ウエノユウキ/Ueno Yuki/Yuki Ueno)のポートフォリオ。Java・JavaScript・PHP開発5年の実務経験。副業・フリーランス案件対応可能。AWS認定資格保有。業務システム開発からWeb開発まで幅広く対応。',
   siteName: 'YUKI UENO Portfolio',
   siteUrl: 'https://yuki-ueno.com',
   
@@ -58,7 +58,14 @@ export const PAGE_METADATA = {
     title: 'YUKI UENO | WEBエンジニア',
     description: SITE_METADATA.description,
     keywords: [
+      '上野裕暉',
+      'うえのゆうき',
+      'ウエノユウキ',
+      'YUKI UENO',
+      'Ueno Yuki',
+      'Yuki Ueno',
       'エンジニア',
+      'WEBエンジニア',
       'ポートフォリオ',
       'Java',
       'JavaScript',
@@ -77,9 +84,7 @@ export const PAGE_METADATA = {
       '下流工程',
       '要件定義',
       '基本設計',
-      '詳細設計',
-      '上野裕暉',
-      'YUKI UENO'
+      '詳細設計'
     ],
     path: '/',
   },
@@ -92,7 +97,13 @@ export const STRUCTURED_DATA = {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: SITE_METADATA.author.name,
-    alternateName: SITE_METADATA.author.nameJa,
+    alternateName: [
+      SITE_METADATA.author.nameJa,
+      'うえのゆうき',
+      'ウエノユウキ',
+      'Ueno Yuki',
+      'Yuki Ueno'
+    ],
     jobTitle: SITE_METADATA.author.title,
     description: SITE_METADATA.description,
     url: SITE_METADATA.siteUrl,
