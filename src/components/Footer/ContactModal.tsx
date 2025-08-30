@@ -165,7 +165,7 @@ export default function ContactModal({ isOpen, onClose, onEmailSuccess }: Contac
         <div className={`${styles.modalContainer} ${isAnimating ? styles.slideIn : styles.slideOut}`}>
           <div className={styles.modalHeader}>
             <h2 className={commonStyles.titlePrimary}>CONTACT FORM</h2>
-            <button className={commonStyles.buttonSecondary} onClick={handleClose} disabled={isSubmitting}>
+            <button className={`${styles.formButton} ${commonStyles.buttonSecondary}`} onClick={handleClose} disabled={isSubmitting}>
               ×
             </button>
           </div>
@@ -201,10 +201,10 @@ export default function ContactModal({ isOpen, onClose, onEmailSuccess }: Contac
               </div>
 
               <div className={`${styles.buttonGroup}`}>
-                <button type="submit" className={`${commonStyles.buttonPrimary} ${commonStyles.buttonDisabled}`} disabled={isSubmitting}>
+                <button type="submit" className={`${styles.formButton} ${commonStyles.buttonPrimary} ${commonStyles.buttonDisabled}`} disabled={isSubmitting}>
                   {isSubmitting ? 'SENDING...' : 'SEND'}
                 </button>
-                <button type="button" className={`${commonStyles.buttonSecondary} ${commonStyles.buttonDisabled}`} onClick={handleClose} disabled={isSubmitting}>
+                <button type="button" className={`${styles.formButton} ${commonStyles.buttonSecondary} ${commonStyles.buttonDisabled}`} onClick={handleClose} disabled={isSubmitting}>
                   CANCEL
                 </button>
               </div>

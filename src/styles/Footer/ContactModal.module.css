@@ -136,6 +136,10 @@
   margin-top: 10px;
 }
 
+.formButton {
+  padding: 12px;
+}
+
 /* 削除: commonStyles.buttonPrimary, buttonSecondary, buttonDisabledに移行済み */
 
 .errorMessage {
