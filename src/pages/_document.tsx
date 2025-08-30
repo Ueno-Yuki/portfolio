@@ -31,13 +31,21 @@ export default function Document() {
         {/* devicon重要ファイルのプリロード */}
         <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/fonts/devicon.ttf?qd25fp" as="font" type="font/ttf" crossOrigin="anonymous" />
         
+        {/* devicon CSS - 開発環境では常に読み込み */}
+        {process.env.NODE_ENV === 'development' && (
+          <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+          />
+        )}
+        
         {/* アイコン・マニフェスト */}
         <link rel="icon" href="/YU.png" type="image/png" />
         <link rel="icon" href="/YU.png" sizes="32x32" type="image/png" />
         <link rel="icon" href="/YU.png" sizes="16x16" type="image/png" />
         <link rel="apple-touch-icon" href="/YU.png" sizes="180x180" />
         <link rel="manifest" href="/manifest.json" />
-
         
         {/* 新しいフォント */}
         <link

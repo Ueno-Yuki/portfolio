@@ -92,12 +92,9 @@ const nextConfig: NextConfig = {
       // 必要に応じてリダイレクト設定を追加
     ];
   },
-  webpack: config => {
+  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.resolve.alias["@"] = path.resolve(__dirname, "src");
     config.resolve.alias["~"] = path.join(__dirname, "src");
-
-    // ファイルシステムの大文字・小文字の違いを無視する設定
-    config.resolve.symlinks = false;
 
     return config;
   },
