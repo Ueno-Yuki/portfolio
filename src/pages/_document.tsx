@@ -28,6 +28,9 @@ export default function Document() {
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
         
+        {/* devicon重要ファイルのプリロード */}
+        <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/fonts/devicon.ttf?qd25fp" as="font" type="font/ttf" crossOrigin="anonymous" />
+        
         {/* アイコン・マニフェスト */}
         <link rel="icon" href="/YU.png" type="image/png" />
         <link rel="icon" href="/YU.png" sizes="32x32" type="image/png" />
@@ -35,11 +38,6 @@ export default function Document() {
         <link rel="apple-touch-icon" href="/YU.png" sizes="180x180" />
         <link rel="manifest" href="/manifest.json" />
 
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-        />
         
         {/* 新しいフォント */}
         <link
