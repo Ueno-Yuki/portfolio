@@ -31,7 +31,7 @@ export default function Loading() {
 
     const interval = setInterval(() => {
       setProgress(prev => {
-        const newProgress = prev + 2;
+        const newProgress = prev + 4;
         
         if (newProgress <= 100) {
           const stepIndex = Math.floor((newProgress / 100) * (loadingSteps.length - 1));
