@@ -25,7 +25,7 @@ export const ABOUT = {
     {text: `${new Date().getFullYear() - 2020}年の経歴`, iconName: "award"},
   ],
   sns: {
-    href: "https://x.com/__yuki_ueno__",
+    href: "https://x.com/__yu_it__",
     alt: "Xのプロフィールを見る",
     isExternal: true,
     svgPath: "/X.svg"
