@@ -16,14 +16,9 @@ export default function Skills() {
         <div className={commonStyles.windowContent}>
           <div className={styles.descComment}>
             {SKILL.comment}
-            <a 
-              href={IPA_URL} 
-              target="_blank" 
-              className={styles.link}
-              onClick={() => trackExternalLink(IPA_URL)}
-            >
-              {SKILL.link}
-              <Icon name={SKILL.iconName} />
+            <a href={IPA_URL} target="_blank" className={styles.link}onClick={() => trackExternalLink(IPA_URL)}>
+              <span>{SKILL.link}</span>
+              <span><Icon name={SKILL.iconName} /></span>
             </a>
           </div>
           <div className={styles.skillsContainer}>
