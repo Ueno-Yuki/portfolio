@@ -56,6 +56,30 @@ export const SITEMAP_URLS = [
     changeFrequency: 'monthly' as const,
     priority: 1.0,
   },
+  {
+    url: getFullUrl(INTERNAL_PATHS.about),
+    lastModified: new Date().toISOString(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  },
+  {
+    url: getFullUrl(INTERNAL_PATHS.skills),
+    lastModified: new Date().toISOString(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  },
+  {
+    url: getFullUrl(INTERNAL_PATHS.projects),
+    lastModified: new Date().toISOString(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  },
+  {
+    url: getFullUrl(INTERNAL_PATHS.certifications),
+    lastModified: new Date().toISOString(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  },
 ] as const;
 
 // robots.txt用設定

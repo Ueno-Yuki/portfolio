@@ -1,7 +1,7 @@
 {
   "name": "YUKI UENO | Webエンジニア - フルスタック開発者のポートフォリオ",
   "short_name": "YUKI UENO",
-  "description": "Java・JavaScript・PHP・AWSを専門とするWebエンジニア上野裕暉のポートフォリオ",
+  "description": "Java・JavaScript・TypeScript・PHP・AWSを得意とするWebエンジニア上野裕暉のポートフォリオ",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
