@@ -83,3 +83,68 @@ npm run lint
 - 命名はキャメルケースを使用する
 - DRY原則、KISS原則に従う。競合する場合はユーザーへ質問するか、より適した提案をする
 - !importantなど拡張性が低下する強い制約を設けるコーディングは避けること
+
+## 開発環境の健全性チェック
+
+パフォーマンス最適化・SEO対策・設定変更後は必ず以下を確認すること：
+
+### 1. ホットリロード動作確認
+```bash
+# 開発サーバー起動
+npm run dev
+
+# 確認項目
+# - 警告なしで起動することを確認
+# - [HMR] connected が表示されることを確認  
+# - ファイル変更時に [Fast Refresh] done in XXms が表示されることを確認
+# - 実際にブラウザでファイル変更が即座に反映されることを確認
+```
+
+### 2. 避けるべき設定パターン
+
+#### キャッシュ設定の注意点
+```javascript
+// ❌ 危険：開発環境でもキャッシュが適用される
+headers: [{
+  source: '/_next/static/:path*',
+  headers: [{ key: 'Cache-Control', value: 'max-age=31536000, immutable' }]
+}]
+
+// ✅ 安全：本番環境のみキャッシュ適用
+if (process.env.NODE_ENV === 'production') {
+  headers.push({
+    source: '/_next/static/:path*', 
+    headers: [{ key: 'Cache-Control', value: 'max-age=31536000, immutable' }]
+  });
+}
+```
+
+#### Turbopack + Webpack競合回避
+```javascript
+// ❌ 危険：Turbopack使用時にwebpack設定が競合
+webpack: (config) => { /* 設定 */ }
+
+// ✅ 安全：Turbopack専用設定を使用
+turbopack: {
+  resolveAlias: { "@": "./src", "~": "./src" }
+}
+```
+
+### 3. 設定変更時の必須チェックリスト
+- [ ] 開発サーバーが警告なしで起動する
+- [ ] Fast Refreshタイミングが正常値（NaNではない）
+- [ ] ファイル変更時の即座反映を実テスト
+- [ ] 既存のエイリアス（@/*, ~/*)が正常動作
+- [ ] ブラウザキャッシュクリア後の動作確認
+
+### 4. トラブルシューティング手順
+1. **コンソールログ確認**: `[Fast Refresh] done in NaNms`の有無
+2. **キャッシュ設定チェック**: 開発環境でのCache-Controlヘッダー
+3. **設定競合確認**: webpack vs Turbopack設定の重複
+4. **Git履歴調査**: 最近の設定変更コミットを確認
+
+### 5. パフォーマンス最適化時の原則
+- **段階的適用**: 一度に複数の最適化を行わない
+- **環境分離**: `NODE_ENV`による開発・本番設定の分離
+- **HMRテスト**: 各変更後に必ずホットリロード動作確認
+- **キャッシュ慎重**: immutableキャッシュは開発体験に致命的影響
