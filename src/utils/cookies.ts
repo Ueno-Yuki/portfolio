@@ -72,6 +72,9 @@ export const getCookieConsent = (): CookieConsent | null => {
 
 // Cookie同意が必要かチェック
 export const isCookieConsentRequired = (): boolean => {
+  // 開発環境では常に表示
+  if (process.env.NODE_ENV === 'development') return true;
+  
   const consent = getCookieConsent();
   if (!consent) return true;
   

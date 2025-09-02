@@ -119,13 +119,6 @@
   transform: none;
 }
 
-@media (max-width: 480px) {
-  .buttonPrimary,
-  .buttonSecondary {
-    padding: 12px;
-  }
-}
-
 /* ========================================
    FORM COMPONENTS
    ======================================== */

@@ -23,12 +23,12 @@
   align-items: flex-start;
   gap: 20px;
   flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .bannerIcon {
   flex-shrink: 0;
   color: var(--neon-cyan);
-  margin-top: 2px;
 }
 
 .icon {
@@ -39,6 +39,12 @@
 .bannerText {
   flex: 1;
   min-width: 300px;
+}
+
+.bannerTitleContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .bannerTitle {
@@ -77,6 +83,7 @@
   display: flex;
   gap: 12px;
   align-items: flex-start;
+  margin-left: auto;
 }
 
 .actionButton {
@@ -172,14 +179,20 @@
 @media (max-width: 940px) {
   .cookieBanner {
     bottom: auto;
-    top: 60px; /* モバイルヘッダーの高さ分下げる */
+    top: env(safe-area-inset-top, 0px);
     padding: 16px;
+    padding-top: calc(16px + env(safe-area-inset-top, 0px));
+    padding-left: calc(16px + env(safe-area-inset-left, 0px));
+    padding-right: calc(16px + env(safe-area-inset-right, 0px));
   }
 }
 
 @media (max-width: 768px) {
   .cookieBanner {
     padding: 16px;
+    padding-top: calc(16px + env(safe-area-inset-top, 0px));
+    padding-left: calc(16px + env(safe-area-inset-left, 0px));
+    padding-right: calc(16px + env(safe-area-inset-right, 0px));
   }
 
   .bannerContent {
@@ -249,7 +262,6 @@
   }
 
   .bannerActions {
-    flex-direction: column;
     gap: 8px;
   }
 

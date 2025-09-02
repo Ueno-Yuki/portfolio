@@ -66,12 +66,14 @@ export default function CookieBanner({ onPolicyClick }: CookieBannerProps) {
   return (
     <div className={styles.cookieBanner}>
       <div className={styles.bannerContent}>
-        <div className={styles.bannerIcon}>
-          <Icon name="info" className={styles.icon} />
-        </div>
         
         <div className={styles.bannerText}>
-          <h3 className={styles.bannerTitle}>{COOKIE_BANNER.title}</h3>
+          <div className={styles.bannerTitleContainer}>
+            <div className={styles.bannerIcon}>
+              <Icon name="info" className={styles.icon} />
+            </div>
+            <h3 className={styles.bannerTitle}>{COOKIE_BANNER.title}</h3>
+            </div>
           <p className={styles.bannerDescription}>
             {COOKIE_BANNER.description}
             <button 

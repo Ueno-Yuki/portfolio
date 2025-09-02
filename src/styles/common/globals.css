@@ -43,6 +43,7 @@ body {
 /* モバイル時の固定ヘッダー用コンテンツ領域調整 */
 @media (max-width: 940px) {
   body {
+    min-height: 100dvh;
     padding-bottom: calc(70px + env(safe-area-inset-bottom));
   }
 }
