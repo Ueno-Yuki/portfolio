@@ -97,7 +97,8 @@
 /* モバイル対応 */
 @media (max-width: 940px) {
   .fixedHeader {
-    top: 0;
+    top: auto;
+    bottom: max(0px, env(safe-area-inset-bottom));
     right: 0;
     left: 0;
     width: 100%;
@@ -105,11 +106,13 @@
     background: rgba(0, 0, 0, 0.9);
     backdrop-filter: blur(15px);
     border-left: none;
-    border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+    border-top: 2px solid rgba(0, 255, 255, 0.3);
+    border-bottom: none;
     flex-direction: row;
     justify-content: space-between;
     padding: 10px 20px;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    padding-bottom: calc(10px + env(safe-area-inset-bottom));
+    box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.5);
   }
   
   .navigation {
@@ -129,7 +132,8 @@
   
   .navItem.active::before {
     left: 50%;
-    top: -10px;
+    bottom: -10px;
+    top: auto;
     transform: translateX(-50%);
     width: 30px;
     height: 3px;

@@ -12,21 +12,21 @@ export default function Introduction() {
   const maxIndex = ABOUT.introductions.length;
   const sectionRef = useRef<HTMLDivElement>(null);
   
-  const handleArrowClick = (direction: 'up' | 'down') => {
-    if (direction === 'down' && currentIndex < maxIndex) {
+  const handleArrowClick = (direction: 'up' | 'down' | 'left' | 'right') => {
+    if ((direction === 'down' || direction === 'right') && currentIndex < maxIndex) {
       setCurrentIndex(currentIndex + 1);
       setShouldStartTyping(true); // 手動切り替え時は即座にタイピング開始
-    } else if (direction === 'up' && currentIndex > 1) {
+    } else if ((direction === 'up' || direction === 'left') && currentIndex > 1) {
       setCurrentIndex(currentIndex - 1);
       setShouldStartTyping(true); // 手動切り替え時は即座にタイピング開始
     }
     
-    // モバイルでのみchevronUpまでスクロール
+    // モバイルでのみhorizontalArrowsクラスまでスクロール
     if (window.innerWidth <= 768) {
       setTimeout(() => {
-        const chevronUpElement = sectionRef.current?.querySelector(`.${styles.arrowUp}`);
-        if (chevronUpElement) {
-          chevronUpElement.scrollIntoView({ 
+        const arrowsElement = sectionRef.current?.querySelector(`.${styles.horizontalArrows}`);
+        if (arrowsElement) {
+          arrowsElement.scrollIntoView({ 
             behavior: 'smooth', 
             block: 'start' 
           });
@@ -83,8 +83,8 @@ export default function Introduction() {
       onClick={skipAnimation}
       style={{ cursor: isTyping ? 'pointer' : 'default' }}
     >
-      {/* chevronUp */}
-      <div className={`${styles.arrows} ${styles.arrowUp}`}>
+      {/* chevronUp - デスクトップ用 */}
+      <div className={`${styles.arrows} ${styles.arrowUp} ${styles.desktopOnly}`}>
         <span 
           className={styles.arrow}
           onClick={(e) => {
@@ -94,6 +94,30 @@ export default function Introduction() {
           style={{ visibility: currentIndex > 1 ? 'visible' : 'hidden' }}
         >
           <Icon name={ABOUT.arrows[1].fontName} size="xl" />
+        </span>
+      </div>
+
+      {/* 横矢印 - モバイル用 */}
+      <div className={`${styles.arrows} ${styles.horizontalArrows} ${styles.mobileOnly}`}>
+        <span 
+          className={styles.arrow}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleArrowClick('left');
+          }}
+          style={{ visibility: currentIndex > 1 ? 'visible' : 'hidden' }}
+        >
+          <Icon name="chevronLeft" size="xl" />
+        </span>
+        <span 
+          className={styles.arrow}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleArrowClick('right');
+          }}
+          style={{ visibility: currentIndex < maxIndex ? 'visible' : 'hidden' }}
+        >
+          <Icon name="chevronRight" size="xl" />
         </span>
       </div>
       
@@ -121,8 +145,8 @@ export default function Introduction() {
         </div>
       )}
       
-      {/* chevronDown */}
-      <div className={`${styles.arrows} ${styles.arrowDown}`}>
+      {/* chevronDown - デスクトップ用 */}
+      <div className={`${styles.arrows} ${styles.arrowDown} ${styles.desktopOnly}`}>
         <span 
           className={styles.arrow}
           onClick={(e) => {

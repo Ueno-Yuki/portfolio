@@ -16,6 +16,8 @@ import {
   User,
   ChevronDown,
   ChevronUp,
+  ChevronLeft,
+  ChevronRight,
   X,
   Check,
   AlertCircle,
@@ -40,6 +42,8 @@ export const ICONS = {
   // UI関連
   chevronDown: ChevronDown,
   chevronUp: ChevronUp,
+  chevronLeft: ChevronLeft,
+  chevronRight: ChevronRight,
   close: X,
   
   // ステータス関連

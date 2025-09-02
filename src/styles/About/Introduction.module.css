@@ -150,6 +150,19 @@
   cursor: pointer;
 }
 
+.horizontalArrows {
+  justify-content: space-between;
+  margin: 0 3% 3% 3%;
+}
+
+.desktopOnly {
+  display: flex;
+}
+
+.mobileOnly {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .introduction {
     margin: 10% 5% 0 5%;
@@ -198,5 +211,13 @@
     height: auto;
     padding: 1% 2%;
     border-radius: 8px;
+  }
+
+  .desktopOnly {
+    display: none;
+  }
+
+  .mobileOnly {
+    display: flex;
   }
 }

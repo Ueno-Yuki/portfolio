@@ -40,6 +40,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* モバイル時の固定ヘッダー用コンテンツ領域調整 */
+@media (max-width: 940px) {
+  body {
+    padding-bottom: calc(70px + env(safe-area-inset-bottom));
+  }
+}
+
 /* フォントクラス定義 */
 .font-primary {
   font-family: var(--font-primary);
