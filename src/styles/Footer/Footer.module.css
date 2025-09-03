@@ -3,7 +3,6 @@
   border-top: 2px solid var(--neon-cyan);
   padding: 40px 0 15px 0;
   text-align: center;
-  margin-top: 3%;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
 }
@@ -84,6 +83,12 @@
 }
 
 /* レスポンシブ */
+@media (max-width: 940px) {
+  .footer {
+    margin-bottom: calc(70px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
 @media (max-width: 768px) {
   .footerBottom {
     margin-top: 25px;
