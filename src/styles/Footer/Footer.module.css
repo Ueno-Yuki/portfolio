@@ -85,7 +85,8 @@
 /* レスポンシブ */
 @media (max-width: 940px) {
   .footer {
-    margin-bottom: calc(70px + env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(85px + env(safe-area-inset-bottom, 0px));
+    margin-bottom: 0;
   }
 }
 
