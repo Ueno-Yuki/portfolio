@@ -4,9 +4,10 @@ interface UseTypeWriterProps {
   text: string;
   speed?: number;
   delay?: number;
+  onComplete?: () => void;
 }
 
-export const useTypeWriter = ({ text, speed = 10, delay = 0 }: UseTypeWriterProps) => {
+export const useTypeWriter = ({ text, speed = 10, delay = 0, onComplete }: UseTypeWriterProps) => {
   const [displayText, setDisplayText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -24,8 +25,9 @@ export const useTypeWriter = ({ text, speed = 10, delay = 0 }: UseTypeWriterProp
       setDisplayText(text);
       setIsTyping(false);
       isSkippedRef.current = true;
+      onComplete?.(); // スキップ時にもコールバック実行
     }
-  }, [isTyping, text]);
+  }, [isTyping, text, onComplete]);
 
   const startTyping = useCallback(() => {
     // 既存のタイマーをクリア
@@ -46,11 +48,12 @@ export const useTypeWriter = ({ text, speed = 10, delay = 0 }: UseTypeWriterProp
           if (intervalRef.current) clearInterval(intervalRef.current);
           if (!isSkippedRef.current) {
             setIsTyping(false);
+            onComplete?.(); // タイピング完了時にコールバック実行
           }
         }
       }, speed);
     }, delay);
-  }, [text, speed, delay]);
+  }, [text, speed, delay, onComplete]);
 
   useEffect(() => {
     if (text) {

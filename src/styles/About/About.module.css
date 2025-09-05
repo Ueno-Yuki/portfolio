@@ -26,5 +26,6 @@
 
   .aboutWindowContent {
     display: unset;
+    padding: 0;
   }
 }
