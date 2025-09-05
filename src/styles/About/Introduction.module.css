@@ -33,10 +33,32 @@
 
 .content {
   min-height: 200px;
-  height: auto;
+  height: 200px;
+  max-height: 200px;
   margin-top: 3%;
   white-space: pre-line;
   transition: all 0.2s ease;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 255, 255, 0.5) transparent;
+}
+
+.content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 255, 0.5);
+  border-radius: 2px;
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 255, 0.8);
 }
 
 .content[style*="pointer"] {
@@ -100,19 +122,18 @@
 .tagList {
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   gap: 0.75rem;
   flex-wrap: wrap;
   height: 100px;
   margin-top: 3%;
-  margin-bottom: 1%;
 }
 
 .tag {
   border: 1px solid var(--neon-cyan);
   border-radius: 25px;
-  padding: 1% 2%;
+  padding: 5px 8px;
   background-color: rgba(255, 255, 255, 0.01);
-  height: 45px;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
@@ -130,16 +151,9 @@
 
 .arrows {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   gap: 3rem;
-  margin: 3% 3% 0 3%;
-}
-
-.arrowUp {
-  margin: 0 3% 3% 3%;
-}
-.arrowsDown {
-  margin: 3% 3% 0 3%;
+  margin: 0;
 }
 
 .arrow {
@@ -159,13 +173,164 @@
   display: flex;
 }
 
+.arrowText {
+  margin-left: 8px;
+  font-size: 1rem;
+  vertical-align: middle;
+}
+
+/* デスクトップ用ナビゲーション */
+.desktopNavigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.navButton {
+  color: rgb(180, 180, 180);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.navButton:hover {
+  color: var(--neon-cyan);
+}
+
+.navText {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Prev用の左矢印線アニメーション */
+.prevButton::before {
+  content: "←";
+  margin-right: 8px;
+  animation: slideLeft 2s infinite;
+}
+
+/* Next用の右矢印線アニメーション */
+.nextButton::after {
+  content: "→";
+  margin-left: 8px;
+  animation: slideRight 2s infinite;
+}
+
+@keyframes slideLeft {
+  0%, 100% { transform: translateX(0); opacity: 0.7; }
+  50% { transform: translateX(-5px); opacity: 1; }
+}
+
+@keyframes slideRight {
+  0%, 100% { transform: translateX(0); opacity: 0.7; }
+  50% { transform: translateX(5px); opacity: 1; }
+}
+
 .mobileOnly {
   display: none;
 }
 
+.paginationDots {
+  display: none;
+  justify-content: center;
+  gap: 8px;
+  margin: 15px 0;
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(0, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: var(--neon-cyan);
+  box-shadow: 0 0 10px var(--neon-cyan);
+  transform: scale(1.2);
+}
+
+.dot:hover {
+  background: rgba(0, 255, 255, 0.6);
+}
+
+.slideContainer {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 400px;
+  margin-bottom: 50px;
+  cursor: grab;
+}
+
+.slideContainer:active {
+  cursor: grabbing;
+}
+
+.slidesWrapper {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease-out;
+}
+
+.slidesWrapper.swiping {
+  transition: none;
+}
+
+.slideCard {
+  min-width: 100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(0, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.slideCard:hover {
+  border-color: rgba(0, 255, 255, 0.5);
+  box-shadow: 
+    0 6px 25px rgba(0, 0, 0, 0.4),
+    0 0 25px rgba(0, 255, 255, 0.15);
+}
+
+.swipeHint {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 0.7rem;
+  color: rgba(0, 255, 255, 0.5);
+  opacity: 0;
+  animation: fadeInOut 3s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 0.8; }
+}
+
 @media (max-width: 768px) {
   .introduction {
-    margin: 10% 5% 0 5%;
+    margin: 5% 5% 0 5%;
   }
 
   .rightContent {
@@ -188,6 +353,7 @@
   .subtitle {
     text-align: center;
     margin: 3% 0;
+    font-size: 1.2rem;
   }
 
   .content {
@@ -195,7 +361,7 @@
     min-height: 150px;
     font-size: 0.95rem;
     line-height: 1.6;
-    margin-top: 7%;
+    margin-top: 2%;
     overflow-wrap: break-word;
   }
 
@@ -203,7 +369,7 @@
     gap: 0.35rem;
     flex-wrap: wrap;
     height: auto;
-    margin-top: 8%;
+    margin-top: 5%;
   }
 
   .tag {
@@ -218,6 +384,17 @@
   }
 
   .mobileOnly {
-    display: flex;
+    display: none;
+  }
+
+  .paginationDots {
+    display: flex !important;
+    position: static;
+    margin: 20px auto 0 auto;
+  }
+
+  .swipeHint {
+    opacity: 0.6;
+    animation: fadeInOut 4s ease-in-out infinite;
   }
 }

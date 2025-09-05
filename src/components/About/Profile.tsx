@@ -27,26 +27,26 @@ export default function Profile() {
             </div>
           </div>
         ))}
+        <div className={styles.sns}>
+          <a 
+            href={ABOUT.sns.href}
+            target={ABOUT.sns.isExternal ? "_blank" : undefined}
+            rel={ABOUT.sns.isExternal ? "noopener noreferrer" : undefined}
+            aria-label={ABOUT.sns.alt}
+            onClick={() => {
+              if (ABOUT.sns.isExternal && ABOUT.sns.href) {
+                trackExternalLink(ABOUT.sns.href);
+              }
+            }}
+          >
+            <Image 
+              src={ABOUT.sns.svgPath} 
+              alt={ABOUT.sns.alt} 
+              width={20}
+              height={20}/>
+          </a>
+        </div>
       </div> 
-      <div className={styles.sns}>
-        <a 
-          href={ABOUT.sns.href}
-          target={ABOUT.sns.isExternal ? "_blank" : undefined}
-          rel={ABOUT.sns.isExternal ? "noopener noreferrer" : undefined}
-          aria-label={ABOUT.sns.alt}
-          onClick={() => {
-            if (ABOUT.sns.isExternal && ABOUT.sns.href) {
-              trackExternalLink(ABOUT.sns.href);
-            }
-          }}
-        >
-          <Image 
-            src={ABOUT.sns.svgPath} 
-            alt={ABOUT.sns.alt} 
-            width={20}
-            height={20}/>
-        </a>
-      </div>
     </div>
   );
 }
