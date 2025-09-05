@@ -1,163 +1,22 @@
-import { useState, useRef, useEffect } from "react";
-import styles from "@/styles/About/Introduction.module.css";
-import animateStyles from "@/styles/UI/Animation.module.css";
-import { ABOUT } from "@/constants/contents"; 
-import Icon from "@/components/UI/Icons";
-import { useTypeWriter } from "@/hooks/useTypeWriter";
+import { useState, useEffect } from 'react';
+import DesktopIntroduction from './DesktopIntroduction';
+import MobileIntroduction from './MobileIntroduction';
 
 export default function Introduction() {
-  const [currentIndex, setCurrentIndex] = useState(1);
-  const [isVisible, setIsVisible] = useState(false);
-  const [shouldStartTyping, setShouldStartTyping] = useState(false);
-  const maxIndex = ABOUT.introductions.length;
-  const sectionRef = useRef<HTMLDivElement>(null);
-  
-  const handleArrowClick = (direction: 'up' | 'down' | 'left' | 'right') => {
-    if ((direction === 'down' || direction === 'right') && currentIndex < maxIndex) {
-      setCurrentIndex(currentIndex + 1);
-      setShouldStartTyping(true); // 手動切り替え時は即座にタイピング開始
-    } else if ((direction === 'up' || direction === 'left') && currentIndex > 1) {
-      setCurrentIndex(currentIndex - 1);
-      setShouldStartTyping(true); // 手動切り替え時は即座にタイピング開始
-    }
-    
-    // モバイルでのみhorizontalArrowsクラスまでスクロール
-    if (window.innerWidth <= 768) {
-      setTimeout(() => {
-        const arrowsElement = sectionRef.current?.querySelector(`.${styles.horizontalArrows}`);
-        if (arrowsElement) {
-          arrowsElement.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'start' 
-          });
-        }
-      }, 100); // アニメーション開始後にスクロール
-    }
-  };
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Intersection Observer設定
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !isVisible) {
-            setIsVisible(true);
-            setShouldStartTyping(true);
-            // 一度発火したら監視を停止
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.3, // 30%が画面に入ったら発火
-        rootMargin: '0px 0px -50px 0px'
-      }
-    );
+    const checkDevice = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
 
-    const currentElement = sectionRef.current;
-    if (currentElement) {
-      observer.observe(currentElement);
-    }
+    checkDevice();
+    window.addEventListener('resize', checkDevice);
 
     return () => {
-      if (currentElement) {
-        observer.unobserve(currentElement);
-      }
+      window.removeEventListener('resize', checkDevice);
     };
-  }, [isVisible]);
+  }, []);
 
-  // 現在のindexに対応するコンテンツを取得
-  const currentContent = ABOUT.introductions.find(intro => parseInt(intro.idx) === currentIndex);
-  
-  // タイピング効果用のhook - shouldStartTypingがtrueになってから開始
-  const { displayText, isTyping, skipAnimation } = useTypeWriter({ 
-    text: shouldStartTyping ? (currentContent?.content || '') : '', 
-    speed: 10,  // 1文字あたり10ms
-    delay: 200  // 200ms待機してから開始
-  });
-
-  return (
-    <div 
-      ref={sectionRef} 
-      className={styles.introduction}
-      onClick={skipAnimation}
-      style={{ cursor: isTyping ? 'pointer' : 'default' }}
-    >
-      {/* chevronUp - デスクトップ用 */}
-      <div className={`${styles.arrows} ${styles.arrowUp} ${styles.desktopOnly}`}>
-        <span 
-          className={styles.arrow}
-          onClick={(e) => {
-            e.stopPropagation();
-            handleArrowClick('up');
-          }}
-          style={{ visibility: currentIndex > 1 ? 'visible' : 'hidden' }}
-        >
-          <Icon name={ABOUT.arrows[1].fontName} size="xl" />
-        </span>
-      </div>
-
-      {/* 横矢印 - モバイル用 */}
-      <div className={`${styles.arrows} ${styles.horizontalArrows} ${styles.mobileOnly}`}>
-        <span 
-          className={styles.arrow}
-          onClick={(e) => {
-            e.stopPropagation();
-            handleArrowClick('left');
-          }}
-          style={{ visibility: currentIndex > 1 ? 'visible' : 'hidden' }}
-        >
-          <Icon name="chevronLeft" size="xl" />
-        </span>
-        <span 
-          className={styles.arrow}
-          onClick={(e) => {
-            e.stopPropagation();
-            handleArrowClick('right');
-          }}
-          style={{ visibility: currentIndex < maxIndex ? 'visible' : 'hidden' }}
-        >
-          <Icon name="chevronRight" size="xl" />
-        </span>
-      </div>
-      
-      {currentContent && (
-        <div className={styles.rightContent}>
-          <div className={styles.contentSubtitle}>
-            <div className={styles.date}>{currentContent.date}</div>
-            <div className={`${styles.subtitle} glow_min`}>{currentContent.subtitle}</div>
-          </div>
-          <div 
-            className={styles.content}
-            style={{ cursor: isTyping ? 'pointer' : 'default' }}
-          >
-            {displayText}
-          </div>
-          <div 
-            key={currentIndex} 
-            className={`${styles.tagList} ${!isTyping ? animateStyles.fadeIn : ''}`}
-            style={{ opacity: isTyping ? 0 : 1 }}
-          >
-            {currentContent.tagName.split(",").map((tag,index) => (
-              <div key={index} className={styles.tag}>{tag}</div>
-            ))}
-          </div>
-        </div>
-      )}
-      
-      {/* chevronDown - デスクトップ用 */}
-      <div className={`${styles.arrows} ${styles.arrowDown} ${styles.desktopOnly}`}>
-        <span 
-          className={styles.arrow}
-          onClick={(e) => {
-            e.stopPropagation();
-            handleArrowClick('down');
-          }}
-          style={{ visibility: currentIndex < maxIndex ? 'visible' : 'hidden' }}
-        >
-          <Icon name={ABOUT.arrows[0].fontName} size="xl" />
-        </span>
-      </div>
-    </div>
-  );
+  return isMobile ? <MobileIntroduction /> : <DesktopIntroduction />;
 } 

@@ -1,0 +1,135 @@
+/* ==================================================
+ * モバイル用Introduction - アコーディオンスタイル 
+ * ================================================== */
+.introduction {
+  flex: 3;
+  margin: 20px 10px;
+}
+
+.accordionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.accordionItem {
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.accordionItem:hover {
+  border-color: rgba(0, 255, 255, 0.5);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+}
+
+.accordionHeader {
+  padding: 12px 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.accordionHeader:hover {
+  background: rgba(0, 255, 255, 0.1);
+}
+
+.accordionHeader.expanded {
+  background: rgba(0, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.headerContent {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.date {
+  font-size: 0.8rem;
+  padding: 3px 10px;
+  text-align: left;
+  border: 1px solid var(--neon-cyan);
+  border-radius: 15px;
+  display: inline-block;
+  width: auto;
+}
+
+.subtitle {
+  color: var(--neon-pink);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.accordionIcon {
+  font-size: 1.2rem;
+  color: var(--neon-cyan);
+  transition: transform 0.3s ease;
+  margin-left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.accordionIcon.rotated {
+  transform: rotate(180deg);
+}
+
+.accordionContent {
+  padding: 15px;
+  overflow: hidden;
+  max-height: 1000px;
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: 1;
+}
+
+.accordionContent.collapsed {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  opacity: 0;
+}
+
+
+.contentText {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  white-space: pre-line;
+  overflow-wrap: break-word;
+}
+
+
+.tagList {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  border: 1px solid var(--neon-pink);
+  border-radius: 8px;
+  padding: 4px 8px;
+  background: linear-gradient(135deg, rgba(255, 0, 255, 0.1), rgba(255, 0, 255, 0.05));
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  font-size: 0.75rem;
+  color: var(--neon-pink);
+  font-weight: 500;
+}
+
+.tag:hover {
+  border-color: rgba(255, 0, 255, 0.8);
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+  background: linear-gradient(135deg, rgba(255, 0, 255, 0.15), rgba(255, 0, 255, 0.08));
+  transform: translateY(-1px);
+}
