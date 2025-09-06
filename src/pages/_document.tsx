@@ -31,14 +31,12 @@ export default function Document() {
         {/* devicon重要ファイルのプリロード */}
         <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/fonts/devicon.ttf?qd25fp" as="font" type="font/ttf" crossOrigin="anonymous" />
         
-        {/* devicon CSS - 開発環境では常に読み込み */}
-        {process.env.NODE_ENV === 'development' && (
-          <link
-            rel="stylesheet"
-            type="text/css"
-            href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-          />
-        )}
+        {/* devicon CSS - 全環境で読み込み */}
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+        />
         
         {/* アイコン・マニフェスト */}
         <link rel="icon" href="/YU.png" type="image/png" />
