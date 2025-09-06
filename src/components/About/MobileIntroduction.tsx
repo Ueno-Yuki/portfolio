@@ -4,7 +4,7 @@ import { ABOUT } from "@/constants/contents";
 import { ICONS } from "@/constants/icons";
 
 export default function MobileIntroduction() {
-  const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set(['1'])); // 最初の項目を開いた状態
+  const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set()); // 全て未展開状態
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   
