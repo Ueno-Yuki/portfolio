@@ -164,12 +164,15 @@
   font-size: 0.85rem;
   color: var(--neon-cyan);
   background: rgba(0, 255, 255, 0.1);
-  padding: 4px 8px;
+  padding: 4px 12px;
   border-radius: 25px;
   border: 1px solid var(--neon-cyan);
   transition: all 0.3s ease;
   white-space: nowrap;
   margin-top: auto;
+  min-width: 50px;
+  text-align: center;
+  display: inline-block;
 }
 
 .tag:hover {

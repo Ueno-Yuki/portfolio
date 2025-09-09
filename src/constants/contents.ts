@@ -227,7 +227,7 @@ export const PROJECT = {
     {
       title: "IR/SRシステム開発",
       description: "ポータルサイトの新規機能開発や改修、リファクタリング、DB設計、パフォーマンスチューニング、バッチ実装",
-      techStack: ["PHP", "Java", "Node.js", "PostgreSQL", "MySQL", "JQuery", "独自FW"]
+      techStack: ["PHP", "Java", "Node.js", "MySQL", "PostgreSQL", "JQuery", "独自FW"]
     },
     {
       title: "ブロックチェーン開発",
